@@ -31,8 +31,16 @@
     End Sub
 
     Private Sub LogoutButton_Click(sender As Object, e As EventArgs) Handles LogoutButton.Click
-        Dim Login As New LoginForm
-        Login.Show()
-        Me.Close()
+        ' De-authenticate the current user by providing a set of blank credentials.
+        Dim samplePrincipal As New IPrincipal("", "")
+        My.User.CurrentPrincipal = samplePrincipal
+
+        ' Hide all open forms, to prevent any un-authenticated changes by guests.
+        For Each Form In My.Application.OpenForms
+            Form.Hide()
+        Next
+
+        ' Open a login form for future re-authentication.
+        LoginForm.Show()
     End Sub
 End Class

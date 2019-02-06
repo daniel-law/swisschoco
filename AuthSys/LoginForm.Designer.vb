@@ -42,6 +42,7 @@ Partial Class LoginForm
         Me.txtTitle = New System.Windows.Forms.Label()
         Me.txtDescription = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -154,13 +155,23 @@ Partial Class LoginForm
         Me.PictureBox1.TabIndex = 12
         Me.PictureBox1.TabStop = False
         '
-        'LoginForm1
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(563, 458)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(114, 35)
+        Me.Button2.TabIndex = 13
+        Me.Button2.Text = "Debug"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'LoginForm
         '
         Me.AcceptButton = Me.btnOK
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(689, 505)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.txtDescription)
         Me.Controls.Add(Me.txtTitle)
@@ -176,7 +187,7 @@ Partial Class LoginForm
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "LoginForm1"
+        Me.Name = "LoginForm"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "SwissChoco - Login"
@@ -193,4 +204,5 @@ Partial Class LoginForm
     Friend WithEvents txtTitle As Label
     Friend WithEvents txtDescription As Label
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Button2 As Button
 End Class

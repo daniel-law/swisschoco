@@ -30,7 +30,7 @@ Public Class LoginForm
             My.User.CurrentPrincipal = samplePrincipal
             Dim MainMenu = New MainMenu
             MainMenu.Show()
-            Me.Close()
+            Me.Hide()
         End If
     End Sub
 
@@ -39,7 +39,7 @@ Public Class LoginForm
         Register.Show()
     End Sub
 
-    Private Sub LoginForm1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         ' Show the debug menu.
         Dim DebugForm As New Debug
         Debug.Show()
