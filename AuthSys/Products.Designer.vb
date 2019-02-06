@@ -45,6 +45,7 @@ Partial Class Products
         Me.SaveChangesButton = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -54,7 +55,7 @@ Partial Class Products
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.SwissChoco.My.Resources.Resources.Logo
-        Me.PictureBox1.Location = New System.Drawing.Point(961, 40)
+        Me.PictureBox1.Location = New System.Drawing.Point(1834, 40)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(153, 151)
@@ -68,7 +69,7 @@ Partial Class Products
         Me.Panel2.Location = New System.Drawing.Point(0, 40)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(961, 151)
+        Me.Panel2.Size = New System.Drawing.Size(1834, 151)
         Me.Panel2.TabIndex = 13
         '
         'Label1
@@ -100,13 +101,14 @@ Partial Class Products
         Me.DataGridView1.Location = New System.Drawing.Point(36, 336)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 28
-        Me.DataGridView1.Size = New System.Drawing.Size(743, 490)
+        Me.DataGridView1.Size = New System.Drawing.Size(1607, 556)
         Me.DataGridView1.TabIndex = 17
         '
         'IdDataGridViewTextBoxColumn
         '
         Me.IdDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.IdDataGridViewTextBoxColumn.DataPropertyName = "Id"
+        Me.IdDataGridViewTextBoxColumn.Frozen = True
         Me.IdDataGridViewTextBoxColumn.HeaderText = "ID"
         Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
         Me.IdDataGridViewTextBoxColumn.ReadOnly = True
@@ -118,12 +120,14 @@ Partial Class Products
         Me.NameDataGridViewTextBoxColumn.DataPropertyName = "Name"
         Me.NameDataGridViewTextBoxColumn.HeaderText = "Name"
         Me.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn"
+        Me.NameDataGridViewTextBoxColumn.Width = 150
         '
         'PriceDataGridViewTextBoxColumn
         '
         Me.PriceDataGridViewTextBoxColumn.DataPropertyName = "Price"
-        Me.PriceDataGridViewTextBoxColumn.HeaderText = "Price (in GBP)"
+        Me.PriceDataGridViewTextBoxColumn.HeaderText = "Price /GBP"
         Me.PriceDataGridViewTextBoxColumn.Name = "PriceDataGridViewTextBoxColumn"
+        Me.PriceDataGridViewTextBoxColumn.Width = 50
         '
         'PictureDataGridViewTextBoxColumn
         '
@@ -133,6 +137,7 @@ Partial Class Products
         '
         'DescriptionDataGridViewTextBoxColumn
         '
+        Me.DescriptionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.DescriptionDataGridViewTextBoxColumn.DataPropertyName = "Description"
         Me.DescriptionDataGridViewTextBoxColumn.HeaderText = "Description"
         Me.DescriptionDataGridViewTextBoxColumn.Name = "DescriptionDataGridViewTextBoxColumn"
@@ -140,14 +145,18 @@ Partial Class Products
         'WeightDataGridViewTextBoxColumn
         '
         Me.WeightDataGridViewTextBoxColumn.DataPropertyName = "Weight"
-        Me.WeightDataGridViewTextBoxColumn.HeaderText = "Weight (in grams)"
+        Me.WeightDataGridViewTextBoxColumn.HeaderText = "Weight /g"
         Me.WeightDataGridViewTextBoxColumn.Name = "WeightDataGridViewTextBoxColumn"
+        Me.WeightDataGridViewTextBoxColumn.Width = 50
         '
         'IngredientsDataGridViewTextBoxColumn
         '
+        Me.IngredientsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.IngredientsDataGridViewTextBoxColumn.DataPropertyName = "Ingredients"
         Me.IngredientsDataGridViewTextBoxColumn.HeaderText = "Ingredients"
         Me.IngredientsDataGridViewTextBoxColumn.Name = "IngredientsDataGridViewTextBoxColumn"
+        Me.IngredientsDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.IngredientsDataGridViewTextBoxColumn.Width = 300
         '
         'ProductsBindingSource
         '
@@ -172,7 +181,7 @@ Partial Class Products
         Me.SearchButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SearchButton.ForeColor = System.Drawing.Color.Black
         Me.SearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.SearchButton.Location = New System.Drawing.Point(861, 414)
+        Me.SearchButton.Location = New System.Drawing.Point(1739, 414)
         Me.SearchButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.SearchButton.Name = "SearchButton"
         Me.SearchButton.Size = New System.Drawing.Size(168, 40)
@@ -182,7 +191,7 @@ Partial Class Products
         '
         'SearchTextBox
         '
-        Me.SearchTextBox.Location = New System.Drawing.Point(861, 371)
+        Me.SearchTextBox.Location = New System.Drawing.Point(1739, 371)
         Me.SearchTextBox.Name = "SearchTextBox"
         Me.SearchTextBox.Size = New System.Drawing.Size(168, 26)
         Me.SearchTextBox.TabIndex = 19
@@ -196,12 +205,12 @@ Partial Class Products
         Me.DeleteButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DeleteButton.ForeColor = System.Drawing.Color.Black
         Me.DeleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.DeleteButton.Location = New System.Drawing.Point(861, 617)
+        Me.DeleteButton.Location = New System.Drawing.Point(1739, 835)
         Me.DeleteButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.DeleteButton.Name = "DeleteButton"
-        Me.DeleteButton.Size = New System.Drawing.Size(168, 40)
+        Me.DeleteButton.Size = New System.Drawing.Size(198, 50)
         Me.DeleteButton.TabIndex = 20
-        Me.DeleteButton.Text = "Delete Row"
+        Me.DeleteButton.Text = "Delete Product"
         Me.DeleteButton.UseVisualStyleBackColor = False
         '
         'UndoChangesButton
@@ -213,10 +222,10 @@ Partial Class Products
         Me.UndoChangesButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UndoChangesButton.ForeColor = System.Drawing.Color.Black
         Me.UndoChangesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.UndoChangesButton.Location = New System.Drawing.Point(861, 763)
+        Me.UndoChangesButton.Location = New System.Drawing.Point(1772, 231)
         Me.UndoChangesButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UndoChangesButton.Name = "UndoChangesButton"
-        Me.UndoChangesButton.Size = New System.Drawing.Size(168, 48)
+        Me.UndoChangesButton.Size = New System.Drawing.Size(168, 50)
         Me.UndoChangesButton.TabIndex = 21
         Me.UndoChangesButton.Text = "Undo Changes"
         Me.UndoChangesButton.UseVisualStyleBackColor = False
@@ -230,7 +239,7 @@ Partial Class Products
         Me.SaveChangesButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SaveChangesButton.ForeColor = System.Drawing.Color.Black
         Me.SaveChangesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.SaveChangesButton.Location = New System.Drawing.Point(861, 703)
+        Me.SaveChangesButton.Location = New System.Drawing.Point(1596, 231)
         Me.SaveChangesButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.SaveChangesButton.Name = "SaveChangesButton"
         Me.SaveChangesButton.Size = New System.Drawing.Size(168, 50)
@@ -242,7 +251,7 @@ Partial Class Products
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!)
-        Me.Label3.Location = New System.Drawing.Point(856, 336)
+        Me.Label3.Location = New System.Drawing.Point(1734, 336)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(133, 27)
         Me.Label3.TabIndex = 24
@@ -251,17 +260,36 @@ Partial Class Products
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.White
-        Me.Panel1.Location = New System.Drawing.Point(0, -4)
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1114, 48)
+        Me.Panel1.Size = New System.Drawing.Size(1987, 48)
         Me.Panel1.TabIndex = 25
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.White
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.Black
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.Location = New System.Drawing.Point(1739, 775)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(198, 50)
+        Me.Button1.TabIndex = 26
+        Me.Button1.Text = "Add Product"
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'Products
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.ClientSize = New System.Drawing.Size(1114, 871)
+        Me.ClientSize = New System.Drawing.Size(1986, 925)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.SaveChangesButton)
@@ -299,6 +327,7 @@ Partial Class Products
     Friend WithEvents UndoChangesButton As Button
     Friend WithEvents SaveChangesButton As Button
     Friend WithEvents Label3 As Label
+    Friend WithEvents Panel1 As Panel
     Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PriceDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -306,5 +335,5 @@ Partial Class Products
     Friend WithEvents DescriptionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents WeightDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents IngredientsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Button1 As Button
 End Class

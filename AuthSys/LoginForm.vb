@@ -1,4 +1,4 @@
-Public Class LoginForm1
+Public Class LoginForm
 
     ' TODO: Insert code to perform custom authentication using the provided username and password 
     ' (See https://go.microsoft.com/fwlink/?LinkId=35339).  
@@ -37,5 +37,11 @@ Public Class LoginForm1
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim Register = New Register
         Register.Show()
+    End Sub
+
+    Private Sub LoginForm1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Show the debug menu.
+        Dim DebugForm As New Debug
+        Debug.Show()
     End Sub
 End Class

@@ -31,7 +31,7 @@
     End Sub
 
     Private Sub LogoutButton_Click(sender As Object, e As EventArgs) Handles LogoutButton.Click
-        Dim Login As New LoginForm1
+        Dim Login As New LoginForm
         Login.Show()
         Me.Close()
     End Sub
