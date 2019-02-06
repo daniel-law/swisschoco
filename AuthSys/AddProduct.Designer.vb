@@ -39,9 +39,13 @@ Partial Class AddProduct
         Me.IngredientsRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.AddProductButton = New System.Windows.Forms.Button()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.PriceNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.WeightNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel2
@@ -111,7 +115,8 @@ Partial Class AddProduct
         '
         Me.PictureTextBox.Location = New System.Drawing.Point(192, 409)
         Me.PictureTextBox.Name = "PictureTextBox"
-        Me.PictureTextBox.Size = New System.Drawing.Size(220, 26)
+        Me.PictureTextBox.ReadOnly = True
+        Me.PictureTextBox.Size = New System.Drawing.Size(198, 26)
         Me.PictureTextBox.TabIndex = 23
         '
         'Label4
@@ -205,11 +210,36 @@ Partial Class AddProduct
         Me.AddProductButton.Text = "Add Product"
         Me.AddProductButton.UseVisualStyleBackColor = False
         '
+        'PictureBox2
+        '
+        Me.PictureBox2.Location = New System.Drawing.Point(516, 243)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(143, 147)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 33
+        Me.PictureBox2.TabStop = False
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'Button1
+        '
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(516, 396)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(143, 39)
+        Me.Button1.TabIndex = 34
+        Me.Button1.Text = "Select..."
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'AddProduct
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(691, 933)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.AddProductButton)
         Me.Controls.Add(Me.IngredientsRichTextBox)
         Me.Controls.Add(Me.Label7)
@@ -232,6 +262,7 @@ Partial Class AddProduct
         CType(Me.PriceNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.WeightNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -254,4 +285,7 @@ Partial Class AddProduct
     Friend WithEvents IngredientsRichTextBox As RichTextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents AddProductButton As Button
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents Button1 As Button
 End Class

@@ -28,6 +28,9 @@ Public Class Products
         DataGridView1.DataSource = bindingSource1
         ' Query data from the database.
         GetData("SELECT * FROM Products")
+
+        ' Visual.
+        DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
     End Sub
 
     Private Sub refreshProducts()

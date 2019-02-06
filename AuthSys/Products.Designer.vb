@@ -27,13 +27,6 @@ Partial Class Products
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PictureDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DescriptionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.WeightDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IngredientsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProductsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DevelopmentDataSet = New SwissChoco.DevelopmentDataSet()
         Me.ProductsTableAdapter = New SwissChoco.DevelopmentDataSetTableAdapters.ProductsTableAdapter()
@@ -47,6 +40,13 @@ Partial Class Products
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ModifyProductButton = New System.Windows.Forms.Button()
         Me.ClearResultsButton = New System.Windows.Forms.Button()
+        Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PictureDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.DescriptionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.WeightDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IngredientsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DevelopmentDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -96,66 +96,6 @@ Partial Class Products
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(1607, 556)
         Me.DataGridView1.TabIndex = 17
-        '
-        'IdDataGridViewTextBoxColumn
-        '
-        Me.IdDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.IdDataGridViewTextBoxColumn.DataPropertyName = "Id"
-        Me.IdDataGridViewTextBoxColumn.Frozen = True
-        Me.IdDataGridViewTextBoxColumn.HeaderText = "ID"
-        Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
-        Me.IdDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IdDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.IdDataGridViewTextBoxColumn.Width = 62
-        '
-        'NameDataGridViewTextBoxColumn
-        '
-        Me.NameDataGridViewTextBoxColumn.DataPropertyName = "Name"
-        Me.NameDataGridViewTextBoxColumn.HeaderText = "Name"
-        Me.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn"
-        Me.NameDataGridViewTextBoxColumn.ReadOnly = True
-        Me.NameDataGridViewTextBoxColumn.Width = 150
-        '
-        'PriceDataGridViewTextBoxColumn
-        '
-        Me.PriceDataGridViewTextBoxColumn.DataPropertyName = "Price"
-        Me.PriceDataGridViewTextBoxColumn.HeaderText = "Price /GBP"
-        Me.PriceDataGridViewTextBoxColumn.Name = "PriceDataGridViewTextBoxColumn"
-        Me.PriceDataGridViewTextBoxColumn.ReadOnly = True
-        Me.PriceDataGridViewTextBoxColumn.Width = 50
-        '
-        'PictureDataGridViewTextBoxColumn
-        '
-        Me.PictureDataGridViewTextBoxColumn.DataPropertyName = "Picture"
-        Me.PictureDataGridViewTextBoxColumn.HeaderText = "Picture"
-        Me.PictureDataGridViewTextBoxColumn.Name = "PictureDataGridViewTextBoxColumn"
-        Me.PictureDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'DescriptionDataGridViewTextBoxColumn
-        '
-        Me.DescriptionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DescriptionDataGridViewTextBoxColumn.DataPropertyName = "Description"
-        Me.DescriptionDataGridViewTextBoxColumn.HeaderText = "Description"
-        Me.DescriptionDataGridViewTextBoxColumn.Name = "DescriptionDataGridViewTextBoxColumn"
-        Me.DescriptionDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'WeightDataGridViewTextBoxColumn
-        '
-        Me.WeightDataGridViewTextBoxColumn.DataPropertyName = "Weight"
-        Me.WeightDataGridViewTextBoxColumn.HeaderText = "Weight /g"
-        Me.WeightDataGridViewTextBoxColumn.Name = "WeightDataGridViewTextBoxColumn"
-        Me.WeightDataGridViewTextBoxColumn.ReadOnly = True
-        Me.WeightDataGridViewTextBoxColumn.Width = 50
-        '
-        'IngredientsDataGridViewTextBoxColumn
-        '
-        Me.IngredientsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.IngredientsDataGridViewTextBoxColumn.DataPropertyName = "Ingredients"
-        Me.IngredientsDataGridViewTextBoxColumn.HeaderText = "Ingredients"
-        Me.IngredientsDataGridViewTextBoxColumn.Name = "IngredientsDataGridViewTextBoxColumn"
-        Me.IngredientsDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IngredientsDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.IngredientsDataGridViewTextBoxColumn.Width = 300
         '
         'ProductsBindingSource
         '
@@ -309,6 +249,69 @@ Partial Class Products
         Me.ClearResultsButton.Text = "Clear Results"
         Me.ClearResultsButton.UseVisualStyleBackColor = False
         '
+        'IdDataGridViewTextBoxColumn
+        '
+        Me.IdDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.IdDataGridViewTextBoxColumn.DataPropertyName = "Id"
+        Me.IdDataGridViewTextBoxColumn.Frozen = True
+        Me.IdDataGridViewTextBoxColumn.HeaderText = "ID"
+        Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
+        Me.IdDataGridViewTextBoxColumn.ReadOnly = True
+        Me.IdDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.IdDataGridViewTextBoxColumn.Width = 62
+        '
+        'NameDataGridViewTextBoxColumn
+        '
+        Me.NameDataGridViewTextBoxColumn.DataPropertyName = "Name"
+        Me.NameDataGridViewTextBoxColumn.HeaderText = "Name"
+        Me.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn"
+        Me.NameDataGridViewTextBoxColumn.ReadOnly = True
+        Me.NameDataGridViewTextBoxColumn.Width = 150
+        '
+        'PriceDataGridViewTextBoxColumn
+        '
+        Me.PriceDataGridViewTextBoxColumn.DataPropertyName = "Price"
+        Me.PriceDataGridViewTextBoxColumn.HeaderText = "Price /GBP"
+        Me.PriceDataGridViewTextBoxColumn.Name = "PriceDataGridViewTextBoxColumn"
+        Me.PriceDataGridViewTextBoxColumn.ReadOnly = True
+        Me.PriceDataGridViewTextBoxColumn.Width = 50
+        '
+        'PictureDataGridViewTextBoxColumn
+        '
+        Me.PictureDataGridViewTextBoxColumn.DataPropertyName = "Picture"
+        Me.PictureDataGridViewTextBoxColumn.HeaderText = "Picture"
+        Me.PictureDataGridViewTextBoxColumn.Name = "PictureDataGridViewTextBoxColumn"
+        Me.PictureDataGridViewTextBoxColumn.ReadOnly = True
+        Me.PictureDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.PictureDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.PictureDataGridViewTextBoxColumn.Width = 200
+        '
+        'DescriptionDataGridViewTextBoxColumn
+        '
+        Me.DescriptionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DescriptionDataGridViewTextBoxColumn.DataPropertyName = "Description"
+        Me.DescriptionDataGridViewTextBoxColumn.HeaderText = "Description"
+        Me.DescriptionDataGridViewTextBoxColumn.Name = "DescriptionDataGridViewTextBoxColumn"
+        Me.DescriptionDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'WeightDataGridViewTextBoxColumn
+        '
+        Me.WeightDataGridViewTextBoxColumn.DataPropertyName = "Weight"
+        Me.WeightDataGridViewTextBoxColumn.HeaderText = "Weight /g"
+        Me.WeightDataGridViewTextBoxColumn.Name = "WeightDataGridViewTextBoxColumn"
+        Me.WeightDataGridViewTextBoxColumn.ReadOnly = True
+        Me.WeightDataGridViewTextBoxColumn.Width = 50
+        '
+        'IngredientsDataGridViewTextBoxColumn
+        '
+        Me.IngredientsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.IngredientsDataGridViewTextBoxColumn.DataPropertyName = "Ingredients"
+        Me.IngredientsDataGridViewTextBoxColumn.HeaderText = "Ingredients"
+        Me.IngredientsDataGridViewTextBoxColumn.Name = "IngredientsDataGridViewTextBoxColumn"
+        Me.IngredientsDataGridViewTextBoxColumn.ReadOnly = True
+        Me.IngredientsDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.IngredientsDataGridViewTextBoxColumn.Width = 300
+        '
         'Products
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -355,14 +358,14 @@ Partial Class Products
     Friend WithEvents RefreshProductsButton As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents NameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents PriceDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents PictureDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents DescriptionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents WeightDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents IngredientsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents AddProductButton As Button
     Friend WithEvents ModifyProductButton As Button
     Friend WithEvents ClearResultsButton As Button
+    Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents NameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents PriceDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents PictureDataGridViewTextBoxColumn As DataGridViewImageColumn
+    Friend WithEvents DescriptionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents WeightDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents IngredientsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class
