@@ -107,6 +107,14 @@ Public Class Register
             Catch fileException As Exception
                 MsgBox("Program encountered an error writing files. You should urgently contact your systems admin.", MessageBoxIcon.Warning)
             End Try
+
+            ' Clear textboxes and focus cursor.
+            UsernameTextBox.Clear()
+            PasswordTextBox.Clear()
+            ConfirmPasswordTextBox.Clear()
+            FullNameTextBox.Clear()
+            RoleComboBox.SelectedIndex = -1
+            UsernameTextBox.Select()
         End If
     End Sub
 End Class

@@ -8,7 +8,7 @@ Public Class LoginForm1
     ' Subsequently, My.User will return identity information encapsulated in the CustomPrincipal object
     ' such as the username, display name, etc.
 
-    Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK.Click
+    Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOK.Click
         Dim samplePrincipal As New IPrincipal(
     Me.UsernameTextBox.Text, Me.PasswordTextBox.Text)
         Me.PasswordTextBox.Text = ""

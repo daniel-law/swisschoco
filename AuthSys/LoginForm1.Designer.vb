@@ -19,7 +19,7 @@ Partial Class LoginForm1
     Friend WithEvents PasswordLabel As System.Windows.Forms.Label
     Friend WithEvents UsernameTextBox As System.Windows.Forms.TextBox
     Friend WithEvents PasswordTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents OK As System.Windows.Forms.Button
+    Friend WithEvents btnOK As System.Windows.Forms.Button
 
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
@@ -35,12 +35,12 @@ Partial Class LoginForm1
         Me.PasswordLabel = New System.Windows.Forms.Label()
         Me.UsernameTextBox = New System.Windows.Forms.TextBox()
         Me.PasswordTextBox = New System.Windows.Forms.TextBox()
-        Me.OK = New System.Windows.Forms.Button()
+        Me.btnOK = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtTitle = New System.Windows.Forms.Label()
+        Me.txtDescription = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,13 +88,13 @@ Partial Class LoginForm1
         Me.PasswordTextBox.Size = New System.Drawing.Size(220, 26)
         Me.PasswordTextBox.TabIndex = 3
         '
-        'OK
+        'btnOK
         '
-        Me.OK.Location = New System.Drawing.Point(359, 404)
-        Me.OK.Name = "OK"
-        Me.OK.Size = New System.Drawing.Size(143, 33)
-        Me.OK.TabIndex = 4
-        Me.OK.Text = "&Submit"
+        Me.btnOK.Location = New System.Drawing.Point(359, 404)
+        Me.btnOK.Name = "btnOK"
+        Me.btnOK.Size = New System.Drawing.Size(143, 33)
+        Me.btnOK.TabIndex = 4
+        Me.btnOK.Text = "&Submit"
         '
         'Button1
         '
@@ -123,25 +123,25 @@ Partial Class LoginForm1
         Me.Panel2.Size = New System.Drawing.Size(538, 151)
         Me.Panel2.TabIndex = 9
         '
-        'Label1
+        'txtTitle
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(12, 167)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(123, 52)
-        Me.Label1.TabIndex = 10
-        Me.Label1.Text = "Login"
+        Me.txtTitle.AutoSize = True
+        Me.txtTitle.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTitle.Location = New System.Drawing.Point(12, 167)
+        Me.txtTitle.Name = "txtTitle"
+        Me.txtTitle.Size = New System.Drawing.Size(123, 52)
+        Me.txtTitle.TabIndex = 10
+        Me.txtTitle.Text = "Login"
         '
-        'Label2
+        'txtDescription
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!)
-        Me.Label2.Location = New System.Drawing.Point(16, 232)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(581, 27)
-        Me.Label2.TabIndex = 11
-        Me.Label2.Text = "Please enter your username and password to enter the system."
+        Me.txtDescription.AutoSize = True
+        Me.txtDescription.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!)
+        Me.txtDescription.Location = New System.Drawing.Point(16, 232)
+        Me.txtDescription.Name = "txtDescription"
+        Me.txtDescription.Size = New System.Drawing.Size(581, 27)
+        Me.txtDescription.TabIndex = 11
+        Me.txtDescription.Text = "Please enter your username and password to enter the system."
         '
         'PictureBox1
         '
@@ -156,18 +156,18 @@ Partial Class LoginForm1
         '
         'LoginForm1
         '
-        Me.AcceptButton = Me.OK
+        Me.AcceptButton = Me.btnOK
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(689, 505)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.txtDescription)
+        Me.Controls.Add(Me.txtTitle)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.OK)
+        Me.Controls.Add(Me.btnOK)
         Me.Controls.Add(Me.PasswordTextBox)
         Me.Controls.Add(Me.UsernameTextBox)
         Me.Controls.Add(Me.PasswordLabel)
@@ -190,7 +190,7 @@ Partial Class LoginForm1
     Friend WithEvents Button1 As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
+    Friend WithEvents txtTitle As Label
+    Friend WithEvents txtDescription As Label
     Friend WithEvents PictureBox1 As PictureBox
 End Class

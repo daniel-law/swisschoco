@@ -64,7 +64,7 @@ Public Class Products
 
     Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
         ' Verify data is numeric.
-        If IsNumeric(SearchTextbox.Text) = True Then
+        If IsNumeric(SearchTextBox.Text) = True Then
             table.Rows.Clear()
             DataGridView1.Refresh()
             ' Bind the DataGridView to the BindingSource
@@ -72,7 +72,7 @@ Public Class Products
 
             Try
                 ' Query data from the database.
-                GetData("SELECT * FROM Products WHERE Id = " & SearchTextbox.Text)
+                GetData("SELECT * FROM Products WHERE Id = " & SearchTextBox.Text)
             Catch ex As Exception
                 MsgBox("There was an error looking up that ID.")
             End Try

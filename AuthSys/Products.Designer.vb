@@ -39,7 +39,7 @@ Partial Class Products
         Me.DevelopmentDataSet = New SwissChoco.DevelopmentDataSet()
         Me.ProductsTableAdapter = New SwissChoco.DevelopmentDataSetTableAdapters.ProductsTableAdapter()
         Me.SearchButton = New System.Windows.Forms.Button()
-        Me.SearchTextbox = New System.Windows.Forms.TextBox()
+        Me.SearchTextBox = New System.Windows.Forms.TextBox()
         Me.DeleteButton = New System.Windows.Forms.Button()
         Me.UndoChangesButton = New System.Windows.Forms.Button()
         Me.SaveChangesButton = New System.Windows.Forms.Button()
@@ -180,12 +180,12 @@ Partial Class Products
         Me.SearchButton.Text = "Submit"
         Me.SearchButton.UseVisualStyleBackColor = False
         '
-        'SearchTextbox
+        'SearchTextBox
         '
-        Me.SearchTextbox.Location = New System.Drawing.Point(861, 371)
-        Me.SearchTextbox.Name = "SearchTextbox"
-        Me.SearchTextbox.Size = New System.Drawing.Size(168, 26)
-        Me.SearchTextbox.TabIndex = 19
+        Me.SearchTextBox.Location = New System.Drawing.Point(861, 371)
+        Me.SearchTextBox.Name = "SearchTextBox"
+        Me.SearchTextBox.Size = New System.Drawing.Size(168, 26)
+        Me.SearchTextBox.TabIndex = 19
         '
         'DeleteButton
         '
@@ -267,7 +267,7 @@ Partial Class Products
         Me.Controls.Add(Me.SaveChangesButton)
         Me.Controls.Add(Me.UndoChangesButton)
         Me.Controls.Add(Me.DeleteButton)
-        Me.Controls.Add(Me.SearchTextbox)
+        Me.Controls.Add(Me.SearchTextBox)
         Me.Controls.Add(Me.SearchButton)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Label2)
@@ -294,7 +294,7 @@ Partial Class Products
     Friend WithEvents ProductsBindingSource As BindingSource
     Friend WithEvents ProductsTableAdapter As DevelopmentDataSetTableAdapters.ProductsTableAdapter
     Friend WithEvents SearchButton As Button
-    Friend WithEvents SearchTextbox As TextBox
+    Friend WithEvents SearchTextBox As TextBox
     Friend WithEvents DeleteButton As Button
     Friend WithEvents UndoChangesButton As Button
     Friend WithEvents SaveChangesButton As Button
