@@ -23,7 +23,6 @@ Partial Class Products
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -41,27 +40,18 @@ Partial Class Products
         Me.SearchButton = New System.Windows.Forms.Button()
         Me.SearchTextBox = New System.Windows.Forms.TextBox()
         Me.DeleteButton = New System.Windows.Forms.Button()
-        Me.UndoChangesButton = New System.Windows.Forms.Button()
-        Me.SaveChangesButton = New System.Windows.Forms.Button()
+        Me.RefreshProductsButton = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.AddProductButton = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ModifyProductButton = New System.Windows.Forms.Button()
+        Me.ClearResultsButton = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DevelopmentDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.SwissChoco.My.Resources.Resources.Logo
-        Me.PictureBox1.Location = New System.Drawing.Point(1834, 40)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(153, 151)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 12
-        Me.PictureBox1.TabStop = False
         '
         'Panel2
         '
@@ -99,8 +89,11 @@ Partial Class Products
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.NameDataGridViewTextBoxColumn, Me.PriceDataGridViewTextBoxColumn, Me.PictureDataGridViewTextBoxColumn, Me.DescriptionDataGridViewTextBoxColumn, Me.WeightDataGridViewTextBoxColumn, Me.IngredientsDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.ProductsBindingSource
         Me.DataGridView1.Location = New System.Drawing.Point(36, 336)
+        Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowTemplate.Height = 28
+        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(1607, 556)
         Me.DataGridView1.TabIndex = 17
         '
@@ -120,6 +113,7 @@ Partial Class Products
         Me.NameDataGridViewTextBoxColumn.DataPropertyName = "Name"
         Me.NameDataGridViewTextBoxColumn.HeaderText = "Name"
         Me.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn"
+        Me.NameDataGridViewTextBoxColumn.ReadOnly = True
         Me.NameDataGridViewTextBoxColumn.Width = 150
         '
         'PriceDataGridViewTextBoxColumn
@@ -127,6 +121,7 @@ Partial Class Products
         Me.PriceDataGridViewTextBoxColumn.DataPropertyName = "Price"
         Me.PriceDataGridViewTextBoxColumn.HeaderText = "Price /GBP"
         Me.PriceDataGridViewTextBoxColumn.Name = "PriceDataGridViewTextBoxColumn"
+        Me.PriceDataGridViewTextBoxColumn.ReadOnly = True
         Me.PriceDataGridViewTextBoxColumn.Width = 50
         '
         'PictureDataGridViewTextBoxColumn
@@ -134,6 +129,7 @@ Partial Class Products
         Me.PictureDataGridViewTextBoxColumn.DataPropertyName = "Picture"
         Me.PictureDataGridViewTextBoxColumn.HeaderText = "Picture"
         Me.PictureDataGridViewTextBoxColumn.Name = "PictureDataGridViewTextBoxColumn"
+        Me.PictureDataGridViewTextBoxColumn.ReadOnly = True
         '
         'DescriptionDataGridViewTextBoxColumn
         '
@@ -141,12 +137,14 @@ Partial Class Products
         Me.DescriptionDataGridViewTextBoxColumn.DataPropertyName = "Description"
         Me.DescriptionDataGridViewTextBoxColumn.HeaderText = "Description"
         Me.DescriptionDataGridViewTextBoxColumn.Name = "DescriptionDataGridViewTextBoxColumn"
+        Me.DescriptionDataGridViewTextBoxColumn.ReadOnly = True
         '
         'WeightDataGridViewTextBoxColumn
         '
         Me.WeightDataGridViewTextBoxColumn.DataPropertyName = "Weight"
         Me.WeightDataGridViewTextBoxColumn.HeaderText = "Weight /g"
         Me.WeightDataGridViewTextBoxColumn.Name = "WeightDataGridViewTextBoxColumn"
+        Me.WeightDataGridViewTextBoxColumn.ReadOnly = True
         Me.WeightDataGridViewTextBoxColumn.Width = 50
         '
         'IngredientsDataGridViewTextBoxColumn
@@ -155,6 +153,7 @@ Partial Class Products
         Me.IngredientsDataGridViewTextBoxColumn.DataPropertyName = "Ingredients"
         Me.IngredientsDataGridViewTextBoxColumn.HeaderText = "Ingredients"
         Me.IngredientsDataGridViewTextBoxColumn.Name = "IngredientsDataGridViewTextBoxColumn"
+        Me.IngredientsDataGridViewTextBoxColumn.ReadOnly = True
         Me.IngredientsDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.IngredientsDataGridViewTextBoxColumn.Width = 300
         '
@@ -181,19 +180,19 @@ Partial Class Products
         Me.SearchButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SearchButton.ForeColor = System.Drawing.Color.Black
         Me.SearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.SearchButton.Location = New System.Drawing.Point(1739, 414)
+        Me.SearchButton.Location = New System.Drawing.Point(1739, 384)
         Me.SearchButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.SearchButton.Name = "SearchButton"
-        Me.SearchButton.Size = New System.Drawing.Size(168, 40)
+        Me.SearchButton.Size = New System.Drawing.Size(198, 40)
         Me.SearchButton.TabIndex = 18
-        Me.SearchButton.Text = "Submit"
+        Me.SearchButton.Text = "Search"
         Me.SearchButton.UseVisualStyleBackColor = False
         '
         'SearchTextBox
         '
-        Me.SearchTextBox.Location = New System.Drawing.Point(1739, 371)
+        Me.SearchTextBox.Location = New System.Drawing.Point(1876, 338)
         Me.SearchTextBox.Name = "SearchTextBox"
-        Me.SearchTextBox.Size = New System.Drawing.Size(168, 26)
+        Me.SearchTextBox.Size = New System.Drawing.Size(61, 26)
         Me.SearchTextBox.TabIndex = 19
         '
         'DeleteButton
@@ -213,39 +212,22 @@ Partial Class Products
         Me.DeleteButton.Text = "Delete Product"
         Me.DeleteButton.UseVisualStyleBackColor = False
         '
-        'UndoChangesButton
+        'RefreshProductsButton
         '
-        Me.UndoChangesButton.BackColor = System.Drawing.Color.White
-        Me.UndoChangesButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.UndoChangesButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.UndoChangesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.UndoChangesButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UndoChangesButton.ForeColor = System.Drawing.Color.Black
-        Me.UndoChangesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.UndoChangesButton.Location = New System.Drawing.Point(1772, 231)
-        Me.UndoChangesButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.UndoChangesButton.Name = "UndoChangesButton"
-        Me.UndoChangesButton.Size = New System.Drawing.Size(168, 50)
-        Me.UndoChangesButton.TabIndex = 21
-        Me.UndoChangesButton.Text = "Undo Changes"
-        Me.UndoChangesButton.UseVisualStyleBackColor = False
-        '
-        'SaveChangesButton
-        '
-        Me.SaveChangesButton.BackColor = System.Drawing.Color.White
-        Me.SaveChangesButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.SaveChangesButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.SaveChangesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.SaveChangesButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SaveChangesButton.ForeColor = System.Drawing.Color.Black
-        Me.SaveChangesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.SaveChangesButton.Location = New System.Drawing.Point(1596, 231)
-        Me.SaveChangesButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.SaveChangesButton.Name = "SaveChangesButton"
-        Me.SaveChangesButton.Size = New System.Drawing.Size(168, 50)
-        Me.SaveChangesButton.TabIndex = 23
-        Me.SaveChangesButton.Text = "Save Changes"
-        Me.SaveChangesButton.UseVisualStyleBackColor = False
+        Me.RefreshProductsButton.BackColor = System.Drawing.Color.White
+        Me.RefreshProductsButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.RefreshProductsButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.RefreshProductsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.RefreshProductsButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RefreshProductsButton.ForeColor = System.Drawing.Color.Black
+        Me.RefreshProductsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.RefreshProductsButton.Location = New System.Drawing.Point(1756, 231)
+        Me.RefreshProductsButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.RefreshProductsButton.Name = "RefreshProductsButton"
+        Me.RefreshProductsButton.Size = New System.Drawing.Size(201, 50)
+        Me.RefreshProductsButton.TabIndex = 21
+        Me.RefreshProductsButton.Text = "Refresh Products"
+        Me.RefreshProductsButton.UseVisualStyleBackColor = False
         '
         'Label3
         '
@@ -265,22 +247,67 @@ Partial Class Products
         Me.Panel1.Size = New System.Drawing.Size(1987, 48)
         Me.Panel1.TabIndex = 25
         '
-        'Button1
+        'AddProductButton
         '
-        Me.Button1.BackColor = System.Drawing.Color.White
-        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Black
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(1739, 775)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(198, 50)
-        Me.Button1.TabIndex = 26
-        Me.Button1.Text = "Add Product"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.AddProductButton.BackColor = System.Drawing.Color.White
+        Me.AddProductButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.AddProductButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.AddProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.AddProductButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AddProductButton.ForeColor = System.Drawing.Color.Black
+        Me.AddProductButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.AddProductButton.Location = New System.Drawing.Point(1739, 715)
+        Me.AddProductButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.AddProductButton.Name = "AddProductButton"
+        Me.AddProductButton.Size = New System.Drawing.Size(198, 50)
+        Me.AddProductButton.TabIndex = 26
+        Me.AddProductButton.Text = "Add Product"
+        Me.AddProductButton.UseVisualStyleBackColor = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.SwissChoco.My.Resources.Resources.Logo
+        Me.PictureBox1.Location = New System.Drawing.Point(1834, 40)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(153, 151)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 12
+        Me.PictureBox1.TabStop = False
+        '
+        'ModifyProductButton
+        '
+        Me.ModifyProductButton.BackColor = System.Drawing.Color.White
+        Me.ModifyProductButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ModifyProductButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.ModifyProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ModifyProductButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ModifyProductButton.ForeColor = System.Drawing.Color.Black
+        Me.ModifyProductButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ModifyProductButton.Location = New System.Drawing.Point(1739, 775)
+        Me.ModifyProductButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.ModifyProductButton.Name = "ModifyProductButton"
+        Me.ModifyProductButton.Size = New System.Drawing.Size(198, 50)
+        Me.ModifyProductButton.TabIndex = 27
+        Me.ModifyProductButton.Text = "Modify Product"
+        Me.ModifyProductButton.UseVisualStyleBackColor = False
+        '
+        'ClearResultsButton
+        '
+        Me.ClearResultsButton.BackColor = System.Drawing.Color.White
+        Me.ClearResultsButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ClearResultsButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.ClearResultsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ClearResultsButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ClearResultsButton.ForeColor = System.Drawing.Color.Black
+        Me.ClearResultsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ClearResultsButton.Location = New System.Drawing.Point(1739, 434)
+        Me.ClearResultsButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.ClearResultsButton.Name = "ClearResultsButton"
+        Me.ClearResultsButton.Size = New System.Drawing.Size(198, 40)
+        Me.ClearResultsButton.TabIndex = 28
+        Me.ClearResultsButton.Text = "Clear Results"
+        Me.ClearResultsButton.UseVisualStyleBackColor = False
         '
         'Products
         '
@@ -289,11 +316,12 @@ Partial Class Products
         Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(1986, 925)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.ClearResultsButton)
+        Me.Controls.Add(Me.ModifyProductButton)
+        Me.Controls.Add(Me.AddProductButton)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.SaveChangesButton)
-        Me.Controls.Add(Me.UndoChangesButton)
+        Me.Controls.Add(Me.RefreshProductsButton)
         Me.Controls.Add(Me.DeleteButton)
         Me.Controls.Add(Me.SearchTextBox)
         Me.Controls.Add(Me.SearchButton)
@@ -304,10 +332,10 @@ Partial Class Products
         Me.Controls.Add(Me.Panel2)
         Me.Name = "Products"
         Me.Text = "SwissChoco - Products"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProductsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DevelopmentDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -324,8 +352,7 @@ Partial Class Products
     Friend WithEvents SearchButton As Button
     Friend WithEvents SearchTextBox As TextBox
     Friend WithEvents DeleteButton As Button
-    Friend WithEvents UndoChangesButton As Button
-    Friend WithEvents SaveChangesButton As Button
+    Friend WithEvents RefreshProductsButton As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -335,5 +362,7 @@ Partial Class Products
     Friend WithEvents DescriptionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents WeightDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents IngredientsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents Button1 As Button
+    Friend WithEvents AddProductButton As Button
+    Friend WithEvents ModifyProductButton As Button
+    Friend WithEvents ClearResultsButton As Button
 End Class

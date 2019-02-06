@@ -18,4 +18,9 @@
         Dim ProductsForm As New Products
         ProductsForm.Show()
     End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        Dim MainMenuForm As New MainMenu
+        MainMenu.Show()
+    End Sub
 End Class
