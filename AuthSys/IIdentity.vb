@@ -99,7 +99,8 @@ Public Class IIdentity
         Try
             cmd.Connection = connectionString
             connectionString.Open()
-            cmd.CommandText = "SELECT " & column & " FROM Users WHERE Username = '" & username & "';"
+            cmd.CommandText = "SELECT " & column & " FROM Users WHERE Username = @username;"
+            cmd.Parameters.Add("@username", SqlDbType.NVarChar).Value = username
             dr = cmd.ExecuteReader()
 
             While dr.Read

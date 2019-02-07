@@ -39,9 +39,13 @@ Partial Class ModifyProduct
         Me.PriceNumericUpDown = New System.Windows.Forms.NumericUpDown()
         Me.NameLabel = New System.Windows.Forms.Label()
         Me.NameTextBox = New System.Windows.Forms.TextBox()
+        Me.SelectImageButton = New System.Windows.Forms.Button()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.WeightNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PriceNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PictureBox1
@@ -93,7 +97,7 @@ Partial Class ModifyProduct
         Me.ModifyProductButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ModifyProductButton.ForeColor = System.Drawing.Color.Black
         Me.ModifyProductButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ModifyProductButton.Location = New System.Drawing.Point(267, 848)
+        Me.ModifyProductButton.Location = New System.Drawing.Point(263, 857)
         Me.ModifyProductButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.ModifyProductButton.Name = "ModifyProductButton"
         Me.ModifyProductButton.Size = New System.Drawing.Size(168, 62)
@@ -103,7 +107,8 @@ Partial Class ModifyProduct
         '
         'IngredientsRichTextBox
         '
-        Me.IngredientsRichTextBox.Location = New System.Drawing.Point(187, 673)
+        Me.IngredientsRichTextBox.Location = New System.Drawing.Point(187, 679)
+        Me.IngredientsRichTextBox.MaxLength = 256
         Me.IngredientsRichTextBox.Name = "IngredientsRichTextBox"
         Me.IngredientsRichTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal
         Me.IngredientsRichTextBox.Size = New System.Drawing.Size(351, 161)
@@ -166,8 +171,9 @@ Partial Class ModifyProduct
         '
         'PictureTextBox
         '
-        Me.PictureTextBox.Location = New System.Drawing.Point(187, 419)
+        Me.PictureTextBox.Location = New System.Drawing.Point(187, 413)
         Me.PictureTextBox.Name = "PictureTextBox"
+        Me.PictureTextBox.ReadOnly = True
         Me.PictureTextBox.Size = New System.Drawing.Size(220, 26)
         Me.PictureTextBox.TabIndex = 36
         '
@@ -183,7 +189,7 @@ Partial Class ModifyProduct
         'PriceNumericUpDown
         '
         Me.PriceNumericUpDown.DecimalPlaces = 2
-        Me.PriceNumericUpDown.Location = New System.Drawing.Point(187, 374)
+        Me.PriceNumericUpDown.Location = New System.Drawing.Point(187, 368)
         Me.PriceNumericUpDown.Maximum = New Decimal(New Integer() {250, 0, 0, 0})
         Me.PriceNumericUpDown.Name = "PriceNumericUpDown"
         Me.PriceNumericUpDown.Size = New System.Drawing.Size(120, 26)
@@ -200,16 +206,42 @@ Partial Class ModifyProduct
         '
         'NameTextBox
         '
-        Me.NameTextBox.Location = New System.Drawing.Point(187, 327)
+        Me.NameTextBox.Location = New System.Drawing.Point(187, 320)
+        Me.NameTextBox.MaxLength = 64
         Me.NameTextBox.Name = "NameTextBox"
         Me.NameTextBox.Size = New System.Drawing.Size(220, 26)
         Me.NameTextBox.TabIndex = 32
+        '
+        'SelectImageButton
+        '
+        Me.SelectImageButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SelectImageButton.Location = New System.Drawing.Point(510, 405)
+        Me.SelectImageButton.Name = "SelectImageButton"
+        Me.SelectImageButton.Size = New System.Drawing.Size(143, 39)
+        Me.SelectImageButton.TabIndex = 46
+        Me.SelectImageButton.Text = "Select..."
+        Me.SelectImageButton.UseVisualStyleBackColor = True
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Location = New System.Drawing.Point(510, 252)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(143, 147)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 45
+        Me.PictureBox2.TabStop = False
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
         'ModifyProduct
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(691, 933)
+        Me.Controls.Add(Me.SelectImageButton)
+        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.ModifyProductButton)
         Me.Controls.Add(Me.IngredientsRichTextBox)
         Me.Controls.Add(Me.Label7)
@@ -232,6 +264,7 @@ Partial Class ModifyProduct
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.WeightNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PriceNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -254,4 +287,7 @@ Partial Class ModifyProduct
     Friend WithEvents PriceNumericUpDown As NumericUpDown
     Friend WithEvents NameLabel As Label
     Friend WithEvents NameTextBox As TextBox
+    Friend WithEvents SelectImageButton As Button
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
 End Class

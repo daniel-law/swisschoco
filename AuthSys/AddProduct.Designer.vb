@@ -41,7 +41,7 @@ Partial Class AddProduct
         Me.AddProductButton = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.SelectImageButton = New System.Windows.Forms.Button()
         CType(Me.PriceNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.WeightNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -80,6 +80,7 @@ Partial Class AddProduct
         'NameTextBox
         '
         Me.NameTextBox.Location = New System.Drawing.Point(192, 317)
+        Me.NameTextBox.MaxLength = 64
         Me.NameTextBox.Name = "NameTextBox"
         Me.NameTextBox.Size = New System.Drawing.Size(220, 26)
         Me.NameTextBox.TabIndex = 19
@@ -178,6 +179,7 @@ Partial Class AddProduct
         'IngredientsRichTextBox
         '
         Me.IngredientsRichTextBox.Location = New System.Drawing.Point(192, 675)
+        Me.IngredientsRichTextBox.MaxLength = 256
         Me.IngredientsRichTextBox.Name = "IngredientsRichTextBox"
         Me.IngredientsRichTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal
         Me.IngredientsRichTextBox.Size = New System.Drawing.Size(351, 149)
@@ -223,22 +225,22 @@ Partial Class AddProduct
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
-        'Button1
+        'SelectImageButton
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(516, 396)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(143, 39)
-        Me.Button1.TabIndex = 34
-        Me.Button1.Text = "Select..."
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.SelectImageButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SelectImageButton.Location = New System.Drawing.Point(516, 396)
+        Me.SelectImageButton.Name = "SelectImageButton"
+        Me.SelectImageButton.Size = New System.Drawing.Size(143, 39)
+        Me.SelectImageButton.TabIndex = 34
+        Me.SelectImageButton.Text = "Select..."
+        Me.SelectImageButton.UseVisualStyleBackColor = True
         '
         'AddProduct
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(691, 933)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.SelectImageButton)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.AddProductButton)
         Me.Controls.Add(Me.IngredientsRichTextBox)
@@ -287,5 +289,5 @@ Partial Class AddProduct
     Friend WithEvents AddProductButton As Button
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
-    Friend WithEvents Button1 As Button
+    Friend WithEvents SelectImageButton As Button
 End Class

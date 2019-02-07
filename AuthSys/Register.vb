@@ -22,8 +22,12 @@ Public Class Register
         Try
             cmd.Connection = connectionString
             connectionString.Open()
-            cmd.CommandText = "INSERT INTO Users (Username, Hash, Salt, FullName, Role)
-                           VALUES ('" & Username & "','" & HashedPassword & "','" & Salt & "','" & FullName & "','" & Role & "');"
+            cmd.CommandText = "INSERT INTO Users (Username, Hash, Salt, FullName, Role) VALUES (@username, @hash, @salt, @fullname, @role);"
+            cmd.Parameters.Add("@username", SqlDbType.NVarChar).Value = Username
+            cmd.Parameters.Add("@hash", SqlDbType.NVarChar).Value = HashedPassword
+            cmd.Parameters.Add("@salt", SqlDbType.NVarChar).Value = Salt
+            cmd.Parameters.Add("@fullname", SqlDbType.NVarChar).Value = FullName
+            cmd.Parameters.Add("@role", SqlDbType.NVarChar).Value = Role
             cmd.ExecuteNonQuery()
             connectionString.Close()
 
