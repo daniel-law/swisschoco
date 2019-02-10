@@ -152,6 +152,12 @@
     </Compile>
     <Compile Include="IIdentity.vb" />
     <Compile Include="IPrincipal.vb" />
+    <Compile Include="ViewProduct.Designer.vb">
+      <DependentUpon>ViewProduct.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ViewProduct.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddProduct.resx">
@@ -180,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewProduct.resx">
+      <DependentUpon>ViewProduct.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

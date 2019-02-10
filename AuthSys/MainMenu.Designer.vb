@@ -41,6 +41,7 @@ Partial Class MainMenu
         Me.ViewProductToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ModifyProductToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteProductToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddProductToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
@@ -251,7 +252,7 @@ Partial Class MainMenu
         '
         'ProductsToolStripMenuItem
         '
-        Me.ProductsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewProductToolStripMenuItem, Me.ModifyProductToolStripMenuItem, Me.DeleteProductToolStripMenuItem})
+        Me.ProductsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddProductToolStripMenuItem, Me.ViewProductToolStripMenuItem, Me.ModifyProductToolStripMenuItem, Me.DeleteProductToolStripMenuItem})
         Me.ProductsToolStripMenuItem.Name = "ProductsToolStripMenuItem"
         Me.ProductsToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
         Me.ProductsToolStripMenuItem.Text = "Products"
@@ -273,6 +274,12 @@ Partial Class MainMenu
         Me.DeleteProductToolStripMenuItem.Name = "DeleteProductToolStripMenuItem"
         Me.DeleteProductToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
         Me.DeleteProductToolStripMenuItem.Text = "Delete Product"
+        '
+        'AddProductToolStripMenuItem
+        '
+        Me.AddProductToolStripMenuItem.Name = "AddProductToolStripMenuItem"
+        Me.AddProductToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
+        Me.AddProductToolStripMenuItem.Text = "Add Product"
         '
         'MainMenu
         '
@@ -321,4 +328,5 @@ Partial Class MainMenu
     Friend WithEvents ViewProductToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ModifyProductToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DeleteProductToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AddProductToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -2,7 +2,6 @@
 
 Public Class Products
 
-    Dim WithEvents Timer As New System.Windows.Forms.Timer
     Private bindingSource1 As BindingSource = New BindingSource()
     Private dataAdapter As SqlDataAdapter = New SqlDataAdapter()
     Private table As DataTable = New DataTable()
@@ -32,19 +31,6 @@ Public Class Products
 
         ' Visual.
         DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
-
-        ' Auto-refresh data.
-        Timer.Interval = 10000
-        Timer.Start()
-    End Sub
-
-    Private Sub Timer_Tick(ByVal sender As Object, ByVal e As System.EventArgs) Handles Timer.Tick
-        refreshProducts()
-    End Sub
-
-    Private Sub Form1_FormClosing(sender As Object, e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
-        ' // Timer must be stopped otherwise form will still request data while hidden from the user.
-        Timer.Stop()
     End Sub
 
     Private Sub refreshProducts()
@@ -78,6 +64,7 @@ Public Class Products
                     cmd.ExecuteNonQuery()
 
                     MsgBox("The product was removed from the database.", MessageBoxIcon.Information)
+                    refreshProducts()
 
                 Catch ex As Exception
                     MsgBox("Unable to delete the selected product.", MessageBoxIcon.Warning)

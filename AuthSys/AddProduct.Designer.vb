@@ -239,6 +239,7 @@ Partial Class AddProduct
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(691, 933)
         Me.Controls.Add(Me.SelectImageButton)
         Me.Controls.Add(Me.PictureBox2)

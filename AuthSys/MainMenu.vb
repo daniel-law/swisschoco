@@ -120,4 +120,123 @@ Public Class MainMenu
             MsgBox("Please double check the ID you have entered, it must be numeric.", MessageBoxIcon.Information)
         End If
     End Sub
+
+    Private Sub ViewProductToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewProductToolStripMenuItem.Click
+        Dim userInput As String
+        userInput = InputBox("Please enter the Product ID you wish to view.")
+
+        If IsNumeric(userInput) Then
+            Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Dim cmd As New SqlCommand
+
+            Try
+                cmd.Connection = connectionString
+                connectionString.Open()
+                cmd.CommandText = "SELECT * FROM Products WHERE Id = @Id;"
+                cmd.Parameters.Add("@Id", SqlDbType.Int).Value = userInput
+                Dim reader As SqlDataReader = cmd.ExecuteReader
+
+                Dim Id As String
+                Dim Name As String
+                Dim Price As String
+                Dim Description As String
+                Dim Weight As String
+                Dim Ingredients As String
+
+                While reader.Read
+                    Id = reader("Id").ToString()
+                    Name = reader("Name").ToString()
+                    Price = reader("Price").ToString()
+                    Description = reader("Description").ToString()
+                    Weight = reader("Weight").ToString()
+                    Ingredients = reader("Ingredients").ToString()
+                End While
+
+                If Name <> "" Then
+                    Dim ViewProductForm As New ViewProduct
+                    ViewProductForm.Id = Id
+                    ViewProductForm.Name = Name
+                    ViewProductForm.Price = Price
+                    ViewProductForm.Description = Description
+                    ViewProductForm.Weight = Weight
+                    ViewProductForm.Ingredients = Ingredients
+                    ViewProductForm.Show()
+                Else
+                    MsgBox("The ID you have specified was incorrect.", MessageBoxIcon.Warning)
+                End If
+
+            Catch ex As Exception
+                MsgBox("Unable to view the selected product.", MessageBoxIcon.Warning)
+                ' DB issues, exit.
+                Exit Sub
+            End Try
+        ElseIf userInput = "" Then
+            ' // The user either pressed the close or cancel button.
+            Exit Sub
+        Else
+            MsgBox("Please double check the ID you have entered, it must be numeric.", MessageBoxIcon.Information)
+        End If
+    End Sub
+
+    Private Sub ModifyProductToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModifyProductToolStripMenuItem.Click
+        Dim userInput As String
+        userInput = InputBox("Please enter the Product ID you wish to modify.")
+
+        If IsNumeric(userInput) Then
+            Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Dim cmd As New SqlCommand
+
+            Try
+                cmd.Connection = connectionString
+                connectionString.Open()
+                cmd.CommandText = "SELECT * FROM Products WHERE Id = @Id;"
+                cmd.Parameters.Add("@Id", SqlDbType.Int).Value = userInput
+                Dim reader As SqlDataReader = cmd.ExecuteReader
+
+                Dim Id As String
+                Dim Name As String
+                Dim Price As String
+                Dim Description As String
+                Dim Weight As String
+                Dim Ingredients As String
+
+                While reader.Read
+                    Id = reader("Id").ToString()
+                    Name = reader("Name").ToString()
+                    Price = reader("Price").ToString()
+                    Description = reader("Description").ToString()
+                    Weight = reader("Weight").ToString()
+                    Ingredients = reader("Ingredients").ToString()
+                End While
+
+                If Name <> "" Then
+                    Dim ViewProductForm As New ModifyProduct
+                    ModifyProduct.Id = Id
+                    ModifyProduct.Name = Name
+                    ModifyProduct.Price = Price
+                    ModifyProduct.Description = Description
+                    ModifyProduct.Weight = Weight
+                    ModifyProduct.Ingredients = Ingredients
+                    ModifyProduct.Show()
+                Else
+                    MsgBox("The ID you have specified was incorrect.", MessageBoxIcon.Warning)
+                End If
+
+            Catch ex As Exception
+                MsgBox("Unable to modify the selected product.", MessageBoxIcon.Warning)
+                ' DB issues, exit.
+                Exit Sub
+            End Try
+        ElseIf userInput = "" Then
+            ' // The user either pressed the close or cancel button.
+            Exit Sub
+        Else
+            MsgBox("Please double check the ID you have entered, it must be numeric.", MessageBoxIcon.Information)
+        End If
+    End Sub
+
+    Private Sub AddProductToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddProductToolStripMenuItem.Click
+        Dim AddProductForm As AddProduct
+        AddProduct.Show()
+    End Sub
 End Class
