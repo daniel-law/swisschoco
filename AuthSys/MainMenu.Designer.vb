@@ -25,7 +25,7 @@ Partial Class MainMenu
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainMenu))
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.WelcomeLabel = New System.Windows.Forms.Label()
-        Me.AdvancedSearchFormButton = New System.Windows.Forms.Button()
+        Me.SearchFormButton = New System.Windows.Forms.Button()
         Me.FactoriesFormButton = New System.Windows.Forms.Button()
         Me.ContactsFormButton = New System.Windows.Forms.Button()
         Me.ManufacturingLogsFormButton = New System.Windows.Forms.Button()
@@ -42,6 +42,11 @@ Partial Class MainMenu
         Me.ViewProductToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ModifyProductToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteProductToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ContactsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddContactToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ViewContactToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModifyContactToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteContactToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
@@ -66,24 +71,24 @@ Partial Class MainMenu
         Me.WelcomeLabel.TabIndex = 12
         Me.WelcomeLabel.Text = "Good afternoon, {Users.FullName}."
         '
-        'AdvancedSearchFormButton
+        'SearchFormButton
         '
-        Me.AdvancedSearchFormButton.BackColor = System.Drawing.Color.White
-        Me.AdvancedSearchFormButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.AdvancedSearchFormButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.AdvancedSearchFormButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.AdvancedSearchFormButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AdvancedSearchFormButton.ForeColor = System.Drawing.Color.Black
-        Me.AdvancedSearchFormButton.Image = CType(resources.GetObject("AdvancedSearchFormButton.Image"), System.Drawing.Image)
-        Me.AdvancedSearchFormButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.AdvancedSearchFormButton.Location = New System.Drawing.Point(731, 586)
-        Me.AdvancedSearchFormButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.AdvancedSearchFormButton.Name = "AdvancedSearchFormButton"
-        Me.AdvancedSearchFormButton.Size = New System.Drawing.Size(305, 152)
-        Me.AdvancedSearchFormButton.TabIndex = 21
-        Me.AdvancedSearchFormButton.Text = "Advanced Search"
-        Me.AdvancedSearchFormButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.AdvancedSearchFormButton.UseVisualStyleBackColor = False
+        Me.SearchFormButton.BackColor = System.Drawing.Color.White
+        Me.SearchFormButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.SearchFormButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.SearchFormButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SearchFormButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SearchFormButton.ForeColor = System.Drawing.Color.Black
+        Me.SearchFormButton.Image = CType(resources.GetObject("SearchFormButton.Image"), System.Drawing.Image)
+        Me.SearchFormButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.SearchFormButton.Location = New System.Drawing.Point(731, 586)
+        Me.SearchFormButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.SearchFormButton.Name = "SearchFormButton"
+        Me.SearchFormButton.Size = New System.Drawing.Size(305, 152)
+        Me.SearchFormButton.TabIndex = 21
+        Me.SearchFormButton.Text = "Search"
+        Me.SearchFormButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.SearchFormButton.UseVisualStyleBackColor = False
         '
         'FactoriesFormButton
         '
@@ -238,13 +243,13 @@ Partial Class MainMenu
         Me.MenuStrip1.Location = New System.Drawing.Point(147, 4)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.MenuStrip1.Size = New System.Drawing.Size(125, 32)
+        Me.MenuStrip1.Size = New System.Drawing.Size(305, 32)
         Me.MenuStrip1.TabIndex = 27
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'QuickJumpToolStripMenuItem
         '
-        Me.QuickJumpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProductsToolStripMenuItem})
+        Me.QuickJumpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProductsToolStripMenuItem, Me.ContactsToolStripMenuItem})
         Me.QuickJumpToolStripMenuItem.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 9.0!)
         Me.QuickJumpToolStripMenuItem.Name = "QuickJumpToolStripMenuItem"
         Me.QuickJumpToolStripMenuItem.Size = New System.Drawing.Size(117, 28)
@@ -281,6 +286,37 @@ Partial Class MainMenu
         Me.DeleteProductToolStripMenuItem.Size = New System.Drawing.Size(217, 30)
         Me.DeleteProductToolStripMenuItem.Text = "Delete Product"
         '
+        'ContactsToolStripMenuItem
+        '
+        Me.ContactsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddContactToolStripMenuItem, Me.ViewContactToolStripMenuItem, Me.ModifyContactToolStripMenuItem, Me.DeleteContactToolStripMenuItem})
+        Me.ContactsToolStripMenuItem.Name = "ContactsToolStripMenuItem"
+        Me.ContactsToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
+        Me.ContactsToolStripMenuItem.Text = "Contacts"
+        '
+        'AddContactToolStripMenuItem
+        '
+        Me.AddContactToolStripMenuItem.Name = "AddContactToolStripMenuItem"
+        Me.AddContactToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
+        Me.AddContactToolStripMenuItem.Text = "Add Contact"
+        '
+        'ViewContactToolStripMenuItem
+        '
+        Me.ViewContactToolStripMenuItem.Name = "ViewContactToolStripMenuItem"
+        Me.ViewContactToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
+        Me.ViewContactToolStripMenuItem.Text = "View Contact"
+        '
+        'ModifyContactToolStripMenuItem
+        '
+        Me.ModifyContactToolStripMenuItem.Name = "ModifyContactToolStripMenuItem"
+        Me.ModifyContactToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
+        Me.ModifyContactToolStripMenuItem.Text = "Modify Contact"
+        '
+        'DeleteContactToolStripMenuItem
+        '
+        Me.DeleteContactToolStripMenuItem.Name = "DeleteContactToolStripMenuItem"
+        Me.DeleteContactToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
+        Me.DeleteContactToolStripMenuItem.Text = "Delete Contact"
+        '
         'MainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -288,7 +324,7 @@ Partial Class MainMenu
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(1114, 871)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.AdvancedSearchFormButton)
+        Me.Controls.Add(Me.SearchFormButton)
         Me.Controls.Add(Me.FactoriesFormButton)
         Me.Controls.Add(Me.ContactsFormButton)
         Me.Controls.Add(Me.ManufacturingLogsFormButton)
@@ -318,7 +354,7 @@ Partial Class MainMenu
     Friend WithEvents ManufacturingLogsFormButton As Button
     Friend WithEvents ContactsFormButton As Button
     Friend WithEvents FactoriesFormButton As Button
-    Friend WithEvents AdvancedSearchFormButton As Button
+    Friend WithEvents SearchFormButton As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents currentTime As Label
     Friend WithEvents LogoutButton As Button
@@ -329,4 +365,9 @@ Partial Class MainMenu
     Friend WithEvents ModifyProductToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DeleteProductToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AddProductToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ContactsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AddContactToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewContactToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModifyContactToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DeleteContactToolStripMenuItem As ToolStripMenuItem
 End Class

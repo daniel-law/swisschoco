@@ -245,4 +245,148 @@ Public Class MainMenu
         Dim AddProductForm As AddProduct
         AddProduct.Show()
     End Sub
+
+    Private Sub AddContactToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddContactToolStripMenuItem.Click
+        Dim AddContactForm As AddContact
+        AddContact.Show()
+    End Sub
+
+    Private Sub ViewContactToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewContactToolStripMenuItem.Click
+        Dim userInput As String
+        userInput = InputBox("Please enter the Contact ID you wish to view.")
+
+        If IsNumeric(userInput) Then
+            Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Dim cmd As New SqlCommand
+
+            Try
+                cmd.Connection = connectionString
+                connectionString.Open()
+                cmd.CommandText = "SELECT * FROM Contacts WHERE Id = @Id;"
+                cmd.Parameters.Add("@Id", SqlDbType.Int).Value = userInput
+                Dim reader As SqlDataReader = cmd.ExecuteReader
+
+                Dim Id As String
+                Dim Name As String
+                Dim Telephone As String
+                Dim Email As String
+
+                While reader.Read
+                    Id = reader("Id").ToString()
+                    Name = reader("Name").ToString()
+                    Telephone = reader("Telephone").ToString()
+                    Email = reader("Email").ToString()
+                End While
+
+                If Name <> "" Then
+                    Dim ViewContactForm As New ViewContact
+                    ViewContactForm.Id = Id
+                    ViewContactForm.Name = Name
+                    ViewContactForm.Telephone = Telephone
+                    ViewContactForm.Email = Email
+                    ViewContactForm.Show()
+                Else
+                    MsgBox("The ID you have specified was incorrect.", MessageBoxIcon.Warning)
+                End If
+
+            Catch ex As Exception
+                MsgBox("Unable to view the selected contact.", MessageBoxIcon.Warning)
+                ' DB issues, exit.
+                Exit Sub
+            End Try
+        ElseIf userInput = "" Then
+            ' // The user either pressed the close or cancel button.
+            Exit Sub
+        Else
+            MsgBox("Please double check the ID you have entered, it must be numeric.", MessageBoxIcon.Information)
+        End If
+    End Sub
+
+    Private Sub ModifyContactToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModifyContactToolStripMenuItem.Click
+        Dim userInput As String
+        userInput = InputBox("Please enter the Contact ID you wish to modify.")
+
+        If IsNumeric(userInput) Then
+            Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Dim cmd As New SqlCommand
+
+            Try
+                cmd.Connection = connectionString
+                connectionString.Open()
+                cmd.CommandText = "SELECT * FROM Contacts WHERE Id = @Id;"
+                cmd.Parameters.Add("@Id", SqlDbType.Int).Value = userInput
+                Dim reader As SqlDataReader = cmd.ExecuteReader
+
+                Dim Id As String
+                Dim Name As String
+                Dim Telephone As String
+                Dim Email As String
+
+                While reader.Read
+                    Id = reader("Id").ToString()
+                    Name = reader("Name").ToString()
+                    Telephone = reader("Telephone").ToString()
+                    Email = reader("Email").ToString()
+                End While
+
+                If Name <> "" Then
+                    Dim ModifyContactForm As New ModifyContact
+                    ModifyContact.Id = Id
+                    ModifyContact.Name = Name
+                    ModifyContact.Email = Email
+                    ModifyContact.Telephone = Telephone
+                    ModifyContact.Show()
+                Else
+                    MsgBox("The ID you have specified was incorrect.", MessageBoxIcon.Warning)
+                End If
+
+            Catch ex As Exception
+                MsgBox("Unable to modify the selected contact.", MessageBoxIcon.Warning)
+                ' DB issues, exit.
+                Exit Sub
+            End Try
+        ElseIf userInput = "" Then
+            ' // The user either pressed the close or cancel button.
+            Exit Sub
+        Else
+            MsgBox("Please double check the ID you have entered, it must be numeric.", MessageBoxIcon.Information)
+        End If
+    End Sub
+
+    Private Sub DeleteContactToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteContactToolStripMenuItem.Click
+        Dim userInput As String
+        userInput = InputBox("Please enter the Product ID you wish to delete.")
+
+        If IsNumeric(userInput) Then
+            Dim result As Integer = MessageBox.Show("Are you sure you wish to delete this contact? This action is irreversible.", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If result = DialogResult.Yes Then
+                Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+                Dim cmd As New SqlCommand
+
+                Try
+                    cmd.Connection = connectionString
+                    connectionString.Open()
+                    cmd.CommandText = "DELETE FROM Contacts WHERE Id = @Id;"
+                    cmd.Parameters.Add("@Id", SqlDbType.Int).Value = userInput
+                    Dim rowsReturned As Integer = cmd.ExecuteNonQuery()
+
+                    If rowsReturned = 0 Then
+                        MsgBox("The ID you have specified was incorrect.", MessageBoxIcon.Warning)
+                    Else
+                        MsgBox("The contact was removed from the database.", MessageBoxIcon.Information)
+                    End If
+
+                Catch ex As Exception
+                    MsgBox("Unable to delete the selected contact.", MessageBoxIcon.Warning)
+                    ' DB issues, exit.
+                    Exit Sub
+                End Try
+            End If
+        ElseIf userInput = "" Then
+            ' // The user either pressed the close or cancel button.
+            Exit Sub
+        Else
+            MsgBox("Please double check the ID you have entered, it must be numeric.", MessageBoxIcon.Information)
+        End If
+    End Sub
 End Class
