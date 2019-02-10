@@ -23,4 +23,14 @@
         Dim MainMenuForm As New MainMenu
         MainMenu.Show()
     End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        Dim ContactsForm As New Contacts
+        ContactsForm.Show()
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Dim ManufacturingLogsForm As New ManufacturingLogs
+        ManufacturingLogsForm.Show()
+    End Sub
 End Class

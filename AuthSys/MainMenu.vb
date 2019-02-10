@@ -82,6 +82,12 @@ Public Class MainMenu
         ContactsForm.Show()
     End Sub
 
+    Private Sub ManufacturingLogsFormButton_Click(sender As Object, e As EventArgs) Handles ManufacturingLogsFormButton.Click
+        ' Show the Manufacturing Logs form.
+        Dim ManufacturingLogsForm As New ManufacturingLogs
+        ManufacturingLogsForm.Show()
+    End Sub
+
     Private Sub Timer_Tick(ByVal sender As Object, ByVal e As System.EventArgs) Handles Timer.Tick
         currentTime.Text = DateTime.Now.ToString("hh:mm:ss tt")
     End Sub

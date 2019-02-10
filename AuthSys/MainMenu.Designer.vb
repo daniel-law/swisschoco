@@ -25,13 +25,6 @@ Partial Class MainMenu
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainMenu))
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.WelcomeLabel = New System.Windows.Forms.Label()
-        Me.SearchFormButton = New System.Windows.Forms.Button()
-        Me.FactoriesFormButton = New System.Windows.Forms.Button()
-        Me.ContactsFormButton = New System.Windows.Forms.Button()
-        Me.ManufacturingLogsFormButton = New System.Windows.Forms.Button()
-        Me.InternalInvoicesFormButton = New System.Windows.Forms.Button()
-        Me.ProductsFormButton = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.LogoutButton = New System.Windows.Forms.Button()
         Me.currentTime = New System.Windows.Forms.Label()
@@ -47,9 +40,16 @@ Partial Class MainMenu
         Me.ViewContactToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ModifyContactToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteContactToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SearchFormButton = New System.Windows.Forms.Button()
+        Me.FactoriesFormButton = New System.Windows.Forms.Button()
+        Me.ContactsFormButton = New System.Windows.Forms.Button()
+        Me.ManufacturingLogsFormButton = New System.Windows.Forms.Button()
+        Me.InternalInvoicesFormButton = New System.Windows.Forms.Button()
+        Me.ProductsFormButton = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel2
@@ -70,6 +70,127 @@ Partial Class MainMenu
         Me.WelcomeLabel.Size = New System.Drawing.Size(647, 52)
         Me.WelcomeLabel.TabIndex = 12
         Me.WelcomeLabel.Text = "Good afternoon, {Users.FullName}."
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.Controls.Add(Me.LogoutButton)
+        Me.Panel1.Controls.Add(Me.currentTime)
+        Me.Panel1.Controls.Add(Me.MenuStrip1)
+        Me.Panel1.Location = New System.Drawing.Point(0, -1)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1112, 43)
+        Me.Panel1.TabIndex = 26
+        '
+        'LogoutButton
+        '
+        Me.LogoutButton.BackColor = System.Drawing.Color.White
+        Me.LogoutButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.LogoutButton.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.LogoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.LogoutButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 7.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LogoutButton.ForeColor = System.Drawing.Color.Black
+        Me.LogoutButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LogoutButton.Location = New System.Drawing.Point(1025, 0)
+        Me.LogoutButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.LogoutButton.Name = "LogoutButton"
+        Me.LogoutButton.Size = New System.Drawing.Size(87, 43)
+        Me.LogoutButton.TabIndex = 28
+        Me.LogoutButton.Text = "Logout"
+        Me.LogoutButton.UseVisualStyleBackColor = False
+        '
+        'currentTime
+        '
+        Me.currentTime.AutoSize = True
+        Me.currentTime.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.currentTime.Location = New System.Drawing.Point(12, 10)
+        Me.currentTime.Name = "currentTime"
+        Me.currentTime.Size = New System.Drawing.Size(88, 24)
+        Me.currentTime.TabIndex = 27
+        Me.currentTime.Text = "Loading..."
+        '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.BackColor = System.Drawing.Color.White
+        Me.MenuStrip1.Dock = System.Windows.Forms.DockStyle.None
+        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QuickJumpToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(147, 4)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
+        Me.MenuStrip1.Size = New System.Drawing.Size(125, 32)
+        Me.MenuStrip1.TabIndex = 27
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'QuickJumpToolStripMenuItem
+        '
+        Me.QuickJumpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProductsToolStripMenuItem, Me.ContactsToolStripMenuItem})
+        Me.QuickJumpToolStripMenuItem.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 9.0!)
+        Me.QuickJumpToolStripMenuItem.Name = "QuickJumpToolStripMenuItem"
+        Me.QuickJumpToolStripMenuItem.Size = New System.Drawing.Size(117, 28)
+        Me.QuickJumpToolStripMenuItem.Text = "Quick Jump"
+        '
+        'ProductsToolStripMenuItem
+        '
+        Me.ProductsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddProductToolStripMenuItem, Me.ViewProductToolStripMenuItem, Me.ModifyProductToolStripMenuItem, Me.DeleteProductToolStripMenuItem})
+        Me.ProductsToolStripMenuItem.Name = "ProductsToolStripMenuItem"
+        Me.ProductsToolStripMenuItem.Size = New System.Drawing.Size(164, 30)
+        Me.ProductsToolStripMenuItem.Text = "Products"
+        '
+        'AddProductToolStripMenuItem
+        '
+        Me.AddProductToolStripMenuItem.Name = "AddProductToolStripMenuItem"
+        Me.AddProductToolStripMenuItem.Size = New System.Drawing.Size(217, 30)
+        Me.AddProductToolStripMenuItem.Text = "Add Product"
+        '
+        'ViewProductToolStripMenuItem
+        '
+        Me.ViewProductToolStripMenuItem.Name = "ViewProductToolStripMenuItem"
+        Me.ViewProductToolStripMenuItem.Size = New System.Drawing.Size(217, 30)
+        Me.ViewProductToolStripMenuItem.Text = "View Product"
+        '
+        'ModifyProductToolStripMenuItem
+        '
+        Me.ModifyProductToolStripMenuItem.Name = "ModifyProductToolStripMenuItem"
+        Me.ModifyProductToolStripMenuItem.Size = New System.Drawing.Size(217, 30)
+        Me.ModifyProductToolStripMenuItem.Text = "Modify Product"
+        '
+        'DeleteProductToolStripMenuItem
+        '
+        Me.DeleteProductToolStripMenuItem.Name = "DeleteProductToolStripMenuItem"
+        Me.DeleteProductToolStripMenuItem.Size = New System.Drawing.Size(217, 30)
+        Me.DeleteProductToolStripMenuItem.Text = "Delete Product"
+        '
+        'ContactsToolStripMenuItem
+        '
+        Me.ContactsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddContactToolStripMenuItem, Me.ViewContactToolStripMenuItem, Me.ModifyContactToolStripMenuItem, Me.DeleteContactToolStripMenuItem})
+        Me.ContactsToolStripMenuItem.Name = "ContactsToolStripMenuItem"
+        Me.ContactsToolStripMenuItem.Size = New System.Drawing.Size(164, 30)
+        Me.ContactsToolStripMenuItem.Text = "Contacts"
+        '
+        'AddContactToolStripMenuItem
+        '
+        Me.AddContactToolStripMenuItem.Name = "AddContactToolStripMenuItem"
+        Me.AddContactToolStripMenuItem.Size = New System.Drawing.Size(217, 30)
+        Me.AddContactToolStripMenuItem.Text = "Add Contact"
+        '
+        'ViewContactToolStripMenuItem
+        '
+        Me.ViewContactToolStripMenuItem.Name = "ViewContactToolStripMenuItem"
+        Me.ViewContactToolStripMenuItem.Size = New System.Drawing.Size(217, 30)
+        Me.ViewContactToolStripMenuItem.Text = "View Contact"
+        '
+        'ModifyContactToolStripMenuItem
+        '
+        Me.ModifyContactToolStripMenuItem.Name = "ModifyContactToolStripMenuItem"
+        Me.ModifyContactToolStripMenuItem.Size = New System.Drawing.Size(217, 30)
+        Me.ModifyContactToolStripMenuItem.Text = "Modify Contact"
+        '
+        'DeleteContactToolStripMenuItem
+        '
+        Me.DeleteContactToolStripMenuItem.Name = "DeleteContactToolStripMenuItem"
+        Me.DeleteContactToolStripMenuItem.Size = New System.Drawing.Size(217, 30)
+        Me.DeleteContactToolStripMenuItem.Text = "Delete Contact"
         '
         'SearchFormButton
         '
@@ -196,127 +317,6 @@ Partial Class MainMenu
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
         '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.White
-        Me.Panel1.Controls.Add(Me.LogoutButton)
-        Me.Panel1.Controls.Add(Me.currentTime)
-        Me.Panel1.Controls.Add(Me.MenuStrip1)
-        Me.Panel1.Location = New System.Drawing.Point(0, -1)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1112, 43)
-        Me.Panel1.TabIndex = 26
-        '
-        'LogoutButton
-        '
-        Me.LogoutButton.BackColor = System.Drawing.Color.White
-        Me.LogoutButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.LogoutButton.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.LogoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.LogoutButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 7.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LogoutButton.ForeColor = System.Drawing.Color.Black
-        Me.LogoutButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.LogoutButton.Location = New System.Drawing.Point(1025, 0)
-        Me.LogoutButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.LogoutButton.Name = "LogoutButton"
-        Me.LogoutButton.Size = New System.Drawing.Size(87, 43)
-        Me.LogoutButton.TabIndex = 28
-        Me.LogoutButton.Text = "Logout"
-        Me.LogoutButton.UseVisualStyleBackColor = False
-        '
-        'currentTime
-        '
-        Me.currentTime.AutoSize = True
-        Me.currentTime.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.currentTime.Location = New System.Drawing.Point(12, 10)
-        Me.currentTime.Name = "currentTime"
-        Me.currentTime.Size = New System.Drawing.Size(88, 24)
-        Me.currentTime.TabIndex = 27
-        Me.currentTime.Text = "Loading..."
-        '
-        'MenuStrip1
-        '
-        Me.MenuStrip1.BackColor = System.Drawing.Color.White
-        Me.MenuStrip1.Dock = System.Windows.Forms.DockStyle.None
-        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QuickJumpToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(147, 4)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.MenuStrip1.Size = New System.Drawing.Size(305, 32)
-        Me.MenuStrip1.TabIndex = 27
-        Me.MenuStrip1.Text = "MenuStrip1"
-        '
-        'QuickJumpToolStripMenuItem
-        '
-        Me.QuickJumpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProductsToolStripMenuItem, Me.ContactsToolStripMenuItem})
-        Me.QuickJumpToolStripMenuItem.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 9.0!)
-        Me.QuickJumpToolStripMenuItem.Name = "QuickJumpToolStripMenuItem"
-        Me.QuickJumpToolStripMenuItem.Size = New System.Drawing.Size(117, 28)
-        Me.QuickJumpToolStripMenuItem.Text = "Quick Jump"
-        '
-        'ProductsToolStripMenuItem
-        '
-        Me.ProductsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddProductToolStripMenuItem, Me.ViewProductToolStripMenuItem, Me.ModifyProductToolStripMenuItem, Me.DeleteProductToolStripMenuItem})
-        Me.ProductsToolStripMenuItem.Name = "ProductsToolStripMenuItem"
-        Me.ProductsToolStripMenuItem.Size = New System.Drawing.Size(164, 30)
-        Me.ProductsToolStripMenuItem.Text = "Products"
-        '
-        'AddProductToolStripMenuItem
-        '
-        Me.AddProductToolStripMenuItem.Name = "AddProductToolStripMenuItem"
-        Me.AddProductToolStripMenuItem.Size = New System.Drawing.Size(217, 30)
-        Me.AddProductToolStripMenuItem.Text = "Add Product"
-        '
-        'ViewProductToolStripMenuItem
-        '
-        Me.ViewProductToolStripMenuItem.Name = "ViewProductToolStripMenuItem"
-        Me.ViewProductToolStripMenuItem.Size = New System.Drawing.Size(217, 30)
-        Me.ViewProductToolStripMenuItem.Text = "View Product"
-        '
-        'ModifyProductToolStripMenuItem
-        '
-        Me.ModifyProductToolStripMenuItem.Name = "ModifyProductToolStripMenuItem"
-        Me.ModifyProductToolStripMenuItem.Size = New System.Drawing.Size(217, 30)
-        Me.ModifyProductToolStripMenuItem.Text = "Modify Product"
-        '
-        'DeleteProductToolStripMenuItem
-        '
-        Me.DeleteProductToolStripMenuItem.Name = "DeleteProductToolStripMenuItem"
-        Me.DeleteProductToolStripMenuItem.Size = New System.Drawing.Size(217, 30)
-        Me.DeleteProductToolStripMenuItem.Text = "Delete Product"
-        '
-        'ContactsToolStripMenuItem
-        '
-        Me.ContactsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddContactToolStripMenuItem, Me.ViewContactToolStripMenuItem, Me.ModifyContactToolStripMenuItem, Me.DeleteContactToolStripMenuItem})
-        Me.ContactsToolStripMenuItem.Name = "ContactsToolStripMenuItem"
-        Me.ContactsToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
-        Me.ContactsToolStripMenuItem.Text = "Contacts"
-        '
-        'AddContactToolStripMenuItem
-        '
-        Me.AddContactToolStripMenuItem.Name = "AddContactToolStripMenuItem"
-        Me.AddContactToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
-        Me.AddContactToolStripMenuItem.Text = "Add Contact"
-        '
-        'ViewContactToolStripMenuItem
-        '
-        Me.ViewContactToolStripMenuItem.Name = "ViewContactToolStripMenuItem"
-        Me.ViewContactToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
-        Me.ViewContactToolStripMenuItem.Text = "View Contact"
-        '
-        'ModifyContactToolStripMenuItem
-        '
-        Me.ModifyContactToolStripMenuItem.Name = "ModifyContactToolStripMenuItem"
-        Me.ModifyContactToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
-        Me.ModifyContactToolStripMenuItem.Text = "Modify Contact"
-        '
-        'DeleteContactToolStripMenuItem
-        '
-        Me.DeleteContactToolStripMenuItem.Name = "DeleteContactToolStripMenuItem"
-        Me.DeleteContactToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
-        Me.DeleteContactToolStripMenuItem.Text = "Delete Contact"
-        '
         'MainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -336,11 +336,11 @@ Partial Class MainMenu
         Me.KeyPreview = True
         Me.Name = "MainMenu"
         Me.Text = "SwissChoco - Main Menu"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

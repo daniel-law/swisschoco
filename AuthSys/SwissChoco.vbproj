@@ -129,6 +129,12 @@
     <Compile Include="MainMenu.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ManufacturingLogs.Designer.vb">
+      <DependentUpon>ManufacturingLogs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ManufacturingLogs.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ModifyContact.Designer.vb">
       <DependentUpon>ModifyContact.vb</DependentUpon>
     </Compile>
@@ -201,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManufacturingLogs.resx">
+      <DependentUpon>ManufacturingLogs.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModifyContact.resx">
       <DependentUpon>ModifyContact.vb</DependentUpon>
