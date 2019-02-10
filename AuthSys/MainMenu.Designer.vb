@@ -216,9 +216,9 @@ Partial Class MainMenu
         Me.currentTime.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.currentTime.Location = New System.Drawing.Point(12, 10)
         Me.currentTime.Name = "currentTime"
-        Me.currentTime.Size = New System.Drawing.Size(106, 24)
+        Me.currentTime.Size = New System.Drawing.Size(88, 24)
         Me.currentTime.TabIndex = 27
-        Me.currentTime.Text = "{HH:MM:SS}"
+        Me.currentTime.Text = "Loading..."
         '
         'MainMenu
         '
@@ -236,6 +236,7 @@ Partial Class MainMenu
         Me.Controls.Add(Me.WelcomeLabel)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel2)
+        Me.KeyPreview = True
         Me.Name = "MainMenu"
         Me.Text = "SwissChoco - Main Menu"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
