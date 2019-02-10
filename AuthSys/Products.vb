@@ -73,11 +73,11 @@ Public Class Products
                 Try
                     cmd.Connection = connectionString
                     connectionString.Open()
-                    cmd.CommandText = "DELETE FROM Products WHERE Id = " & DataGridView1.SelectedCells(0).Value.ToString & ";"
+                    cmd.CommandText = "DELETE FROM Products WHERE Id = @Id;"
+                    cmd.Parameters.Add("@Id", SqlDbType.Int).Value = DataGridView1.SelectedCells(0).Value.ToString
                     cmd.ExecuteNonQuery()
 
                     MsgBox("The product was removed from the database.", MessageBoxIcon.Information)
-                    refreshProducts()
 
                 Catch ex As Exception
                     MsgBox("Unable to delete the selected product.", MessageBoxIcon.Warning)

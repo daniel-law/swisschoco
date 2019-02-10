@@ -1,4 +1,6 @@
-﻿Public Class MainMenu
+﻿Imports System.Data.SqlClient
+
+Public Class MainMenu
 
     Dim WithEvents Timer As New System.Windows.Forms.Timer
     Dim lastCursorPos As Point
@@ -80,5 +82,42 @@
 
     Private Sub LogoutButton_Click(sender As Object, e As EventArgs) Handles LogoutButton.Click
         logout()
+    End Sub
+
+    Private Sub DeleteProductToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteProductToolStripMenuItem.Click
+        Dim userInput As String
+        userInput = InputBox("Please enter the Product ID you wish to delete.")
+
+        If IsNumeric(userInput) Then
+            Dim result As Integer = MessageBox.Show("Are you sure you wish to delete this product? This action is irreversible.", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If result = DialogResult.Yes Then
+                Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+                Dim cmd As New SqlCommand
+
+                Try
+                    cmd.Connection = connectionString
+                    connectionString.Open()
+                    cmd.CommandText = "DELETE FROM Products WHERE Id = @Id;"
+                    cmd.Parameters.Add("@Id", SqlDbType.Int).Value = userInput
+                    Dim rowsReturned As Integer = cmd.ExecuteNonQuery()
+
+                    If rowsReturned = 0 Then
+                        MsgBox("The ID you have specified was incorrect.", MessageBoxIcon.Warning)
+                    Else
+                        MsgBox("The product was removed from the database.", MessageBoxIcon.Information)
+                    End If
+
+                Catch ex As Exception
+                    MsgBox("Unable to delete the selected product.", MessageBoxIcon.Warning)
+                    ' DB issues, exit.
+                    Exit Sub
+                End Try
+            End If
+        ElseIf userInput = "" Then
+            ' // The user either pressed the close or cancel button.
+            Exit Sub
+        Else
+            MsgBox("Please double check the ID you have entered, it must be numeric.", MessageBoxIcon.Information)
+        End If
     End Sub
 End Class

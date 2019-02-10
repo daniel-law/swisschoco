@@ -35,8 +35,15 @@ Partial Class MainMenu
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.LogoutButton = New System.Windows.Forms.Button()
         Me.currentTime = New System.Windows.Forms.Label()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.QuickJumpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ProductsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ViewProductToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModifyProductToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteProductToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel2
@@ -188,6 +195,7 @@ Partial Class MainMenu
         Me.Panel1.BackColor = System.Drawing.Color.White
         Me.Panel1.Controls.Add(Me.LogoutButton)
         Me.Panel1.Controls.Add(Me.currentTime)
+        Me.Panel1.Controls.Add(Me.MenuStrip1)
         Me.Panel1.Location = New System.Drawing.Point(0, -1)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1112, 43)
@@ -220,6 +228,52 @@ Partial Class MainMenu
         Me.currentTime.TabIndex = 27
         Me.currentTime.Text = "Loading..."
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.BackColor = System.Drawing.Color.White
+        Me.MenuStrip1.Dock = System.Windows.Forms.DockStyle.None
+        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QuickJumpToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(147, 4)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
+        Me.MenuStrip1.Size = New System.Drawing.Size(305, 32)
+        Me.MenuStrip1.TabIndex = 27
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'QuickJumpToolStripMenuItem
+        '
+        Me.QuickJumpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProductsToolStripMenuItem})
+        Me.QuickJumpToolStripMenuItem.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 9.0!)
+        Me.QuickJumpToolStripMenuItem.Name = "QuickJumpToolStripMenuItem"
+        Me.QuickJumpToolStripMenuItem.Size = New System.Drawing.Size(117, 28)
+        Me.QuickJumpToolStripMenuItem.Text = "Quick Jump"
+        '
+        'ProductsToolStripMenuItem
+        '
+        Me.ProductsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewProductToolStripMenuItem, Me.ModifyProductToolStripMenuItem, Me.DeleteProductToolStripMenuItem})
+        Me.ProductsToolStripMenuItem.Name = "ProductsToolStripMenuItem"
+        Me.ProductsToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
+        Me.ProductsToolStripMenuItem.Text = "Products"
+        '
+        'ViewProductToolStripMenuItem
+        '
+        Me.ViewProductToolStripMenuItem.Name = "ViewProductToolStripMenuItem"
+        Me.ViewProductToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
+        Me.ViewProductToolStripMenuItem.Text = "View Product"
+        '
+        'ModifyProductToolStripMenuItem
+        '
+        Me.ModifyProductToolStripMenuItem.Name = "ModifyProductToolStripMenuItem"
+        Me.ModifyProductToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
+        Me.ModifyProductToolStripMenuItem.Text = "Modify Product"
+        '
+        'DeleteProductToolStripMenuItem
+        '
+        Me.DeleteProductToolStripMenuItem.Name = "DeleteProductToolStripMenuItem"
+        Me.DeleteProductToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
+        Me.DeleteProductToolStripMenuItem.Text = "Delete Product"
+        '
         'MainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -242,6 +296,8 @@ Partial Class MainMenu
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -259,4 +315,10 @@ Partial Class MainMenu
     Friend WithEvents Panel1 As Panel
     Friend WithEvents currentTime As Label
     Friend WithEvents LogoutButton As Button
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents QuickJumpToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ProductsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewProductToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModifyProductToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DeleteProductToolStripMenuItem As ToolStripMenuItem
 End Class
