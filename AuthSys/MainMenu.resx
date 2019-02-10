@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Button6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="AdvancedSearchFormButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAABGdBTUEAALGPC/xhBQAABHhJREFUeF7t
         nE2LFFcUhscQTYJfkMQfEKIgGlBEkoh/QQ1Iom4URFBcBHWt6MKNwV3AP+FGEUWULCIhCCIJQUR0IZJF
@@ -143,7 +143,7 @@
         g6HtZG8AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="Button3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="FactoriesFormButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAABGdBTUEAALGPC/xhBQAAAb5JREFUeF7t
         3EFKxFAQhOHIiGfwOB7MtTC48DheyI1rcSnabxohhD+avHqZRVMF36bANB2mNwPjFDmFp/ARvju1v23P
@@ -156,7 +156,7 @@
         FZYuP8u5De3l+JOT7+A8TdPpB//No5EutM+MAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Button4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ContactsFormButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAABGdBTUEAALGPC/xhBQAAAmJJREFUeF7t
         3M8qrVEYBvAdOiWFM/InSbgFMjAQrkAmRiYGbkAyUqbEPXADkpGZTqfMJJchYxmI5ykmehdrrf1+y/st
@@ -172,7 +172,7 @@
         dDpvTQ2ryNSUGjEAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="Button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ManufacturingLogsFormButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAABGdBTUEAALGPC/xhBQAABcBJREFUeF7d
         nFvINlMYhsd+W/wH9rL3l/32WCkO7DfZ/LJLCidCCBEOSRERESmRSEkkckBSkjhwIJIkiSRJkgNxX5P5
@@ -202,7 +202,7 @@
         dilnUb4W/AKAz1zjO8pQljq9XwUerqr6B2u1dU3V18STAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="InternalInvoicesFormButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAABGdBTUEAALGPC/xhBQAAAo9JREFUeF7t
         nE/LTVEUhy9h4qWEmczJnIlk4AvInzli+pYPoBiJkoHISAYyNDORMpO5RMZKBj6BeH7T21rO3ufs46x9
@@ -219,7 +219,7 @@
         SUVORK5CYII=
 </value>
   </data>
-  <data name="Button5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ProductsFormButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAABGdBTUEAALGPC/xhBQAAA0JJREFUeF7t
         3EuoTVEcx/HrnUeeA1FCpAh5lIEJ5VHKK0UGMjExYCAZmJgoUxkoKSZKJjJhIokkkkgyUJJkQJJkIEl8
@@ -239,6 +239,9 @@
         RU5ErkJggg==
 </value>
   </data>
+  <metadata name="MenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <metadata name="MenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>

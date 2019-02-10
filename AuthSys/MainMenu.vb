@@ -70,10 +70,16 @@ Public Class MainMenu
         WelcomeLabel.Text = timeOfDay & My.User.Name & "."
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+    Private Sub ProductsFormButton_Click(sender As Object, e As EventArgs) Handles ProductsFormButton.Click
         ' Show the Products form.
-        Dim Products As New Products
-        Products.Show()
+        Dim ProductsForm As New Products
+        ProductsForm.Show()
+    End Sub
+
+    Private Sub ContactsFormButton_Click(sender As Object, e As EventArgs) Handles ContactsFormButton.Click
+        ' Show the Contacts form.
+        Dim ContactsForm As New Contacts
+        ContactsForm.Show()
     End Sub
 
     Private Sub Timer_Tick(ByVal sender As Object, ByVal e As System.EventArgs) Handles Timer.Tick
