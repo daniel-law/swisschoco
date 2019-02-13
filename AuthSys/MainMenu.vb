@@ -395,4 +395,145 @@ Public Class MainMenu
             MsgBox("Please double check the ID you have entered, it must be numeric.", MessageBoxIcon.Information)
         End If
     End Sub
+
+    Private Sub AddLogToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddLogToolStripMenuItem.Click
+        Dim AddLogForm As New AddLog
+        AddLogForm.Show()
+    End Sub
+
+    Private Sub ViewLogToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewLogToolStripMenuItem.Click
+        Dim userInput As String
+        userInput = InputBox("Please enter the Log ID you wish to view.")
+
+        If IsNumeric(userInput) Then
+            Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Dim cmd As New SqlCommand
+
+            Try
+                cmd.Connection = connectionString
+                connectionString.Open()
+                cmd.CommandText = "SELECT * FROM ManufacturingLogs WHERE Id = @Id;"
+                cmd.Parameters.Add("@Id", SqlDbType.Int).Value = userInput
+                Dim reader As SqlDataReader = cmd.ExecuteReader
+
+                Dim Id As String
+                Dim FactoryID As String
+                Dim UserId As String
+                Dim Detail As String
+
+                While reader.Read
+                    Id = reader("Id").ToString()
+                    FactoryID = reader("FactoryID").ToString()
+                    UserId = reader("UserId").ToString()
+                    Detail = reader("Detail").ToString()
+                End While
+
+                If Detail <> "" Then
+                    Dim ViewLogForm As New ViewLog
+                    ViewLogForm.Id = Id
+                    ViewLogForm.FactoryId = FactoryID
+                    ViewLogForm.UserId = UserId
+                    ViewLogForm.Detail = Detail
+                    ViewLogForm.Show()
+                Else
+                    MsgBox("The ID you have specified was incorrect.", MessageBoxIcon.Warning)
+                End If
+
+            Catch ex As Exception
+            End Try
+        ElseIf userInput = "" Then
+            ' // The user either pressed the close or cancel button.
+            Exit Sub
+        Else
+            MsgBox("Please double check the ID you have entered, it must be numeric.", MessageBoxIcon.Information)
+        End If
+    End Sub
+
+    Private Sub ModifyLogToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModifyLogToolStripMenuItem.Click
+        Dim userInput As String
+        userInput = InputBox("Please enter the Log ID you wish to modify.")
+
+        If IsNumeric(userInput) Then
+            Try
+                Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+                Dim cmd As New SqlCommand
+
+                cmd.Connection = connectionString
+                connectionString.Open()
+                cmd.CommandText = "SELECT * FROM ManufacturingLogs WHERE Id = @Id;"
+                cmd.Parameters.Add("@Id", SqlDbType.Int).Value = userInput
+                Dim reader As SqlDataReader = cmd.ExecuteReader
+
+                Dim Id As String
+                Dim FactoryID As String
+                Dim UserId As String
+                Dim Detail As String
+
+                While reader.Read
+                    Id = reader("Id").ToString()
+                    FactoryID = reader("FactoryID").ToString()
+                    UserId = reader("UserId").ToString()
+                    Detail = reader("Detail").ToString()
+                End While
+
+                If Detail <> "" Then
+                    Dim ModifyLogForm As New ModifyLog
+                    ModifyLogForm.Id = Id
+                    ModifyLogForm.FactoryId = FactoryID
+                    ModifyLogForm.UserId = UserId
+                    ModifyLogForm.Detail = Detail
+                    ModifyLogForm.Show()
+                Else
+                    MsgBox("The ID you have specified was incorrect.", MessageBoxIcon.Warning)
+                End If
+
+            Catch ex As Exception
+                MsgBox("Unable to modify the selected manufacturing log." & ex.Message, MessageBoxIcon.Warning)
+                ' DB issues, exit.
+                Exit Sub
+            End Try
+        ElseIf userInput = "" Then
+            ' // The user either pressed the close or cancel button.
+            Exit Sub
+        Else
+            MsgBox("Please double check the ID you have entered, it must be numeric.", MessageBoxIcon.Information)
+        End If
+    End Sub
+
+    Private Sub DeleteLogToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteLogToolStripMenuItem.Click
+        Dim userInput As String
+        userInput = InputBox("Please enter the Log ID you wish to delete.")
+
+        If IsNumeric(userInput) Then
+            Dim result As Integer = MessageBox.Show("Are you sure you wish to delete this log? This action is irreversible.", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If result = DialogResult.Yes Then
+                Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+                Dim cmd As New SqlCommand
+
+                Try
+                    cmd.Connection = connectionString
+                    connectionString.Open()
+                    cmd.CommandText = "DELETE FROM ManufacturingLogs WHERE Id = @Id;"
+                    cmd.Parameters.Add("@Id", SqlDbType.Int).Value = userInput
+                    Dim rowsReturned As Integer = cmd.ExecuteNonQuery()
+
+                    If rowsReturned = 0 Then
+                        MsgBox("The ID you have specified was incorrect.", MessageBoxIcon.Warning)
+                    Else
+                        MsgBox("The log was removed from the database.", MessageBoxIcon.Information)
+                    End If
+
+                Catch ex As Exception
+                    MsgBox("Unable to delete the selected log.", MessageBoxIcon.Warning)
+                    ' DB issues, exit.
+                    Exit Sub
+                End Try
+            End If
+        ElseIf userInput = "" Then
+            ' // The user either pressed the close or cancel button.
+            Exit Sub
+        Else
+            MsgBox("Please double check the ID you have entered, it must be numeric.", MessageBoxIcon.Information)
+        End If
+    End Sub
 End Class

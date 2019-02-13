@@ -94,6 +94,12 @@
     <Compile Include="AddContact.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AddLog.Designer.vb">
+      <DependentUpon>AddLog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AddLog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="AddProduct.Designer.vb">
       <DependentUpon>AddProduct.vb</DependentUpon>
     </Compile>
@@ -141,6 +147,12 @@
     <Compile Include="ModifyContact.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ModifyLog.Designer.vb">
+      <DependentUpon>ModifyLog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ModifyLog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ModifyProduct.Designer.vb">
       <DependentUpon>ModifyProduct.vb</DependentUpon>
     </Compile>
@@ -182,6 +194,12 @@
     <Compile Include="ViewContact.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ViewLog.Designer.vb">
+      <DependentUpon>ViewLog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ViewLog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ViewProduct.Designer.vb">
       <DependentUpon>ViewProduct.vb</DependentUpon>
     </Compile>
@@ -192,6 +210,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AddContact.resx">
       <DependentUpon>AddContact.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddLog.resx">
+      <DependentUpon>AddLog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddProduct.resx">
       <DependentUpon>AddProduct.vb</DependentUpon>
@@ -214,6 +235,9 @@
     <EmbeddedResource Include="ModifyContact.resx">
       <DependentUpon>ModifyContact.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModifyLog.resx">
+      <DependentUpon>ModifyLog.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModifyProduct.resx">
       <DependentUpon>ModifyProduct.vb</DependentUpon>
     </EmbeddedResource>
@@ -231,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewContact.resx">
       <DependentUpon>ViewContact.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewLog.resx">
+      <DependentUpon>ViewLog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewProduct.resx">
       <DependentUpon>ViewProduct.vb</DependentUpon>

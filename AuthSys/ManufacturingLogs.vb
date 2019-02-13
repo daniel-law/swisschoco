@@ -38,7 +38,6 @@ Public Class ManufacturingLogs
     End Sub
 
     Private Sub getLastRecordID()
-        ' 
         Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
         Dim cmd As New SqlCommand
 
