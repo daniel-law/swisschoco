@@ -40,6 +40,11 @@ Partial Class MainMenu
         Me.ViewContactToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ModifyContactToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteContactToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ManufacturingLogsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ViewLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModifyLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchFormButton = New System.Windows.Forms.Button()
         Me.FactoriesFormButton = New System.Windows.Forms.Button()
         Me.ContactsFormButton = New System.Windows.Forms.Button()
@@ -47,11 +52,6 @@ Partial Class MainMenu
         Me.InternalInvoicesFormButton = New System.Windows.Forms.Button()
         Me.ProductsFormButton = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ManufacturingLogsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AddLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ViewLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ModifyLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DeleteLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -123,7 +123,7 @@ Partial Class MainMenu
         Me.MenuStrip1.Location = New System.Drawing.Point(147, 4)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.MenuStrip1.Size = New System.Drawing.Size(305, 32)
+        Me.MenuStrip1.Size = New System.Drawing.Size(125, 32)
         Me.MenuStrip1.TabIndex = 27
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -145,25 +145,25 @@ Partial Class MainMenu
         'AddProductToolStripMenuItem
         '
         Me.AddProductToolStripMenuItem.Name = "AddProductToolStripMenuItem"
-        Me.AddProductToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
+        Me.AddProductToolStripMenuItem.Size = New System.Drawing.Size(217, 30)
         Me.AddProductToolStripMenuItem.Text = "Add Product"
         '
         'ViewProductToolStripMenuItem
         '
         Me.ViewProductToolStripMenuItem.Name = "ViewProductToolStripMenuItem"
-        Me.ViewProductToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
+        Me.ViewProductToolStripMenuItem.Size = New System.Drawing.Size(217, 30)
         Me.ViewProductToolStripMenuItem.Text = "View Product"
         '
         'ModifyProductToolStripMenuItem
         '
         Me.ModifyProductToolStripMenuItem.Name = "ModifyProductToolStripMenuItem"
-        Me.ModifyProductToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
+        Me.ModifyProductToolStripMenuItem.Size = New System.Drawing.Size(217, 30)
         Me.ModifyProductToolStripMenuItem.Text = "Modify Product"
         '
         'DeleteProductToolStripMenuItem
         '
         Me.DeleteProductToolStripMenuItem.Name = "DeleteProductToolStripMenuItem"
-        Me.DeleteProductToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
+        Me.DeleteProductToolStripMenuItem.Size = New System.Drawing.Size(217, 30)
         Me.DeleteProductToolStripMenuItem.Text = "Delete Product"
         '
         'ContactsToolStripMenuItem
@@ -196,6 +196,37 @@ Partial Class MainMenu
         Me.DeleteContactToolStripMenuItem.Name = "DeleteContactToolStripMenuItem"
         Me.DeleteContactToolStripMenuItem.Size = New System.Drawing.Size(217, 30)
         Me.DeleteContactToolStripMenuItem.Text = "Delete Contact"
+        '
+        'ManufacturingLogsToolStripMenuItem
+        '
+        Me.ManufacturingLogsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddLogToolStripMenuItem, Me.ViewLogToolStripMenuItem, Me.ModifyLogToolStripMenuItem, Me.DeleteLogToolStripMenuItem})
+        Me.ManufacturingLogsToolStripMenuItem.Name = "ManufacturingLogsToolStripMenuItem"
+        Me.ManufacturingLogsToolStripMenuItem.Size = New System.Drawing.Size(253, 30)
+        Me.ManufacturingLogsToolStripMenuItem.Text = "Manufacturing Logs"
+        '
+        'AddLogToolStripMenuItem
+        '
+        Me.AddLogToolStripMenuItem.Name = "AddLogToolStripMenuItem"
+        Me.AddLogToolStripMenuItem.Size = New System.Drawing.Size(184, 30)
+        Me.AddLogToolStripMenuItem.Text = "Add Log"
+        '
+        'ViewLogToolStripMenuItem
+        '
+        Me.ViewLogToolStripMenuItem.Name = "ViewLogToolStripMenuItem"
+        Me.ViewLogToolStripMenuItem.Size = New System.Drawing.Size(184, 30)
+        Me.ViewLogToolStripMenuItem.Text = "View Log"
+        '
+        'ModifyLogToolStripMenuItem
+        '
+        Me.ModifyLogToolStripMenuItem.Name = "ModifyLogToolStripMenuItem"
+        Me.ModifyLogToolStripMenuItem.Size = New System.Drawing.Size(184, 30)
+        Me.ModifyLogToolStripMenuItem.Text = "Modify Log"
+        '
+        'DeleteLogToolStripMenuItem
+        '
+        Me.DeleteLogToolStripMenuItem.Name = "DeleteLogToolStripMenuItem"
+        Me.DeleteLogToolStripMenuItem.Size = New System.Drawing.Size(184, 30)
+        Me.DeleteLogToolStripMenuItem.Text = "Delete Log"
         '
         'SearchFormButton
         '
@@ -321,37 +352,6 @@ Partial Class MainMenu
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
-        '
-        'ManufacturingLogsToolStripMenuItem
-        '
-        Me.ManufacturingLogsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddLogToolStripMenuItem, Me.ViewLogToolStripMenuItem, Me.ModifyLogToolStripMenuItem, Me.DeleteLogToolStripMenuItem})
-        Me.ManufacturingLogsToolStripMenuItem.Name = "ManufacturingLogsToolStripMenuItem"
-        Me.ManufacturingLogsToolStripMenuItem.Size = New System.Drawing.Size(253, 30)
-        Me.ManufacturingLogsToolStripMenuItem.Text = "Manufacturing Logs"
-        '
-        'AddLogToolStripMenuItem
-        '
-        Me.AddLogToolStripMenuItem.Name = "AddLogToolStripMenuItem"
-        Me.AddLogToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
-        Me.AddLogToolStripMenuItem.Text = "Add Log"
-        '
-        'ViewLogToolStripMenuItem
-        '
-        Me.ViewLogToolStripMenuItem.Name = "ViewLogToolStripMenuItem"
-        Me.ViewLogToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
-        Me.ViewLogToolStripMenuItem.Text = "View Log"
-        '
-        'ModifyLogToolStripMenuItem
-        '
-        Me.ModifyLogToolStripMenuItem.Name = "ModifyLogToolStripMenuItem"
-        Me.ModifyLogToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
-        Me.ModifyLogToolStripMenuItem.Text = "Modify Log"
-        '
-        'DeleteLogToolStripMenuItem
-        '
-        Me.DeleteLogToolStripMenuItem.Name = "DeleteLogToolStripMenuItem"
-        Me.DeleteLogToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
-        Me.DeleteLogToolStripMenuItem.Text = "Delete Log"
         '
         'MainMenu
         '

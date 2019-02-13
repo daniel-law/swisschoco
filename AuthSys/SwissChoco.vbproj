@@ -94,6 +94,12 @@
     <Compile Include="AddContact.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AddFactory.Designer.vb">
+      <DependentUpon>AddFactory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AddFactory.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="AddLog.Designer.vb">
       <DependentUpon>AddLog.vb</DependentUpon>
     </Compile>
@@ -121,6 +127,12 @@
       <DependentUpon>Debug.vb</DependentUpon>
     </Compile>
     <Compile Include="Debug.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Factories.Designer.vb">
+      <DependentUpon>Factories.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Factories.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginForm.Designer.vb">
@@ -211,6 +223,9 @@
     <EmbeddedResource Include="AddContact.resx">
       <DependentUpon>AddContact.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddFactory.resx">
+      <DependentUpon>AddFactory.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddLog.resx">
       <DependentUpon>AddLog.vb</DependentUpon>
     </EmbeddedResource>
@@ -222,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Debug.resx">
       <DependentUpon>Debug.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Factories.resx">
+      <DependentUpon>Factories.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.vb</DependentUpon>
