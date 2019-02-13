@@ -128,7 +128,7 @@ Partial Class MainMenu
         Me.MenuStrip1.Location = New System.Drawing.Point(147, 4)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.MenuStrip1.Size = New System.Drawing.Size(305, 32)
+        Me.MenuStrip1.Size = New System.Drawing.Size(125, 32)
         Me.MenuStrip1.TabIndex = 27
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -243,25 +243,25 @@ Partial Class MainMenu
         'AddFactoryToolStripMenuItem
         '
         Me.AddFactoryToolStripMenuItem.Name = "AddFactoryToolStripMenuItem"
-        Me.AddFactoryToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
+        Me.AddFactoryToolStripMenuItem.Size = New System.Drawing.Size(213, 30)
         Me.AddFactoryToolStripMenuItem.Text = "Add Factory"
         '
         'ViewFactoryToolStripMenuItem
         '
         Me.ViewFactoryToolStripMenuItem.Name = "ViewFactoryToolStripMenuItem"
-        Me.ViewFactoryToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
+        Me.ViewFactoryToolStripMenuItem.Size = New System.Drawing.Size(213, 30)
         Me.ViewFactoryToolStripMenuItem.Text = "View Factory"
         '
         'ModifyFactoryToolStripMenuItem
         '
         Me.ModifyFactoryToolStripMenuItem.Name = "ModifyFactoryToolStripMenuItem"
-        Me.ModifyFactoryToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
+        Me.ModifyFactoryToolStripMenuItem.Size = New System.Drawing.Size(213, 30)
         Me.ModifyFactoryToolStripMenuItem.Text = "Modify Factory"
         '
         'DeleteFactoryToolStripMenuItem
         '
         Me.DeleteFactoryToolStripMenuItem.Name = "DeleteFactoryToolStripMenuItem"
-        Me.DeleteFactoryToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
+        Me.DeleteFactoryToolStripMenuItem.Size = New System.Drawing.Size(213, 30)
         Me.DeleteFactoryToolStripMenuItem.Text = "Delete Factory"
         '
         'SearchFormButton

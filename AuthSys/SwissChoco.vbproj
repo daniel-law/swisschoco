@@ -135,6 +135,12 @@
     <Compile Include="Factories.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="InternalInvoices.Designer.vb">
+      <DependentUpon>InternalInvoices.vb</DependentUpon>
+    </Compile>
+    <Compile Include="InternalInvoices.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="LoginForm.Designer.vb">
       <DependentUpon>LoginForm.vb</DependentUpon>
     </Compile>
@@ -252,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Factories.resx">
       <DependentUpon>Factories.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InternalInvoices.resx">
+      <DependentUpon>InternalInvoices.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.vb</DependentUpon>

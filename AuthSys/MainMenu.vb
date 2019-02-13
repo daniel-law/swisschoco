@@ -263,6 +263,11 @@ Public Class MainMenu
         AddContact.Show()
     End Sub
 
+    Private Sub InternalInvoicesFormButton_Click(sender As Object, e As EventArgs) Handles InternalInvoicesFormButton.Click
+        Dim InternalInvoiesForm As New InternalInvoices
+        InternalInvoiesForm.Show()
+    End Sub
+
     Private Sub ViewContactToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewContactToolStripMenuItem.Click
         Dim userInput As String
         userInput = InputBox("Please enter the Contact ID you wish to view.")
