@@ -39,12 +39,12 @@ Partial Class Factories
         Me.FactoriesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DevelopmentDataSet = New SwissChoco.DevelopmentDataSet()
         Me.FactoriesTableAdapter = New SwissChoco.DevelopmentDataSetTableAdapters.FactoriesTableAdapter()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LocaleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FactoriesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DevelopmentDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -234,6 +234,17 @@ Partial Class Factories
         '
         Me.FactoriesTableAdapter.ClearBeforeFill = True
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.SwissChoco.My.Resources.Resources.Logo
+        Me.PictureBox1.Location = New System.Drawing.Point(1053, 41)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(153, 151)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 29
+        Me.PictureBox1.TabStop = False
+        '
         'IdDataGridViewTextBoxColumn
         '
         Me.IdDataGridViewTextBoxColumn.DataPropertyName = "Id"
@@ -255,6 +266,7 @@ Partial Class Factories
         Me.LocaleDataGridViewTextBoxColumn.Frozen = True
         Me.LocaleDataGridViewTextBoxColumn.HeaderText = "Locale"
         Me.LocaleDataGridViewTextBoxColumn.Name = "LocaleDataGridViewTextBoxColumn"
+        Me.LocaleDataGridViewTextBoxColumn.Width = 200
         '
         'Column1
         '
@@ -270,17 +282,6 @@ Partial Class Factories
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
         Me.Column2.Visible = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.SwissChoco.My.Resources.Resources.Logo
-        Me.PictureBox1.Location = New System.Drawing.Point(1053, 41)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(153, 151)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 29
-        Me.PictureBox1.TabStop = False
         '
         'Factories
         '

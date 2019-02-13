@@ -45,6 +45,11 @@ Partial Class MainMenu
         Me.ViewLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ModifyLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FactoriesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddFactoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ViewFactoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModifyFactoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteFactoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchFormButton = New System.Windows.Forms.Button()
         Me.FactoriesFormButton = New System.Windows.Forms.Button()
         Me.ContactsFormButton = New System.Windows.Forms.Button()
@@ -123,13 +128,13 @@ Partial Class MainMenu
         Me.MenuStrip1.Location = New System.Drawing.Point(147, 4)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.MenuStrip1.Size = New System.Drawing.Size(125, 32)
+        Me.MenuStrip1.Size = New System.Drawing.Size(305, 32)
         Me.MenuStrip1.TabIndex = 27
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'QuickJumpToolStripMenuItem
         '
-        Me.QuickJumpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProductsToolStripMenuItem, Me.ContactsToolStripMenuItem, Me.ManufacturingLogsToolStripMenuItem})
+        Me.QuickJumpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProductsToolStripMenuItem, Me.ContactsToolStripMenuItem, Me.ManufacturingLogsToolStripMenuItem, Me.FactoriesToolStripMenuItem})
         Me.QuickJumpToolStripMenuItem.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 9.0!)
         Me.QuickJumpToolStripMenuItem.Name = "QuickJumpToolStripMenuItem"
         Me.QuickJumpToolStripMenuItem.Size = New System.Drawing.Size(117, 28)
@@ -227,6 +232,37 @@ Partial Class MainMenu
         Me.DeleteLogToolStripMenuItem.Name = "DeleteLogToolStripMenuItem"
         Me.DeleteLogToolStripMenuItem.Size = New System.Drawing.Size(184, 30)
         Me.DeleteLogToolStripMenuItem.Text = "Delete Log"
+        '
+        'FactoriesToolStripMenuItem
+        '
+        Me.FactoriesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddFactoryToolStripMenuItem, Me.ViewFactoryToolStripMenuItem, Me.ModifyFactoryToolStripMenuItem, Me.DeleteFactoryToolStripMenuItem})
+        Me.FactoriesToolStripMenuItem.Name = "FactoriesToolStripMenuItem"
+        Me.FactoriesToolStripMenuItem.Size = New System.Drawing.Size(253, 30)
+        Me.FactoriesToolStripMenuItem.Text = "Factories"
+        '
+        'AddFactoryToolStripMenuItem
+        '
+        Me.AddFactoryToolStripMenuItem.Name = "AddFactoryToolStripMenuItem"
+        Me.AddFactoryToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
+        Me.AddFactoryToolStripMenuItem.Text = "Add Factory"
+        '
+        'ViewFactoryToolStripMenuItem
+        '
+        Me.ViewFactoryToolStripMenuItem.Name = "ViewFactoryToolStripMenuItem"
+        Me.ViewFactoryToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
+        Me.ViewFactoryToolStripMenuItem.Text = "View Factory"
+        '
+        'ModifyFactoryToolStripMenuItem
+        '
+        Me.ModifyFactoryToolStripMenuItem.Name = "ModifyFactoryToolStripMenuItem"
+        Me.ModifyFactoryToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
+        Me.ModifyFactoryToolStripMenuItem.Text = "Modify Factory"
+        '
+        'DeleteFactoryToolStripMenuItem
+        '
+        Me.DeleteFactoryToolStripMenuItem.Name = "DeleteFactoryToolStripMenuItem"
+        Me.DeleteFactoryToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
+        Me.DeleteFactoryToolStripMenuItem.Text = "Delete Factory"
         '
         'SearchFormButton
         '
@@ -411,4 +447,9 @@ Partial Class MainMenu
     Friend WithEvents ViewLogToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ModifyLogToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DeleteLogToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents FactoriesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AddFactoryToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewFactoryToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModifyFactoryToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DeleteFactoryToolStripMenuItem As ToolStripMenuItem
 End Class

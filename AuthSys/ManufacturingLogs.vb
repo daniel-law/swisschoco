@@ -224,74 +224,82 @@ Public Class ManufacturingLogs
     End Sub
 
     Private Sub PreviousButton_Click(sender As Object, e As EventArgs) Handles PreviousButton.Click
-        Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
-        Dim cmd As New SqlCommand
+        If currentId <> Nothing Then
+            Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Dim cmd As New SqlCommand
 
-        Try
-            cmd.Connection = connectionString
-            connectionString.Open()
-            cmd.CommandText = "SELECT TOP 1 * FROM ManufacturingLogs WHERE Id < @currentId ORDER BY Id DESC;"
-            cmd.Parameters.Add("@currentId", SqlDbType.Int).Value = currentId
-            Dim reader As SqlDataReader = cmd.ExecuteReader
+            Try
+                cmd.Connection = connectionString
+                connectionString.Open()
+                cmd.CommandText = "SELECT TOP 1 * FROM ManufacturingLogs WHERE Id < @currentId ORDER BY Id DESC;"
+                cmd.Parameters.Add("@currentId", SqlDbType.Int).Value = currentId
+                Dim reader As SqlDataReader = cmd.ExecuteReader
 
-            Dim FactoryID As String
-            Dim UserId As String
-            Dim Detail As String
+                Dim FactoryID As String
+                Dim UserId As String
+                Dim Detail As String
 
-            While reader.Read
-                currentId = reader("Id").ToString()
-                FactoryID = reader("FactoryID").ToString()
-                UserId = reader("UserId").ToString()
-                Detail = reader("Detail").ToString()
-            End While
+                While reader.Read
+                    currentId = reader("Id").ToString()
+                    FactoryID = reader("FactoryID").ToString()
+                    UserId = reader("UserId").ToString()
+                    Detail = reader("Detail").ToString()
+                End While
 
-            If Detail <> "" Then
-                FactoryIDTextBox.Text = FactoryID
-                ConductedByTextBox.Text = UserId
-                DetailsRichTextBox.Text = Detail
-            Else
-                MsgBox("There is not another manufacturing log.", MessageBoxIcon.Warning)
-            End If
-        Catch ex As Exception
-            MsgBox("Unable to view the manufacturing log." & ex.Message, MessageBoxIcon.Warning)
-            ' DB issues, exit.
-            Exit Sub
-        End Try
+                If Detail <> "" Then
+                    FactoryIDTextBox.Text = FactoryID
+                    ConductedByTextBox.Text = UserId
+                    DetailsRichTextBox.Text = Detail
+                Else
+                    MsgBox("There is not another manufacturing log.", MessageBoxIcon.Warning)
+                End If
+            Catch ex As Exception
+                MsgBox("Unable to view the manufacturing log." & ex.Message, MessageBoxIcon.Warning)
+                ' DB issues, exit.
+                Exit Sub
+            End Try
+        Else
+            MsgBox("Unable to view the manufacturing log.", MessageBoxIcon.Warning)
+        End If
     End Sub
 
     Private Sub NextButton_Click(sender As Object, e As EventArgs) Handles NextButton.Click
-        Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
-        Dim cmd As New SqlCommand
+        If currentId <> Nothing Then
+            Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Dim cmd As New SqlCommand
 
-        Try
-            cmd.Connection = connectionString
-            connectionString.Open()
-            cmd.CommandText = "SELECT TOP 1 * FROM ManufacturingLogs WHERE Id > @currentId ORDER BY Id;"
-            cmd.Parameters.Add("@currentId", SqlDbType.Int).Value = currentId
-            Dim reader As SqlDataReader = cmd.ExecuteReader
+            Try
+                cmd.Connection = connectionString
+                connectionString.Open()
+                cmd.CommandText = "SELECT TOP 1 * FROM ManufacturingLogs WHERE Id > @currentId ORDER BY Id;"
+                cmd.Parameters.Add("@currentId", SqlDbType.Int).Value = currentId
+                Dim reader As SqlDataReader = cmd.ExecuteReader
 
-            Dim FactoryID As String
-            Dim UserId As String
-            Dim Detail As String
+                Dim FactoryID As String
+                Dim UserId As String
+                Dim Detail As String
 
-            While reader.Read
-                currentId = reader("Id").ToString()
-                FactoryID = reader("FactoryID").ToString()
-                UserId = reader("UserId").ToString()
-                Detail = reader("Detail").ToString()
-            End While
+                While reader.Read
+                    currentId = reader("Id").ToString()
+                    FactoryID = reader("FactoryID").ToString()
+                    UserId = reader("UserId").ToString()
+                    Detail = reader("Detail").ToString()
+                End While
 
-            If Detail <> "" Then
-                FactoryIDTextBox.Text = FactoryID
-                ConductedByTextBox.Text = UserId
-                DetailsRichTextBox.Text = Detail
-            Else
-                MsgBox("There is not another manufacturing log.", MessageBoxIcon.Warning)
-            End If
-        Catch ex As Exception
-            MsgBox("Unable to view the manufacturing log." & ex.Message, MessageBoxIcon.Warning)
-            ' DB issues, exit.
-            Exit Sub
-        End Try
+                If Detail <> "" Then
+                    FactoryIDTextBox.Text = FactoryID
+                    ConductedByTextBox.Text = UserId
+                    DetailsRichTextBox.Text = Detail
+                Else
+                    MsgBox("There is not another manufacturing log.", MessageBoxIcon.Warning)
+                End If
+            Catch ex As Exception
+                MsgBox("Unable to view the manufacturing log." & ex.Message, MessageBoxIcon.Warning)
+                ' DB issues, exit.
+                Exit Sub
+            End Try
+        Else
+            MsgBox("Unable to view the manufacturing log.", MessageBoxIcon.Warning)
+        End If
     End Sub
 End Class

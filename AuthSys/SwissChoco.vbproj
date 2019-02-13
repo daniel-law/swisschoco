@@ -159,6 +159,12 @@
     <Compile Include="ModifyContact.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ModifyFactory.Designer.vb">
+      <DependentUpon>ModifyFactory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ModifyFactory.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ModifyLog.Designer.vb">
       <DependentUpon>ModifyLog.vb</DependentUpon>
     </Compile>
@@ -204,6 +210,12 @@
       <DependentUpon>ViewContact.vb</DependentUpon>
     </Compile>
     <Compile Include="ViewContact.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewFactory.Designer.vb">
+      <DependentUpon>ViewFactory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ViewFactory.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ViewLog.Designer.vb">
@@ -253,6 +265,9 @@
     <EmbeddedResource Include="ModifyContact.resx">
       <DependentUpon>ModifyContact.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModifyFactory.resx">
+      <DependentUpon>ModifyFactory.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModifyLog.resx">
       <DependentUpon>ModifyLog.vb</DependentUpon>
     </EmbeddedResource>
@@ -273,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewContact.resx">
       <DependentUpon>ViewContact.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewFactory.resx">
+      <DependentUpon>ViewFactory.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewLog.resx">
       <DependentUpon>ViewLog.vb</DependentUpon>
