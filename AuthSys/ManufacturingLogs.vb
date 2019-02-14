@@ -31,7 +31,7 @@ Public Class ManufacturingLogs
             DetailsRichTextBox.Text = Detail
 
         Catch ex As Exception
-            MsgBox("Unable to view the selected manufacturing log." & ex.Message, MessageBoxIcon.Warning)
+            MsgBox("Unable to view the selected manufacturing log.", MessageBoxIcon.Warning)
             ' DB issues, exit.
             Exit Sub
         End Try

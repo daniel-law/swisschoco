@@ -31,10 +31,8 @@ Partial Class InternalInvoices
         Me.NameLabel = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.FactoryIDTextBox = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.ProductIDTextBox = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.ContactTextBox = New System.Windows.Forms.TextBox()
+        Me.ContactIDTextBox = New System.Windows.Forms.TextBox()
         Me.TotalCostNumericUpDown = New System.Windows.Forms.NumericUpDown()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.NextButton = New System.Windows.Forms.Button()
@@ -46,6 +44,17 @@ Partial Class InternalInvoices
         Me.Label7 = New System.Windows.Forms.Label()
         Me.SearchTextBox = New System.Windows.Forms.TextBox()
         Me.SearchButton = New System.Windows.Forms.Button()
+        Me.ItemsListBox = New System.Windows.Forms.ListBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.NameTextBox = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.CountryTextBox = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.ContactNameTextBox = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.SelectFactoryButton = New System.Windows.Forms.Button()
+        Me.SelectItemsButton = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TotalCostNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -53,7 +62,7 @@ Partial Class InternalInvoices
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.SwissChoco.My.Resources.Resources.Logo
-        Me.PictureBox1.Location = New System.Drawing.Point(636, 43)
+        Me.PictureBox1.Location = New System.Drawing.Point(1137, 43)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(153, 151)
@@ -67,7 +76,7 @@ Partial Class InternalInvoices
         Me.Panel2.Location = New System.Drawing.Point(0, 43)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(638, 151)
+        Me.Panel2.Size = New System.Drawing.Size(1139, 151)
         Me.Panel2.TabIndex = 32
         '
         'Panel1
@@ -75,7 +84,7 @@ Partial Class InternalInvoices
         Me.Panel1.BackColor = System.Drawing.Color.White
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(789, 43)
+        Me.Panel1.Size = New System.Drawing.Size(1290, 43)
         Me.Panel1.TabIndex = 30
         '
         'Label2
@@ -117,7 +126,7 @@ Partial Class InternalInvoices
         '
         'Label3
         '
-        Me.Label3.Location = New System.Drawing.Point(111, 401)
+        Me.Label3.Location = New System.Drawing.Point(582, 553)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(124, 31)
         Me.Label3.TabIndex = 56
@@ -126,56 +135,40 @@ Partial Class InternalInvoices
         '
         'FactoryIDTextBox
         '
-        Me.FactoryIDTextBox.Location = New System.Drawing.Point(241, 403)
+        Me.FactoryIDTextBox.Location = New System.Drawing.Point(712, 555)
         Me.FactoryIDTextBox.MaxLength = 64
         Me.FactoryIDTextBox.Name = "FactoryIDTextBox"
+        Me.FactoryIDTextBox.ReadOnly = True
         Me.FactoryIDTextBox.Size = New System.Drawing.Size(220, 26)
         Me.FactoryIDTextBox.TabIndex = 57
         '
-        'Label4
-        '
-        Me.Label4.Location = New System.Drawing.Point(111, 449)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(124, 31)
-        Me.Label4.TabIndex = 58
-        Me.Label4.Text = "Product IDs:"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'ProductIDTextBox
-        '
-        Me.ProductIDTextBox.Location = New System.Drawing.Point(241, 451)
-        Me.ProductIDTextBox.MaxLength = 64
-        Me.ProductIDTextBox.Name = "ProductIDTextBox"
-        Me.ProductIDTextBox.Size = New System.Drawing.Size(220, 26)
-        Me.ProductIDTextBox.TabIndex = 59
-        '
         'Label5
         '
-        Me.Label5.Location = New System.Drawing.Point(111, 498)
+        Me.Label5.Location = New System.Drawing.Point(111, 391)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(124, 31)
         Me.Label5.TabIndex = 60
-        Me.Label5.Text = "Contact:"
+        Me.Label5.Text = "Contact ID:"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'ContactTextBox
+        'ContactIDTextBox
         '
-        Me.ContactTextBox.Location = New System.Drawing.Point(241, 503)
-        Me.ContactTextBox.MaxLength = 64
-        Me.ContactTextBox.Name = "ContactTextBox"
-        Me.ContactTextBox.Size = New System.Drawing.Size(220, 26)
-        Me.ContactTextBox.TabIndex = 61
+        Me.ContactIDTextBox.Location = New System.Drawing.Point(241, 393)
+        Me.ContactIDTextBox.MaxLength = 64
+        Me.ContactIDTextBox.Name = "ContactIDTextBox"
+        Me.ContactIDTextBox.Size = New System.Drawing.Size(220, 26)
+        Me.ContactIDTextBox.TabIndex = 61
         '
         'TotalCostNumericUpDown
         '
-        Me.TotalCostNumericUpDown.Location = New System.Drawing.Point(241, 550)
+        Me.TotalCostNumericUpDown.Location = New System.Drawing.Point(241, 479)
         Me.TotalCostNumericUpDown.Name = "TotalCostNumericUpDown"
         Me.TotalCostNumericUpDown.Size = New System.Drawing.Size(120, 26)
         Me.TotalCostNumericUpDown.TabIndex = 62
         '
         'Label6
         '
-        Me.Label6.Location = New System.Drawing.Point(111, 547)
+        Me.Label6.Location = New System.Drawing.Point(111, 476)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(124, 31)
         Me.Label6.TabIndex = 63
@@ -225,7 +218,7 @@ Partial Class InternalInvoices
         Me.CancelButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CancelButton.ForeColor = System.Drawing.Color.Black
         Me.CancelButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.CancelButton.Location = New System.Drawing.Point(549, 260)
+        Me.CancelButton.Location = New System.Drawing.Point(1050, 260)
         Me.CancelButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.CancelButton.Name = "CancelButton"
         Me.CancelButton.Size = New System.Drawing.Size(198, 45)
@@ -243,7 +236,7 @@ Partial Class InternalInvoices
         Me.NewInvoiceButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NewInvoiceButton.ForeColor = System.Drawing.Color.Black
         Me.NewInvoiceButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.NewInvoiceButton.Location = New System.Drawing.Point(549, 634)
+        Me.NewInvoiceButton.Location = New System.Drawing.Point(1050, 575)
         Me.NewInvoiceButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.NewInvoiceButton.Name = "NewInvoiceButton"
         Me.NewInvoiceButton.Size = New System.Drawing.Size(198, 45)
@@ -260,7 +253,7 @@ Partial Class InternalInvoices
         Me.DeleteInvoiceButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DeleteInvoiceButton.ForeColor = System.Drawing.Color.Black
         Me.DeleteInvoiceButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.DeleteInvoiceButton.Location = New System.Drawing.Point(549, 689)
+        Me.DeleteInvoiceButton.Location = New System.Drawing.Point(1050, 630)
         Me.DeleteInvoiceButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.DeleteInvoiceButton.Name = "DeleteInvoiceButton"
         Me.DeleteInvoiceButton.Size = New System.Drawing.Size(198, 45)
@@ -277,7 +270,7 @@ Partial Class InternalInvoices
         Me.SaveChangesButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SaveChangesButton.ForeColor = System.Drawing.Color.Black
         Me.SaveChangesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.SaveChangesButton.Location = New System.Drawing.Point(549, 579)
+        Me.SaveChangesButton.Location = New System.Drawing.Point(1050, 520)
         Me.SaveChangesButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.SaveChangesButton.Name = "SaveChangesButton"
         Me.SaveChangesButton.Size = New System.Drawing.Size(198, 45)
@@ -289,7 +282,7 @@ Partial Class InternalInvoices
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!)
-        Me.Label7.Location = New System.Drawing.Point(544, 389)
+        Me.Label7.Location = New System.Drawing.Point(1045, 389)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(133, 27)
         Me.Label7.TabIndex = 68
@@ -297,7 +290,7 @@ Partial Class InternalInvoices
         '
         'SearchTextBox
         '
-        Me.SearchTextBox.Location = New System.Drawing.Point(686, 391)
+        Me.SearchTextBox.Location = New System.Drawing.Point(1187, 391)
         Me.SearchTextBox.Name = "SearchTextBox"
         Me.SearchTextBox.Size = New System.Drawing.Size(61, 26)
         Me.SearchTextBox.TabIndex = 67
@@ -311,7 +304,7 @@ Partial Class InternalInvoices
         Me.SearchButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SearchButton.ForeColor = System.Drawing.Color.Black
         Me.SearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.SearchButton.Location = New System.Drawing.Point(549, 437)
+        Me.SearchButton.Location = New System.Drawing.Point(1050, 437)
         Me.SearchButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.SearchButton.Name = "SearchButton"
         Me.SearchButton.Size = New System.Drawing.Size(198, 40)
@@ -319,11 +312,138 @@ Partial Class InternalInvoices
         Me.SearchButton.Text = "Search"
         Me.SearchButton.UseVisualStyleBackColor = False
         '
+        'ItemsListBox
+        '
+        Me.ItemsListBox.FormattingEnabled = True
+        Me.ItemsListBox.ItemHeight = 20
+        Me.ItemsListBox.Location = New System.Drawing.Point(571, 269)
+        Me.ItemsListBox.Name = "ItemsListBox"
+        Me.ItemsListBox.Size = New System.Drawing.Size(384, 204)
+        Me.ItemsListBox.TabIndex = 73
+        '
+        'Label8
+        '
+        Me.Label8.Location = New System.Drawing.Point(582, 599)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(124, 31)
+        Me.Label8.TabIndex = 74
+        Me.Label8.Text = "Name:"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'NameTextBox
+        '
+        Me.NameTextBox.Location = New System.Drawing.Point(712, 601)
+        Me.NameTextBox.MaxLength = 64
+        Me.NameTextBox.Name = "NameTextBox"
+        Me.NameTextBox.ReadOnly = True
+        Me.NameTextBox.Size = New System.Drawing.Size(220, 26)
+        Me.NameTextBox.TabIndex = 75
+        '
+        'Label9
+        '
+        Me.Label9.Location = New System.Drawing.Point(582, 646)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(124, 31)
+        Me.Label9.TabIndex = 76
+        Me.Label9.Text = "Country:"
+        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'CountryTextBox
+        '
+        Me.CountryTextBox.Location = New System.Drawing.Point(712, 648)
+        Me.CountryTextBox.MaxLength = 64
+        Me.CountryTextBox.Name = "CountryTextBox"
+        Me.CountryTextBox.ReadOnly = True
+        Me.CountryTextBox.Size = New System.Drawing.Size(220, 26)
+        Me.CountryTextBox.TabIndex = 77
+        '
+        'Label4
+        '
+        Me.Label4.Location = New System.Drawing.Point(111, 433)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(124, 31)
+        Me.Label4.TabIndex = 78
+        Me.Label4.Text = "Contact Name:"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'ContactNameTextBox
+        '
+        Me.ContactNameTextBox.Location = New System.Drawing.Point(241, 435)
+        Me.ContactNameTextBox.MaxLength = 64
+        Me.ContactNameTextBox.Name = "ContactNameTextBox"
+        Me.ContactNameTextBox.Size = New System.Drawing.Size(220, 26)
+        Me.ContactNameTextBox.TabIndex = 79
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!)
+        Me.Label10.Location = New System.Drawing.Point(566, 497)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(429, 27)
+        Me.Label10.TabIndex = 80
+        Me.Label10.Text = "Below are the details of the associated factory."
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!)
+        Me.Label11.Location = New System.Drawing.Point(566, 229)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(405, 27)
+        Me.Label11.TabIndex = 81
+        Me.Label11.Text = "Below are the details of the item(s) ordered."
+        '
+        'SelectFactoryButton
+        '
+        Me.SelectFactoryButton.BackColor = System.Drawing.Color.White
+        Me.SelectFactoryButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.SelectFactoryButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.SelectFactoryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SelectFactoryButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SelectFactoryButton.ForeColor = System.Drawing.Color.Black
+        Me.SelectFactoryButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.SelectFactoryButton.Location = New System.Drawing.Point(74, 566)
+        Me.SelectFactoryButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.SelectFactoryButton.Name = "SelectFactoryButton"
+        Me.SelectFactoryButton.Size = New System.Drawing.Size(198, 45)
+        Me.SelectFactoryButton.TabIndex = 82
+        Me.SelectFactoryButton.Text = "Select Factory"
+        Me.SelectFactoryButton.UseVisualStyleBackColor = False
+        '
+        'SelectItemsButton
+        '
+        Me.SelectItemsButton.BackColor = System.Drawing.Color.White
+        Me.SelectItemsButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.SelectItemsButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.SelectItemsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SelectItemsButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SelectItemsButton.ForeColor = System.Drawing.Color.Black
+        Me.SelectItemsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.SelectItemsButton.Location = New System.Drawing.Point(300, 566)
+        Me.SelectItemsButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.SelectItemsButton.Name = "SelectItemsButton"
+        Me.SelectItemsButton.Size = New System.Drawing.Size(198, 45)
+        Me.SelectItemsButton.TabIndex = 83
+        Me.SelectItemsButton.Text = "Select Item(s)"
+        Me.SelectItemsButton.UseVisualStyleBackColor = False
+        '
         'InternalInvoices
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(787, 770)
+        Me.ClientSize = New System.Drawing.Size(1290, 718)
+        Me.Controls.Add(Me.SelectItemsButton)
+        Me.Controls.Add(Me.SelectFactoryButton)
+        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.ContactNameTextBox)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.CountryTextBox)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.NameTextBox)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.ItemsListBox)
         Me.Controls.Add(Me.CancelButton)
         Me.Controls.Add(Me.NewInvoiceButton)
         Me.Controls.Add(Me.DeleteInvoiceButton)
@@ -335,10 +455,8 @@ Partial Class InternalInvoices
         Me.Controls.Add(Me.PreviousButton)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.TotalCostNumericUpDown)
-        Me.Controls.Add(Me.ContactTextBox)
+        Me.Controls.Add(Me.ContactIDTextBox)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.ProductIDTextBox)
-        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.FactoryIDTextBox)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.InvoiceIDTextBox)
@@ -366,10 +484,8 @@ Partial Class InternalInvoices
     Friend WithEvents NameLabel As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents FactoryIDTextBox As TextBox
-    Friend WithEvents Label4 As Label
-    Friend WithEvents ProductIDTextBox As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents ContactTextBox As TextBox
+    Friend WithEvents ContactIDTextBox As TextBox
     Friend WithEvents TotalCostNumericUpDown As NumericUpDown
     Friend WithEvents Label6 As Label
     Friend WithEvents NextButton As Button
@@ -381,4 +497,15 @@ Partial Class InternalInvoices
     Friend WithEvents Label7 As Label
     Friend WithEvents SearchTextBox As TextBox
     Friend WithEvents SearchButton As Button
+    Friend WithEvents ItemsListBox As ListBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents NameTextBox As TextBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents CountryTextBox As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents ContactNameTextBox As TextBox
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents SelectFactoryButton As Button
+    Friend WithEvents SelectItemsButton As Button
 End Class
