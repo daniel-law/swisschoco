@@ -32,7 +32,6 @@ Partial Class InternalInvoices
         Me.Label3 = New System.Windows.Forms.Label()
         Me.FactoryIDTextBox = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.ContactIDTextBox = New System.Windows.Forms.TextBox()
         Me.TotalCostNumericUpDown = New System.Windows.Forms.NumericUpDown()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.NextButton = New System.Windows.Forms.Button()
@@ -55,8 +54,10 @@ Partial Class InternalInvoices
         Me.Label11 = New System.Windows.Forms.Label()
         Me.SelectFactoryButton = New System.Windows.Forms.Button()
         Me.SelectItemsButton = New System.Windows.Forms.Button()
+        Me.ContactsNumericUpDown = New System.Windows.Forms.NumericUpDown()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TotalCostNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ContactsNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PictureBox1
@@ -112,6 +113,7 @@ Partial Class InternalInvoices
         Me.InvoiceIDTextBox.Location = New System.Drawing.Point(241, 356)
         Me.InvoiceIDTextBox.MaxLength = 64
         Me.InvoiceIDTextBox.Name = "InvoiceIDTextBox"
+        Me.InvoiceIDTextBox.ReadOnly = True
         Me.InvoiceIDTextBox.Size = New System.Drawing.Size(220, 26)
         Me.InvoiceIDTextBox.TabIndex = 55
         '
@@ -151,18 +153,12 @@ Partial Class InternalInvoices
         Me.Label5.Text = "Contact ID:"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'ContactIDTextBox
-        '
-        Me.ContactIDTextBox.Location = New System.Drawing.Point(241, 393)
-        Me.ContactIDTextBox.MaxLength = 64
-        Me.ContactIDTextBox.Name = "ContactIDTextBox"
-        Me.ContactIDTextBox.Size = New System.Drawing.Size(220, 26)
-        Me.ContactIDTextBox.TabIndex = 61
-        '
         'TotalCostNumericUpDown
         '
+        Me.TotalCostNumericUpDown.Enabled = False
         Me.TotalCostNumericUpDown.Location = New System.Drawing.Point(241, 479)
         Me.TotalCostNumericUpDown.Name = "TotalCostNumericUpDown"
+        Me.TotalCostNumericUpDown.ReadOnly = True
         Me.TotalCostNumericUpDown.Size = New System.Drawing.Size(120, 26)
         Me.TotalCostNumericUpDown.TabIndex = 62
         '
@@ -218,7 +214,7 @@ Partial Class InternalInvoices
         Me.CancelButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CancelButton.ForeColor = System.Drawing.Color.Black
         Me.CancelButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.CancelButton.Location = New System.Drawing.Point(1050, 260)
+        Me.CancelButton.Location = New System.Drawing.Point(1050, 416)
         Me.CancelButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.CancelButton.Name = "CancelButton"
         Me.CancelButton.Size = New System.Drawing.Size(198, 45)
@@ -282,7 +278,7 @@ Partial Class InternalInvoices
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!)
-        Me.Label7.Location = New System.Drawing.Point(1045, 389)
+        Me.Label7.Location = New System.Drawing.Point(1045, 269)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(133, 27)
         Me.Label7.TabIndex = 68
@@ -290,7 +286,7 @@ Partial Class InternalInvoices
         '
         'SearchTextBox
         '
-        Me.SearchTextBox.Location = New System.Drawing.Point(1187, 391)
+        Me.SearchTextBox.Location = New System.Drawing.Point(1187, 271)
         Me.SearchTextBox.Name = "SearchTextBox"
         Me.SearchTextBox.Size = New System.Drawing.Size(61, 26)
         Me.SearchTextBox.TabIndex = 67
@@ -304,7 +300,7 @@ Partial Class InternalInvoices
         Me.SearchButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SearchButton.ForeColor = System.Drawing.Color.Black
         Me.SearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.SearchButton.Location = New System.Drawing.Point(1050, 437)
+        Me.SearchButton.Location = New System.Drawing.Point(1050, 317)
         Me.SearchButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.SearchButton.Name = "SearchButton"
         Me.SearchButton.Size = New System.Drawing.Size(198, 40)
@@ -371,6 +367,7 @@ Partial Class InternalInvoices
         Me.ContactNameTextBox.Location = New System.Drawing.Point(241, 435)
         Me.ContactNameTextBox.MaxLength = 64
         Me.ContactNameTextBox.Name = "ContactNameTextBox"
+        Me.ContactNameTextBox.ReadOnly = True
         Me.ContactNameTextBox.Size = New System.Drawing.Size(220, 26)
         Me.ContactNameTextBox.TabIndex = 79
         '
@@ -428,11 +425,22 @@ Partial Class InternalInvoices
         Me.SelectItemsButton.Text = "Select Item(s)"
         Me.SelectItemsButton.UseVisualStyleBackColor = False
         '
+        'ContactsNumericUpDown
+        '
+        Me.ContactsNumericUpDown.Location = New System.Drawing.Point(242, 395)
+        Me.ContactsNumericUpDown.Maximum = New Decimal(New Integer() {-1304428545, 434162106, 542, 0})
+        Me.ContactsNumericUpDown.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.ContactsNumericUpDown.Name = "ContactsNumericUpDown"
+        Me.ContactsNumericUpDown.Size = New System.Drawing.Size(120, 26)
+        Me.ContactsNumericUpDown.TabIndex = 84
+        Me.ContactsNumericUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
         'InternalInvoices
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1290, 718)
+        Me.Controls.Add(Me.ContactsNumericUpDown)
         Me.Controls.Add(Me.SelectItemsButton)
         Me.Controls.Add(Me.SelectFactoryButton)
         Me.Controls.Add(Me.Label11)
@@ -455,7 +463,6 @@ Partial Class InternalInvoices
         Me.Controls.Add(Me.PreviousButton)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.TotalCostNumericUpDown)
-        Me.Controls.Add(Me.ContactIDTextBox)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.FactoryIDTextBox)
         Me.Controls.Add(Me.Label3)
@@ -470,6 +477,7 @@ Partial Class InternalInvoices
         Me.Text = "SwissChoco - Internal Invoices"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TotalCostNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ContactsNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -485,7 +493,6 @@ Partial Class InternalInvoices
     Friend WithEvents Label3 As Label
     Friend WithEvents FactoryIDTextBox As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents ContactIDTextBox As TextBox
     Friend WithEvents TotalCostNumericUpDown As NumericUpDown
     Friend WithEvents Label6 As Label
     Friend WithEvents NextButton As Button
@@ -508,4 +515,5 @@ Partial Class InternalInvoices
     Friend WithEvents Label11 As Label
     Friend WithEvents SelectFactoryButton As Button
     Friend WithEvents SelectItemsButton As Button
+    Friend WithEvents ContactsNumericUpDown As NumericUpDown
 End Class
