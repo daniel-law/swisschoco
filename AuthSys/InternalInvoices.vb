@@ -9,35 +9,35 @@ Public Class InternalInvoices
     Dim Values As New List(Of Dictionary(Of String, String))()
     Dim errorNotify As Boolean = True
 
-    Private Sub InternalInvoices_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' // Get the first record in InternalInvoices.
-        Dim queryAssociatedDetails As Boolean
+    Private Sub loadInvoice(ByVal SQLQuery As String)
+        ' // Cleanup.
+        Values.Clear()
+        ItemsListBox.Items.Clear()
 
+        ' // Get the record from InternalInvoices.
+        Dim queryAssociatedDetails As Boolean
         Dim queryContactId As Integer
         Dim queryFactoryId As Integer
 
         Try
             cmd.Connection = connectionString
             connectionString.Open()
-            cmd.CommandText = "SELECT TOP 1 * FROM InternalInvoices;"
+            cmd.CommandText = SQLQuery
             Dim reader As SqlDataReader = cmd.ExecuteReader
 
             Dim InvoiceId As String
             Dim ContactId As String
-            Dim TotalCost As String
             Dim FactoryId As String
 
             While reader.Read
                 InvoiceId = reader("Id").ToString()
                 ContactId = reader("ContactId").ToString()
                 FactoryId = reader("FactoryId").ToString()
-                TotalCost = reader("TotalCost").ToString()
             End While
 
             If ContactId <> "" Then
                 InvoiceIDTextBox.Text = InvoiceId
                 ContactsNumericUpDown.Value = ContactId
-                TotalCostNumericUpDown.Value = TotalCost
                 queryAssociatedDetails = True
                 currentId = InvoiceId
 
@@ -100,9 +100,6 @@ Public Class InternalInvoices
             End Try
 
             ' Get order items associated with the invoice.
-            Dim retrievedProduct_Name As String
-            Dim retrievedProduct_Price As String
-
             Try
                 cmd.Connection = connectionString
                 connectionString.Open()
@@ -129,7 +126,7 @@ Public Class InternalInvoices
                 connectionString.Close()
             End Try
 
-            ' retrieve the details of the products.
+            ' Retrieve the details of the products.
             For Each Value As Dictionary(Of String, String) In Values
                 Try
                     cmd.Connection = connectionString
@@ -150,11 +147,19 @@ Public Class InternalInvoices
                     connectionString.Close()
                 End Try
             Next
-
-
-            ' Add the item to the listbox.
-            'ItemsListBox.Items.Add("Id: " & reader("ProductId") & reader("Quantity"))
         End If
+    End Sub
+
+    Private Sub InternalInvoices_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        loadInvoice("SELECT TOP 1 * FROM InternalInvoices;")
+    End Sub
+
+    Private Sub NextButton_Click(sender As Object, e As EventArgs) Handles NextButton.Click
+        loadInvoice("SELECT TOP 1 * FROM InternalInvoices WHERE Id > " & currentId & " ORDER BY Id;")
+    End Sub
+
+    Private Sub PreviousButton_Click(sender As Object, e As EventArgs) Handles PreviousButton.Click
+        loadInvoice("SELECT TOP 1 * FROM ManufacturingLogs WHERE Id < " & currentId & " ORDER BY Id DESC;")
     End Sub
 
     Private Sub SelectFactoryButton_Click(sender As Object, e As EventArgs) Handles SelectFactoryButton.Click
