@@ -100,7 +100,6 @@ Public Class InternalInvoices
             End Try
 
             ' Get order items associated with the invoice.
-            Dim retrievedProduct_Id As String
             Dim retrievedProduct_Name As String
             Dim retrievedProduct_Price As String
 
@@ -116,13 +115,10 @@ Public Class InternalInvoices
                     ' Load the items into the List.
                     Values.Add(New Dictionary(Of String, String) From {
                         {"id", reader("ProductId")}, {"quantity", reader("Quantity")}})
-                    retrievedProduct_Id = reader("ProductId")
-                    ' TODO: Query the specific details to show to the user.
-                    ' Add the item to the listbox.
-                    'ItemsListBox.Items.Add("Id: " & reader("ProductId") & ", " & retrievedProduct_Name & ", " & retrievedProduct_Price & ", x" & reader("Quantity"))
-                    ItemsListBox.Items.Add("Id: " & reader("ProductId") & reader("Quantity"))
                     netTotal = netTotal + reader("TotalCost")
                 End While
+
+                TotalCostNumericUpDown.Value = netTotal
 
             Catch ex As Exception
                 MsgBox("Unable to find the products associated with this invoice." & ex.Message, MessageBoxIcon.Warning)
@@ -132,6 +128,32 @@ Public Class InternalInvoices
                 cmd.Parameters.Clear()
                 connectionString.Close()
             End Try
+
+            ' retrieve the details of the products.
+            For Each Value As Dictionary(Of String, String) In Values
+                Try
+                    cmd.Connection = connectionString
+                    connectionString.Open()
+                    cmd.CommandText = "SELECT * FROM Products WHERE Id = @Id;"
+                    cmd.Parameters.Add("Id", SqlDbType.Int).Value = Value("id")
+                    Dim reader As SqlDataReader = cmd.ExecuteReader
+
+                    While reader.Read
+                        ItemsListBox.Items.Add("Id: " & Value("id") & ", " & reader("Name") & ", " & reader("Price").ToString() & ", x" & Value("quantity"))
+                    End While
+
+                Catch ex As Exception
+                    ' DB issues, exit.
+                    Exit Sub
+                Finally
+                    cmd.Parameters.Clear()
+                    connectionString.Close()
+                End Try
+            Next
+
+
+            ' Add the item to the listbox.
+            'ItemsListBox.Items.Add("Id: " & reader("ProductId") & reader("Quantity"))
         End If
     End Sub
 

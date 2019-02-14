@@ -155,6 +155,7 @@ Partial Class InternalInvoices
         '
         'TotalCostNumericUpDown
         '
+        Me.TotalCostNumericUpDown.DecimalPlaces = 2
         Me.TotalCostNumericUpDown.Enabled = False
         Me.TotalCostNumericUpDown.Location = New System.Drawing.Point(241, 479)
         Me.TotalCostNumericUpDown.Name = "TotalCostNumericUpDown"
