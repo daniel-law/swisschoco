@@ -8,6 +8,8 @@ Public Class InternalInvoices
     Dim currentId As Integer
     Dim Values As New List(Of Dictionary(Of String, String))()
     Dim errorNotify As Boolean = True
+    Dim factorySelected As Boolean
+    Dim itemAdded As Boolean
 
     Private Sub loadInvoice(ByVal SQLQuery As String)
         ' // Cleanup.
@@ -147,6 +149,9 @@ Public Class InternalInvoices
                     connectionString.Close()
                 End Try
             Next
+        Else
+            MsgBox("There is not another internal invoice.", MessageBoxIcon.Warning)
+            loadInvoice("SELECT TOP 1 * FROM InternalInvoices;")
         End If
     End Sub
 
@@ -159,7 +164,7 @@ Public Class InternalInvoices
     End Sub
 
     Private Sub PreviousButton_Click(sender As Object, e As EventArgs) Handles PreviousButton.Click
-        loadInvoice("SELECT TOP 1 * FROM ManufacturingLogs WHERE Id < " & currentId & " ORDER BY Id DESC;")
+        loadInvoice("SELECT TOP 1 * FROM InternalInvoices WHERE Id < " & currentId & " ORDER BY Id DESC;")
     End Sub
 
     Private Sub SelectFactoryButton_Click(sender As Object, e As EventArgs) Handles SelectFactoryButton.Click
@@ -189,6 +194,7 @@ Public Class InternalInvoices
                     FactoryIDTextBox.Text = Id
                     NameTextBox.Text = Name
                     CountryTextBox.Text = Locale
+                    factorySelected = True
                 Else
                     MsgBox("The ID you have specified was incorrect.", MessageBoxIcon.Warning)
                 End If
@@ -218,6 +224,15 @@ Public Class InternalInvoices
         Dim Price As String
         Dim isValidToAdd As Boolean
 
+        ' Check whether the item is currently in the order or not.
+        For Each Item In Values
+            If Item("id") = userInputProduct Then
+                MsgBox("Cannot add the same item to the order again.", MessageBoxIcon.Warning)
+                Exit Sub
+            End If
+        Next
+
+        ' The item can be added to the invoice if it isn't already present.
         If IsNumeric(userInputProduct) Then
 
             Try
@@ -235,6 +250,7 @@ Public Class InternalInvoices
 
                 If Name <> "" Then
                     isValidToAdd = True
+                    itemAdded = True
                 Else
                     MsgBox("The ID you have specified was incorrect.", MessageBoxIcon.Warning)
                     Exit Sub
@@ -279,6 +295,7 @@ Public Class InternalInvoices
         ' Re-write the invoice details to InternalInvoices and then to InvoiceItem.
         ' Check whether the contact exists.
         Dim contactExists As Boolean
+        Dim updateAssociatedItems As Boolean
 
         If ContactsNumericUpDown.Value <> 0 Then
             Try
@@ -326,6 +343,7 @@ Public Class InternalInvoices
                 cmd.Parameters.Add("FactoryId", SqlDbType.Int).Value = FactoryIDTextBox.Text
                 cmd.ExecuteNonQuery()
 
+                updateAssociatedItems = True
                 MsgBox("Sucessfully modified the Internal Invoice details.", MessageBoxIcon.Information)
 
             Catch ex As Exception
@@ -338,6 +356,86 @@ Public Class InternalInvoices
             End Try
         ElseIf errorNotify = True Then
             MsgBox("Please ensure all the details are correctly filled out.", MessageBoxIcon.Information)
+        End If
+
+        If updateAssociatedItems = True Then
+            For Each Item In Values
+
+            Next
+        End If
+    End Sub
+
+    Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
+        If SearchTextBox.Text <> "" And IsNumeric(SearchTextBox.Text) Then
+            loadInvoice("SELECT * FROM InternalInvoices WHERE Id = " & SearchTextBox.Text & ";")
+        Else
+            MsgBox("The ID you have specified was incorrect.", MessageBoxIcon.Warning)
+        End If
+    End Sub
+
+    Private Sub DeleteInvoiceButton_Click(sender As Object, e As EventArgs) Handles DeleteInvoiceButton.Click
+        Dim result As Integer = MessageBox.Show("Are you sure you wish to delete this internal invoice? This action is irreversible.", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If result = DialogResult.Yes Then
+            Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Dim cmd As New SqlCommand
+
+            Try
+                cmd.Connection = connectionString
+                connectionString.Open()
+                cmd.CommandText = "DELETE FROM InternalInvoices WHERE Id = @Id; DELETE FROM InvoiceItem WHERE InvoiceId = @Id;"
+                cmd.Parameters.Add("@Id", SqlDbType.Int).Value = currentId
+                Dim rowsReturned As Integer = cmd.ExecuteNonQuery()
+
+                MsgBox("The internal invoice was removed from the database.", MessageBoxIcon.Information)
+
+                ' Must move to another record otherwise deleted record will still be shown in the form.
+                loadInvoice("SELECT TOP 1 * FROM InternalInvoices;")
+            Catch ex As Exception
+                MsgBox("Unable to delete the selected internal invoice.", MessageBoxIcon.Warning)
+                ' DB issues, exit.
+                Exit Sub
+            End Try
+        End If
+    End Sub
+
+    Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
+        PreviousButton.Enabled = True
+        NextButton.Enabled = True
+        SearchButton.Enabled = True
+        NewInvoiceButton.Enabled = True
+        DeleteInvoiceButton.Enabled = True
+        SaveChangesButton.Visible = True
+        CancelButton.Visible = False
+        CreateInvoiceButton.Visible = False
+
+        loadInvoice("SELECT TOP 1 * FROM InternalInvoices;")
+    End Sub
+
+    Private Sub NewInvoiceButton_Click(sender As Object, e As EventArgs) Handles NewInvoiceButton.Click
+        InvoiceIDTextBox.Text = "New"
+        ContactNameTextBox.Clear()
+        TotalCostNumericUpDown.Value = 0.00
+        FactoryIDTextBox.Clear()
+        NameTextBox.Clear()
+        CountryTextBox.Clear()
+        Values.Clear()
+        ItemsListBox.Items.Clear()
+
+        PreviousButton.Enabled = False
+        NextButton.Enabled = False
+        SearchButton.Enabled = False
+        NewInvoiceButton.Enabled = False
+        DeleteInvoiceButton.Enabled = False
+        SaveChangesButton.Visible = False
+        CancelButton.Visible = True
+        CreateInvoiceButton.Visible = True
+    End Sub
+
+    Private Sub CreateInvoiceButton_Click(sender As Object, e As EventArgs) Handles CreateInvoiceButton.Click
+        If factorySelected = True And itemAdded = True Then
+            MsgBox("can add")
+        Else
+            MsgBox("not filled out properly!")
         End If
     End Sub
 End Class

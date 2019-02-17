@@ -55,6 +55,7 @@ Partial Class InternalInvoices
         Me.SelectFactoryButton = New System.Windows.Forms.Button()
         Me.SelectItemsButton = New System.Windows.Forms.Button()
         Me.ContactsNumericUpDown = New System.Windows.Forms.NumericUpDown()
+        Me.CreateInvoiceButton = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TotalCostNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ContactsNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -436,11 +437,30 @@ Partial Class InternalInvoices
         Me.ContactsNumericUpDown.TabIndex = 84
         Me.ContactsNumericUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
+        'CreateInvoiceButton
+        '
+        Me.CreateInvoiceButton.BackColor = System.Drawing.Color.White
+        Me.CreateInvoiceButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CreateInvoiceButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.CreateInvoiceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CreateInvoiceButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CreateInvoiceButton.ForeColor = System.Drawing.Color.Black
+        Me.CreateInvoiceButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.CreateInvoiceButton.Location = New System.Drawing.Point(1050, 471)
+        Me.CreateInvoiceButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.CreateInvoiceButton.Name = "CreateInvoiceButton"
+        Me.CreateInvoiceButton.Size = New System.Drawing.Size(198, 45)
+        Me.CreateInvoiceButton.TabIndex = 85
+        Me.CreateInvoiceButton.Text = "Create Invoice"
+        Me.CreateInvoiceButton.UseVisualStyleBackColor = False
+        Me.CreateInvoiceButton.Visible = False
+        '
         'InternalInvoices
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1290, 718)
+        Me.Controls.Add(Me.CreateInvoiceButton)
         Me.Controls.Add(Me.ContactsNumericUpDown)
         Me.Controls.Add(Me.SelectItemsButton)
         Me.Controls.Add(Me.SelectFactoryButton)
@@ -517,4 +537,5 @@ Partial Class InternalInvoices
     Friend WithEvents SelectFactoryButton As Button
     Friend WithEvents SelectItemsButton As Button
     Friend WithEvents ContactsNumericUpDown As NumericUpDown
+    Friend WithEvents CreateInvoiceButton As Button
 End Class
