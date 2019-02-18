@@ -94,6 +94,12 @@ Public Class MainMenu
         FactoriesForm.Show()
     End Sub
 
+    Private Sub SearchFormButton_Click(sender As Object, e As EventArgs) Handles SearchFormButton.Click
+        ' Show the Search form.
+        Dim SearchForm As New Search
+        SearchForm.Show()
+    End Sub
+
     Private Sub Timer_Tick(ByVal sender As Object, ByVal e As System.EventArgs) Handles Timer.Tick
         currentTime.Text = DateTime.Now.ToString("hh:mm:ss tt")
     End Sub

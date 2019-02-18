@@ -212,6 +212,12 @@
     </Compile>
     <Compile Include="IIdentity.vb" />
     <Compile Include="IPrincipal.vb" />
+    <Compile Include="Search.Designer.vb">
+      <DependentUpon>Search.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Search.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ViewContact.Designer.vb">
       <DependentUpon>ViewContact.vb</DependentUpon>
     </Compile>
@@ -294,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Search.resx">
+      <DependentUpon>Search.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewContact.resx">
       <DependentUpon>ViewContact.vb</DependentUpon>

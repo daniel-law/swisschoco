@@ -113,7 +113,7 @@ Public Class InternalInvoices
                 While reader.Read
                     ' Load the items into the List.
                     Values.Add(New Dictionary(Of String, String) From {
-                        {"id", reader("ProductId")}, {"quantity", reader("Quantity")}})
+                        {"id", reader("ProductId")}, {"quantity", reader("Quantity")}, {"cost", reader("TotalCost")}})
                     netTotal = netTotal + reader("TotalCost")
                 End While
 
@@ -154,6 +154,50 @@ Public Class InternalInvoices
             loadInvoice("SELECT TOP 1 * FROM InternalInvoices;")
         End If
     End Sub
+
+    'Private Sub addInvoiceItem(ByVal productId As Integer, ByVal invoiceId As Integer, ByVal quantity As Integer, ByVal totalCost As Decimal)
+    '    Try
+    '        cmd.Connection = connectionString
+    '        connectionString.Open()
+    '        cmd.CommandText = "INSERT INTO InvoiceItem (ProductId, InvoiceId, Quantity, TotalCost) VALUES (@productId, @invoiceId, @quantity, @totalCost);"
+    '        cmd.Parameters.Add("@productId", SqlDbType.Int).Value = productId
+    '        cmd.Parameters.Add("@invoiceId", SqlDbType.Int).Value = invoiceId
+    '        cmd.Parameters.Add("@quantity", SqlDbType.Int).Value = quantity
+    '        cmd.Parameters.Add("@totalCost", SqlDbType.Int).Value = totalCost
+    '        Dim rowsReturned As Integer = cmd.ExecuteNonQuery()
+
+    '        MsgBox("The new invoice item was added.", MessageBoxIcon.Information)
+
+    '    Catch ex As Exception
+    '        MsgBox("Unable to update the invoice items associated with the invoice." & ex.Message, MessageBoxIcon.Warning)
+    '        ' DB issues, exit.
+    '        Exit Sub
+    '    Finally
+    '        cmd.Parameters.Clear()
+    '        connectionString.Close()
+    '    End Try
+    'End Sub
+
+    'Private Sub updateInvoiceItem(ByVal productId As Integer, ByVal invoiceId As Integer, ByVal quantity As Integer, ByVal totalCost As Decimal)
+    '    Try
+    '        cmd.Connection = connectionString
+    '        connectionString.Open()
+    '        cmd.CommandText = "UPDATE InvoiceItem SET ProductId = @productId, Quantity = @quantity, TotalCost = @totalCost WHERE InvoiceId = @invoiceId);"
+    '        cmd.Parameters.Add("@productId", SqlDbType.Int).Value = productId
+    '        cmd.Parameters.Add("@invoiceId", SqlDbType.Int).Value = invoiceId
+    '        cmd.Parameters.Add("@quantity", SqlDbType.Int).Value = quantity
+    '        cmd.Parameters.Add("@totalCost", SqlDbType.Int).Value = totalCost
+    '        Dim rowsReturned As Integer = cmd.ExecuteNonQuery()
+
+    '    Catch ex As Exception
+    '        MsgBox("Unable to insert the new invoice item associated with the invoice.", MessageBoxIcon.Warning)
+    '        ' DB issues, exit.
+    '        Exit Sub
+    '    Finally
+    '        cmd.Parameters.Clear()
+    '        connectionString.Close()
+    '    End Try
+    'End Sub
 
     Private Sub InternalInvoices_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadInvoice("SELECT TOP 1 * FROM InternalInvoices;")
@@ -274,20 +318,21 @@ Public Class InternalInvoices
             Exit Sub
         End If
 
-        Dim userInputQuality As String
-        userInputQuality = InputBox("Please enter the quantity you wish to add.")
+        Dim userInputQuantity As String
+        userInputQuantity = InputBox("Please enter the quantity you wish to add.")
 
-        If IsNumeric(userInputQuality) And isValidToAdd = True Then
+        If IsNumeric(userInputQuantity) And isValidToAdd = True Then
             Values.Add(New Dictionary(Of String, String) From {
-                {"id", Id}, {"quantity", userInputQuality}})
+                {"id", Id}, {"quantity", userInputQuantity}, {"cost", (Price * userInputQuantity)}})
 
             ' DEBUG
-            For Each value As Dictionary(Of String, String) In Values
-                MsgBox(value("id"))
-                MsgBox(value("quantity"))
-            Next
+            'For Each value In Values
+            '    MsgBox(value("id"))
+            '    MsgBox(value("quantity"))
+            '    MsgBox(value("cost"))
+            'Next
 
-            ItemsListBox.Items.Add("Id: " & Id & ", " & Name & ", " & Price & ", x" & userInputQuality)
+            ItemsListBox.Items.Add("Id: " & Id & ", " & Name & ", " & Price & ", x" & userInputQuantity)
         End If
     End Sub
 
@@ -331,7 +376,7 @@ Public Class InternalInvoices
         End If
 
         ' Check the validation is met and then carry out the update.
-        If TotalCostNumericUpDown.Value <> 0 And ItemsListBox.Items.Count >= 1 And FactoryIDTextBox.Text <> "" And contactExists = True Then
+        If ItemsListBox.Items.Count >= 1 And FactoryIDTextBox.Text <> "" And contactExists = True Then
             ' Update the InternalInvoices table.
             Try
                 cmd.Connection = connectionString
@@ -360,7 +405,24 @@ Public Class InternalInvoices
 
         If updateAssociatedItems = True Then
             For Each Item In Values
+                Try
+                    cmd.Connection = connectionString
+                    connectionString.Open()
+                    cmd.CommandText = "IF EXISTS (SELECT * FROM InvoiceItem WHERE InvoiceId = @InvoiceId AND ProductId = @ProductId) UPDATE InvoiceItem SET ProductId = @productId, Quantity = @quantity, TotalCost = @totalCost WHERE InvoiceId = @invoiceId ELSE INSERT INTO InvoiceItem (ProductId, InvoiceId, Quantity, TotalCost) VALUES (@productId, @invoiceId, @quantity, @totalCost);"
+                    cmd.Parameters.Add("@productId", SqlDbType.Int).Value = Convert.ToInt32(Item("id"))
+                    cmd.Parameters.Add("@invoiceId", SqlDbType.Int).Value = Convert.ToInt32(InvoiceIDTextBox.Text)
+                    cmd.Parameters.Add("@quantity", SqlDbType.Int).Value = Convert.ToInt32(Item("quantity"))
+                    cmd.Parameters.Add("@totalCost", SqlDbType.Decimal).Value = Convert.ToDecimal(Item("cost"))
+                    cmd.ExecuteNonQuery()
 
+                Catch ex As Exception
+                    MsgBox("Unable to query the associated invoice items." & ex.Message, MessageBoxIcon.Warning)
+                    ' DB issues, exit.
+                    Exit Sub
+                Finally
+                    cmd.Parameters.Clear()
+                    connectionString.Close()
+                End Try
             Next
         End If
     End Sub
@@ -376,9 +438,6 @@ Public Class InternalInvoices
     Private Sub DeleteInvoiceButton_Click(sender As Object, e As EventArgs) Handles DeleteInvoiceButton.Click
         Dim result As Integer = MessageBox.Show("Are you sure you wish to delete this internal invoice? This action is irreversible.", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If result = DialogResult.Yes Then
-            Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
-            Dim cmd As New SqlCommand
-
             Try
                 cmd.Connection = connectionString
                 connectionString.Open()

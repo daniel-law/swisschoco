@@ -57,6 +57,9 @@ Partial Class MainMenu
         Me.InternalInvoicesFormButton = New System.Windows.Forms.Button()
         Me.ProductsFormButton = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.InternalInvoicesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OnHandEnquiryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -134,7 +137,7 @@ Partial Class MainMenu
         '
         'QuickJumpToolStripMenuItem
         '
-        Me.QuickJumpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProductsToolStripMenuItem, Me.ContactsToolStripMenuItem, Me.ManufacturingLogsToolStripMenuItem, Me.FactoriesToolStripMenuItem})
+        Me.QuickJumpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProductsToolStripMenuItem, Me.ContactsToolStripMenuItem, Me.ManufacturingLogsToolStripMenuItem, Me.FactoriesToolStripMenuItem, Me.InternalInvoicesToolStripMenuItem, Me.StockToolStripMenuItem})
         Me.QuickJumpToolStripMenuItem.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 9.0!)
         Me.QuickJumpToolStripMenuItem.Name = "QuickJumpToolStripMenuItem"
         Me.QuickJumpToolStripMenuItem.Size = New System.Drawing.Size(117, 28)
@@ -243,25 +246,25 @@ Partial Class MainMenu
         'AddFactoryToolStripMenuItem
         '
         Me.AddFactoryToolStripMenuItem.Name = "AddFactoryToolStripMenuItem"
-        Me.AddFactoryToolStripMenuItem.Size = New System.Drawing.Size(213, 30)
+        Me.AddFactoryToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
         Me.AddFactoryToolStripMenuItem.Text = "Add Factory"
         '
         'ViewFactoryToolStripMenuItem
         '
         Me.ViewFactoryToolStripMenuItem.Name = "ViewFactoryToolStripMenuItem"
-        Me.ViewFactoryToolStripMenuItem.Size = New System.Drawing.Size(213, 30)
+        Me.ViewFactoryToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
         Me.ViewFactoryToolStripMenuItem.Text = "View Factory"
         '
         'ModifyFactoryToolStripMenuItem
         '
         Me.ModifyFactoryToolStripMenuItem.Name = "ModifyFactoryToolStripMenuItem"
-        Me.ModifyFactoryToolStripMenuItem.Size = New System.Drawing.Size(213, 30)
+        Me.ModifyFactoryToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
         Me.ModifyFactoryToolStripMenuItem.Text = "Modify Factory"
         '
         'DeleteFactoryToolStripMenuItem
         '
         Me.DeleteFactoryToolStripMenuItem.Name = "DeleteFactoryToolStripMenuItem"
-        Me.DeleteFactoryToolStripMenuItem.Size = New System.Drawing.Size(213, 30)
+        Me.DeleteFactoryToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
         Me.DeleteFactoryToolStripMenuItem.Text = "Delete Factory"
         '
         'SearchFormButton
@@ -389,6 +392,25 @@ Partial Class MainMenu
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
         '
+        'InternalInvoicesToolStripMenuItem
+        '
+        Me.InternalInvoicesToolStripMenuItem.Name = "InternalInvoicesToolStripMenuItem"
+        Me.InternalInvoicesToolStripMenuItem.Size = New System.Drawing.Size(253, 30)
+        Me.InternalInvoicesToolStripMenuItem.Text = "Internal Invoices"
+        '
+        'StockToolStripMenuItem
+        '
+        Me.StockToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OnHandEnquiryToolStripMenuItem})
+        Me.StockToolStripMenuItem.Name = "StockToolStripMenuItem"
+        Me.StockToolStripMenuItem.Size = New System.Drawing.Size(253, 30)
+        Me.StockToolStripMenuItem.Text = "Stock"
+        '
+        'OnHandEnquiryToolStripMenuItem
+        '
+        Me.OnHandEnquiryToolStripMenuItem.Name = "OnHandEnquiryToolStripMenuItem"
+        Me.OnHandEnquiryToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
+        Me.OnHandEnquiryToolStripMenuItem.Text = "On Hand Enquiry"
+        '
         'MainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -452,4 +474,7 @@ Partial Class MainMenu
     Friend WithEvents ViewFactoryToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ModifyFactoryToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DeleteFactoryToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents InternalInvoicesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents StockToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OnHandEnquiryToolStripMenuItem As ToolStripMenuItem
 End Class
