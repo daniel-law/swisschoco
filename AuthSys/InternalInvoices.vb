@@ -10,6 +10,7 @@ Public Class InternalInvoices
     Dim errorNotify As Boolean = True
     Dim factorySelected As Boolean
     Dim itemAdded As Boolean
+    Dim refreshInvoice As Boolean
 
     Private Sub loadInvoice(ByVal SQLQuery As String)
         ' // Cleanup.
@@ -167,6 +168,19 @@ Public Class InternalInvoices
         loadInvoice("SELECT TOP 1 * FROM InternalInvoices WHERE Id < " & currentId & " ORDER BY Id DESC;")
     End Sub
 
+    Private Sub cleanup()
+        PreviousButton.Enabled = True
+        NextButton.Enabled = True
+        SearchButton.Enabled = True
+        NewInvoiceButton.Enabled = True
+        DeleteInvoiceButton.Enabled = True
+        SaveChangesButton.Visible = True
+        CancelButton.Visible = False
+        CreateInvoiceButton.Visible = False
+
+        loadInvoice("SELECT TOP 1 * FROM InternalInvoices;")
+    End Sub
+
     Private Sub SelectFactoryButton_Click(sender As Object, e As EventArgs) Handles SelectFactoryButton.Click
         Dim userInput As String
         userInput = InputBox("Please enter the Factory ID you wish to set.")
@@ -281,19 +295,14 @@ Public Class InternalInvoices
             Values.Add(New Dictionary(Of String, String) From {
                 {"id", Id}, {"quantity", userInputQuantity}, {"cost", (Price * userInputQuantity)}})
 
-            ' DEBUG
-            'For Each value In Values
-            '    MsgBox(value("id"))
-            '    MsgBox(value("quantity"))
-            '    MsgBox(value("cost"))
-            'Next
-
             ItemsListBox.Items.Add("Id: " & Id & ", " & Name & ", " & Price & ", x" & userInputQuantity)
+            TotalCostNumericUpDown.Value = TotalCostNumericUpDown.Value + Price
         End If
     End Sub
 
     Private Sub SaveChangesButton_Click(sender As Object, e As EventArgs) Handles SaveChangesButton.Click
         ' Re-write the invoice details to InternalInvoices and then to InvoiceItem.
+
         ' Check whether the contact exists.
         Dim contactExists As Boolean
         Dim updateAssociatedItems As Boolean
@@ -345,6 +354,7 @@ Public Class InternalInvoices
                 cmd.ExecuteNonQuery()
 
                 updateAssociatedItems = True
+                refreshInvoice = True
                 MsgBox("Sucessfully modified the Internal Invoice details.", MessageBoxIcon.Information)
 
             Catch ex As Exception
@@ -355,6 +365,7 @@ Public Class InternalInvoices
                 cmd.Parameters.Clear()
                 connectionString.Close()
             End Try
+
         ElseIf errorNotify = True Then
             MsgBox("Please ensure all the details are correctly filled out.", MessageBoxIcon.Information)
         End If
@@ -380,6 +391,12 @@ Public Class InternalInvoices
                     connectionString.Close()
                 End Try
             Next
+        End If
+
+        ' Refresh the invoice.
+        If refreshInvoice = True Then
+            loadInvoice("SELECT * FROM InternalInvoices WHERE Id = " & currentId)
+            refreshInvoice = False
         End If
     End Sub
 
@@ -414,16 +431,7 @@ Public Class InternalInvoices
     End Sub
 
     Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
-        PreviousButton.Enabled = True
-        NextButton.Enabled = True
-        SearchButton.Enabled = True
-        NewInvoiceButton.Enabled = True
-        DeleteInvoiceButton.Enabled = True
-        SaveChangesButton.Visible = True
-        CancelButton.Visible = False
-        CreateInvoiceButton.Visible = False
-
-        loadInvoice("SELECT TOP 1 * FROM InternalInvoices;")
+        cleanup()
     End Sub
 
     Private Sub NewInvoiceButton_Click(sender As Object, e As EventArgs) Handles NewInvoiceButton.Click
@@ -448,9 +456,75 @@ Public Class InternalInvoices
 
     Private Sub CreateInvoiceButton_Click(sender As Object, e As EventArgs) Handles CreateInvoiceButton.Click
         If factorySelected = True And itemAdded = True Then
-            MsgBox("can add")
+            Dim addAssociatedItems As Boolean
+
+            Try
+                cmd.Connection = connectionString
+                connectionString.Open()
+                cmd.CommandText = "INSERT INTO InternalInvoices (FactoryId, ContactId, TotalCost) VALUES (@factoryId, @contactId, @totalCost);"
+                cmd.Parameters.Add("@factoryId", SqlDbType.Int).Value = FactoryIDTextBox.Text
+                cmd.Parameters.Add("@contactId", SqlDbType.Int).Value = ContactsNumericUpDown.Value
+                cmd.Parameters.Add("@totalCost", SqlDbType.NVarChar).Value = TotalCostNumericUpDown.Value
+                Dim result = cmd.ExecuteNonQuery()
+
+                MsgBox("Sucessfully added new internal invoice into the database.", MessageBoxIcon.Information)
+                addAssociatedItems = True
+
+            Catch ex As Exception
+                MsgBox("Unable to create the internal invoice.", MessageBoxIcon.Warning)
+                ' DB issues, exit.
+                Exit Sub
+            Finally
+                cmd.Parameters.Clear()
+                connectionString.Close()
+            End Try
+
+            If addAssociatedItems = True Then
+                Try
+                    ' Get the InvoiceId in question.
+                    cmd.Connection = connectionString
+                    connectionString.Open()
+                    cmd.CommandText = "SELECT TOP 1 Id FROM InternalInvoices ORDER BY ID DESC"
+                    Dim reader As SqlDataReader = cmd.ExecuteReader
+
+                    While reader.Read
+                        InvoiceIDTextBox.Text = reader("Id").ToString()
+                    End While
+
+                Catch ex As Exception
+                    MsgBox("Unable to find the last added internal invoice, so unable to add the associated products to it.", MessageBoxIcon.Warning)
+                    ' DB issues, exit.
+                    Exit Sub
+                Finally
+                    cmd.Parameters.Clear()
+                    connectionString.Close()
+                End Try
+
+                For Each Item In Values
+                    Try
+                        cmd.Connection = connectionString
+                        connectionString.Open()
+                        cmd.CommandText = "INSERT INTO InvoiceItem (ProductId, InvoiceId, Quantity, TotalCost) VALUES (@productId, @invoiceId, @quantity, @totalCost)"
+                        cmd.Parameters.Add("@productId", SqlDbType.Int).Value = Convert.ToInt32(Item("id"))
+                        cmd.Parameters.Add("@invoiceId", SqlDbType.Int).Value = Convert.ToInt32(InvoiceIDTextBox.Text)
+                        cmd.Parameters.Add("@quantity", SqlDbType.Int).Value = Convert.ToInt32(Item("quantity"))
+                        cmd.Parameters.Add("@totalCost", SqlDbType.Decimal).Value = Convert.ToDecimal(Item("cost"))
+                        cmd.ExecuteNonQuery()
+
+                    Catch ex As Exception
+                        MsgBox("Unable to add the associated invoice items." & ex.Message, MessageBoxIcon.Warning)
+                        ' DB issues, exit.
+                        Exit Sub
+                    Finally
+                        cmd.Parameters.Clear()
+                        connectionString.Close()
+                    End Try
+                Next
+            End If
+
+            cleanup()
         Else
-            MsgBox("not filled out properly!")
+            MsgBox("Please ensure the details are filled out properly.", MessageBoxIcon.Warning)
         End If
     End Sub
 End Class
