@@ -5,10 +5,10 @@ Public Class ManufacturingLogs
     Dim currentId As String
     Dim creatingRecord As Boolean
 
-    Private Sub getFirstRecord()
-        Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
-        Dim cmd As New SqlCommand
+    Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+    Dim cmd As New SqlCommand
 
+    Private Sub getFirstRecord()
         Try
             cmd.Connection = connectionString
             connectionString.Open()
@@ -26,6 +26,7 @@ Public Class ManufacturingLogs
                 Detail = reader("Detail").ToString()
             End While
 
+            LogIdTextBox.Text = currentId
             FactoryIDTextBox.Text = FactoryID
             ConductedByTextBox.Text = UserId
             DetailsRichTextBox.Text = Detail
@@ -34,13 +35,13 @@ Public Class ManufacturingLogs
             MsgBox("Unable to view the selected manufacturing log.", MessageBoxIcon.Warning)
             ' DB issues, exit.
             Exit Sub
+        Finally
+            cmd.Parameters.Clear()
+            connectionString.Close()
         End Try
     End Sub
 
     Private Sub getLastRecordID()
-        Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
-        Dim cmd As New SqlCommand
-
         Try
             cmd.Connection = connectionString
             connectionString.Open()
@@ -49,11 +50,15 @@ Public Class ManufacturingLogs
 
             While reader.Read
                 currentId = reader("Id").ToString()
+                LogIdTextBox.Text = currentId
             End While
         Catch ex As Exception
             MsgBox("Unable to view the selected manufacturing log." & ex.Message, MessageBoxIcon.Warning)
             ' DB issues, exit.
             Exit Sub
+        Finally
+            cmd.Parameters.Clear()
+            connectionString.Close()
         End Try
     End Sub
 
@@ -64,9 +69,6 @@ Public Class ManufacturingLogs
     Private Sub SaveChangesButton_Click(sender As Object, e As EventArgs) Handles SaveChangesButton.Click
         If FactoryIDTextBox.Text <> "" And ConductedByTextBox.Text <> "" And DetailsRichTextBox.Text <> "" And creatingRecord = False Then
             ' Updating current record.
-            Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
-            Dim cmd As New SqlCommand
-
             Try
                 cmd.Connection = connectionString
                 connectionString.Open()
@@ -83,14 +85,14 @@ Public Class ManufacturingLogs
                 MsgBox("Program encountered an error connecting to the database. Urgently contact your systems admin.", MessageBoxIcon.Warning)
                 ' DB issues, exit.
                 Exit Sub
+            Finally
+                cmd.Parameters.Clear()
+                connectionString.Close()
             End Try
         End If
 
         If FactoryIDTextBox.Text <> "" And ConductedByTextBox.Text <> "" And DetailsRichTextBox.Text <> "" And creatingRecord = True Then
             ' Adding new record.
-            Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
-            Dim cmd As New SqlCommand
-
             Try
                 cmd.Connection = connectionString
                 connectionString.Open()
@@ -102,33 +104,34 @@ Public Class ManufacturingLogs
 
                 MsgBox("Sucessfully added new manufacturing log into the database.", MessageBoxIcon.Information)
 
-                ' Enable features.
-                PreviousButton.Enabled = True
-                NextButton.Enabled = True
-                DeleteLogButton.Enabled = True
-                NewLogButton.Enabled = True
-                SearchButton.Enabled = True
-
-                ' Hide cancel button.
-                CancelButton.Visible = False
-
-                ' Set the ID to the record just created.
-                getLastRecordID()
-
             Catch ex As Exception
                 MsgBox("Program encountered an error connecting to the database. Urgently contact your systems admin.", MessageBoxIcon.Warning)
                 ' DB issues, exit.
                 Exit Sub
+            Finally
+                cmd.Parameters.Clear()
+                connectionString.Close()
             End Try
+
+            ' Enable features.
+            PreviousButton.Enabled = True
+            NextButton.Enabled = True
+            DeleteLogButton.Enabled = True
+            NewLogButton.Enabled = True
+            SearchButton.Enabled = True
+
+            ' Hide cancel button.
+            CancelButton.Visible = False
+
+            ' Set the ID to the record just created.
+            getLastRecordID()
+            creatingRecord = False
         End If
     End Sub
 
     Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
         ' Verify data is numeric.
         If IsNumeric(SearchTextBox.Text) = True Then
-            Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
-            Dim cmd As New SqlCommand
-
             Try
                 cmd.Connection = connectionString
                 connectionString.Open()
@@ -148,6 +151,7 @@ Public Class ManufacturingLogs
                 End While
 
                 If Detail <> "" Then
+                    LogIdTextBox.Text = currentId
                     FactoryIDTextBox.Text = FactoryID
                     ConductedByTextBox.Text = UserId
                     DetailsRichTextBox.Text = Detail
@@ -159,6 +163,9 @@ Public Class ManufacturingLogs
                 MsgBox("Unable to view the selected manufacturing log." & ex.Message, MessageBoxIcon.Warning)
                 ' DB issues, exit.
                 Exit Sub
+            Finally
+                cmd.Parameters.Clear()
+                connectionString.Close()
             End Try
         Else
             MsgBox("Please double check the ID you have entered, it must be numeric.", MessageBoxIcon.Information)
@@ -168,9 +175,6 @@ Public Class ManufacturingLogs
     Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteLogButton.Click
         Dim result As Integer = MessageBox.Show("Are you sure you wish to delete this manufacturing log? This action is irreversible.", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If result = DialogResult.Yes Then
-            Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
-            Dim cmd As New SqlCommand
-
             Try
                 cmd.Connection = connectionString
                 connectionString.Open()
@@ -178,15 +182,19 @@ Public Class ManufacturingLogs
                 cmd.Parameters.Add("@Id", SqlDbType.Int).Value = currentId
                 Dim rowsReturned As Integer = cmd.ExecuteNonQuery()
 
-                MsgBox("The product was removed from the database.", MessageBoxIcon.Information)
+                MsgBox("The manufacturing log was removed from the database.", MessageBoxIcon.Information)
 
-                ' Must move to another record otherwise deleted record will still be shown in the form.
-                getFirstRecord()
             Catch ex As Exception
                 MsgBox("Unable to delete the selected manufacturing log.", MessageBoxIcon.Warning)
                 ' DB issues, exit.
                 Exit Sub
+            Finally
+                cmd.Parameters.Clear()
+                connectionString.Close()
             End Try
+
+            ' Must move to another record otherwise deleted record will still be shown in the form.
+            getFirstRecord()
         End If
     End Sub
 
@@ -204,9 +212,12 @@ Public Class ManufacturingLogs
         DeleteLogButton.Enabled = False
         NewLogButton.Enabled = False
         SearchButton.Enabled = False
+        LogIdTextBox.Text = "New"
 
         ' Show cancel button.
         CancelButton.Visible = True
+
+        FactoryIDTextBox.Select()
     End Sub
 
     Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
@@ -225,9 +236,6 @@ Public Class ManufacturingLogs
 
     Private Sub PreviousButton_Click(sender As Object, e As EventArgs) Handles PreviousButton.Click
         If currentId <> Nothing Then
-            Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
-            Dim cmd As New SqlCommand
-
             Try
                 cmd.Connection = connectionString
                 connectionString.Open()
@@ -247,6 +255,7 @@ Public Class ManufacturingLogs
                 End While
 
                 If Detail <> "" Then
+                    LogIdTextBox.Text = currentId
                     FactoryIDTextBox.Text = FactoryID
                     ConductedByTextBox.Text = UserId
                     DetailsRichTextBox.Text = Detail
@@ -257,6 +266,9 @@ Public Class ManufacturingLogs
                 MsgBox("Unable to view the manufacturing log." & ex.Message, MessageBoxIcon.Warning)
                 ' DB issues, exit.
                 Exit Sub
+            Finally
+                cmd.Parameters.Clear()
+                connectionString.Close()
             End Try
         Else
             MsgBox("Unable to view the manufacturing log.", MessageBoxIcon.Warning)
@@ -265,9 +277,6 @@ Public Class ManufacturingLogs
 
     Private Sub NextButton_Click(sender As Object, e As EventArgs) Handles NextButton.Click
         If currentId <> Nothing Then
-            Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
-            Dim cmd As New SqlCommand
-
             Try
                 cmd.Connection = connectionString
                 connectionString.Open()
@@ -287,6 +296,7 @@ Public Class ManufacturingLogs
                 End While
 
                 If Detail <> "" Then
+                    LogIdTextBox.Text = currentId
                     FactoryIDTextBox.Text = FactoryID
                     ConductedByTextBox.Text = UserId
                     DetailsRichTextBox.Text = Detail
@@ -297,6 +307,9 @@ Public Class ManufacturingLogs
                 MsgBox("Unable to view the manufacturing log." & ex.Message, MessageBoxIcon.Warning)
                 ' DB issues, exit.
                 Exit Sub
+            Finally
+                cmd.Parameters.Clear()
+                connectionString.Close()
             End Try
         Else
             MsgBox("Unable to view the manufacturing log.", MessageBoxIcon.Warning)

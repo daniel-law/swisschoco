@@ -2,7 +2,6 @@
 Imports System.IO
 
 Public Class AddProduct
-
     Dim imgByte As Byte()
 
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
@@ -42,7 +41,6 @@ Public Class AddProduct
         Else
             MsgBox("Please ensure all the details are filled out.", MessageBoxIcon.Information)
         End If
-
     End Sub
 
     Private Sub SelectImageButton_Click(sender As Object, e As EventArgs) Handles SelectImageButton.Click

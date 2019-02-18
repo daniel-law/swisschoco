@@ -2,7 +2,6 @@
 Imports System.Security.Cryptography
 
 Public Class Register
-
     Dim Username As String
     Dim Role As String
     Dim FullName As String

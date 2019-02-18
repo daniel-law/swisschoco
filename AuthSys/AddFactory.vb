@@ -1,6 +1,5 @@
 ﻿Imports System.Data.SqlClient
 
-
 Public Class AddFactory
     Private Sub AddFactory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim reader As New System.Xml.XmlTextReader("https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.xml")

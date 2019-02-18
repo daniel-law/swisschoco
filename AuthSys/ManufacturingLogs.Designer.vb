@@ -42,6 +42,8 @@ Partial Class ManufacturingLogs
         Me.DeleteLogButton = New System.Windows.Forms.Button()
         Me.NewLogButton = New System.Windows.Forms.Button()
         Me.CancelButton = New System.Windows.Forms.Button()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.LogIdTextBox = New System.Windows.Forms.TextBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -95,7 +97,7 @@ Partial Class ManufacturingLogs
         '
         'Label4
         '
-        Me.Label4.Location = New System.Drawing.Point(98, 462)
+        Me.Label4.Location = New System.Drawing.Point(98, 472)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(128, 25)
         Me.Label4.TabIndex = 52
@@ -104,7 +106,7 @@ Partial Class ManufacturingLogs
         '
         'Label3
         '
-        Me.Label3.Location = New System.Drawing.Point(102, 416)
+        Me.Label3.Location = New System.Drawing.Point(102, 426)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(124, 31)
         Me.Label3.TabIndex = 51
@@ -113,7 +115,7 @@ Partial Class ManufacturingLogs
         '
         'NameLabel
         '
-        Me.NameLabel.Location = New System.Drawing.Point(144, 368)
+        Me.NameLabel.Location = New System.Drawing.Point(144, 388)
         Me.NameLabel.Name = "NameLabel"
         Me.NameLabel.Size = New System.Drawing.Size(91, 25)
         Me.NameLabel.TabIndex = 50
@@ -122,7 +124,7 @@ Partial Class ManufacturingLogs
         '
         'FactoryIDTextBox
         '
-        Me.FactoryIDTextBox.Location = New System.Drawing.Point(241, 367)
+        Me.FactoryIDTextBox.Location = New System.Drawing.Point(241, 387)
         Me.FactoryIDTextBox.MaxLength = 64
         Me.FactoryIDTextBox.Name = "FactoryIDTextBox"
         Me.FactoryIDTextBox.Size = New System.Drawing.Size(220, 26)
@@ -130,7 +132,7 @@ Partial Class ManufacturingLogs
         '
         'ConductedByTextBox
         '
-        Me.ConductedByTextBox.Location = New System.Drawing.Point(241, 418)
+        Me.ConductedByTextBox.Location = New System.Drawing.Point(241, 428)
         Me.ConductedByTextBox.MaxLength = 64
         Me.ConductedByTextBox.Name = "ConductedByTextBox"
         Me.ConductedByTextBox.Size = New System.Drawing.Size(220, 26)
@@ -138,7 +140,7 @@ Partial Class ManufacturingLogs
         '
         'DetailsRichTextBox
         '
-        Me.DetailsRichTextBox.Location = New System.Drawing.Point(241, 462)
+        Me.DetailsRichTextBox.Location = New System.Drawing.Point(241, 472)
         Me.DetailsRichTextBox.Name = "DetailsRichTextBox"
         Me.DetailsRichTextBox.Size = New System.Drawing.Size(463, 129)
         Me.DetailsRichTextBox.TabIndex = 55
@@ -281,11 +283,31 @@ Partial Class ManufacturingLogs
         Me.CancelButton.UseVisualStyleBackColor = False
         Me.CancelButton.Visible = False
         '
+        'Label6
+        '
+        Me.Label6.Location = New System.Drawing.Point(144, 350)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(91, 25)
+        Me.Label6.TabIndex = 66
+        Me.Label6.Text = "Log ID:"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'LogIdTextBox
+        '
+        Me.LogIdTextBox.Location = New System.Drawing.Point(241, 350)
+        Me.LogIdTextBox.MaxLength = 64
+        Me.LogIdTextBox.Name = "LogIdTextBox"
+        Me.LogIdTextBox.ReadOnly = True
+        Me.LogIdTextBox.Size = New System.Drawing.Size(220, 26)
+        Me.LogIdTextBox.TabIndex = 67
+        '
         'ManufacturingLogs
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1114, 770)
+        Me.Controls.Add(Me.LogIdTextBox)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.CancelButton)
         Me.Controls.Add(Me.NewLogButton)
         Me.Controls.Add(Me.DeleteLogButton)
@@ -334,4 +356,6 @@ Partial Class ManufacturingLogs
     Friend WithEvents DeleteLogButton As Button
     Friend WithEvents NewLogButton As Button
     Friend WithEvents CancelButton As Button
+    Friend WithEvents Label6 As Label
+    Friend WithEvents LogIdTextBox As TextBox
 End Class

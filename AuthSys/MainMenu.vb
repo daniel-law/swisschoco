@@ -1,7 +1,6 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class MainMenu
-
     Dim WithEvents Timer As New System.Windows.Forms.Timer
     Dim lastCursorPos As Point
     Dim keyPressed As Boolean

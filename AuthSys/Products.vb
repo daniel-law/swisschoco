@@ -1,7 +1,6 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class Products
-
     Private bindingSource1 As BindingSource = New BindingSource()
     Private dataAdapter As SqlDataAdapter = New SqlDataAdapter()
     Private table As DataTable = New DataTable()
