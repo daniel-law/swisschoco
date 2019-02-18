@@ -296,7 +296,7 @@ Public Class InternalInvoices
                 {"id", Id}, {"quantity", userInputQuantity}, {"cost", (Price * userInputQuantity)}})
 
             ItemsListBox.Items.Add("Id: " & Id & ", " & Name & ", " & Price & ", x" & userInputQuantity)
-            TotalCostNumericUpDown.Value = TotalCostNumericUpDown.Value + Price
+            TotalCostNumericUpDown.Value = TotalCostNumericUpDown.Value + (Price * userInputQuantity)
         End If
     End Sub
 
@@ -410,6 +410,8 @@ Public Class InternalInvoices
 
     Private Sub DeleteInvoiceButton_Click(sender As Object, e As EventArgs) Handles DeleteInvoiceButton.Click
         Dim result As Integer = MessageBox.Show("Are you sure you wish to delete this internal invoice? This action is irreversible.", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        Dim clearInvoice As Boolean
+
         If result = DialogResult.Yes Then
             Try
                 cmd.Connection = connectionString
@@ -419,14 +421,21 @@ Public Class InternalInvoices
                 Dim rowsReturned As Integer = cmd.ExecuteNonQuery()
 
                 MsgBox("The internal invoice was removed from the database.", MessageBoxIcon.Information)
+                clearInvoice = True
 
-                ' Must move to another record otherwise deleted record will still be shown in the form.
-                loadInvoice("SELECT TOP 1 * FROM InternalInvoices;")
             Catch ex As Exception
                 MsgBox("Unable to delete the selected internal invoice.", MessageBoxIcon.Warning)
                 ' DB issues, exit.
                 Exit Sub
+            Finally
+                cmd.Parameters.Clear()
+                connectionString.Close()
             End Try
+
+            If clearInvoice = True Then
+                ' Must move to another record otherwise deleted record will still be shown in the form.
+                loadInvoice("SELECT TOP 1 * FROM InternalInvoices;")
+            End If
         End If
     End Sub
 
