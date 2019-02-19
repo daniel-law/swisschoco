@@ -34,7 +34,6 @@ Partial Class Search
         Me.Label9 = New System.Windows.Forms.Label()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.TextBox8 = New System.Windows.Forms.TextBox()
         Me.TextBox9 = New System.Windows.Forms.TextBox()
@@ -57,7 +56,7 @@ Partial Class Search
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.FindProductbyIDButton = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
@@ -70,30 +69,35 @@ Partial Class Search
         Me.Button11 = New System.Windows.Forms.Button()
         Me.Button12 = New System.Windows.Forms.Button()
         Me.Button13 = New System.Windows.Forms.Button()
+        Me.FindProductbyIDNumericUpDown = New System.Windows.Forms.NumericUpDown()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.ResultsDataGridView = New System.Windows.Forms.DataGridView()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FindProductbyIDNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ResultsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.White
-        Me.Panel1.Location = New System.Drawing.Point(1, 0)
+        Me.Panel1.Location = New System.Drawing.Point(2, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1112, 48)
+        Me.Panel1.Size = New System.Drawing.Size(2147, 48)
         Me.Panel1.TabIndex = 27
         '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.Red
-        Me.Panel2.Location = New System.Drawing.Point(1, 40)
+        Me.Panel2.Location = New System.Drawing.Point(2, 40)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(960, 151)
+        Me.Panel2.Size = New System.Drawing.Size(1997, 151)
         Me.Panel2.TabIndex = 26
         '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.SwissChoco.My.Resources.Resources.Logo
-        Me.PictureBox1.Location = New System.Drawing.Point(960, 40)
+        Me.PictureBox1.Location = New System.Drawing.Point(1996, 40)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(153, 151)
@@ -130,14 +134,14 @@ Partial Class Search
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(777, 796)
+        Me.TextBox2.Location = New System.Drawing.Point(777, 795)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(204, 26)
         Me.TextBox2.TabIndex = 35
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(258, 796)
+        Me.TextBox3.Location = New System.Drawing.Point(258, 795)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(204, 26)
         Me.TextBox3.TabIndex = 41
@@ -170,22 +174,15 @@ Partial Class Search
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(71, 365)
+        Me.Label11.Location = New System.Drawing.Point(70, 365)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(181, 52)
         Me.Label11.TabIndex = 49
         Me.Label11.Text = "Products"
         '
-        'TextBox6
-        '
-        Me.TextBox6.Location = New System.Drawing.Point(258, 438)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(204, 26)
-        Me.TextBox6.TabIndex = 51
-        '
         'TextBox7
         '
-        Me.TextBox7.Location = New System.Drawing.Point(258, 479)
+        Me.TextBox7.Location = New System.Drawing.Point(258, 478)
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.Size = New System.Drawing.Size(204, 26)
         Me.TextBox7.TabIndex = 57
@@ -223,21 +220,21 @@ Partial Class Search
         '
         'TextBox11
         '
-        Me.TextBox11.Location = New System.Drawing.Point(775, 479)
+        Me.TextBox11.Location = New System.Drawing.Point(776, 478)
         Me.TextBox11.Name = "TextBox11"
         Me.TextBox11.Size = New System.Drawing.Size(204, 26)
         Me.TextBox11.TabIndex = 67
         '
         'TextBox12
         '
-        Me.TextBox12.Location = New System.Drawing.Point(775, 436)
+        Me.TextBox12.Location = New System.Drawing.Point(776, 435)
         Me.TextBox12.Name = "TextBox12"
         Me.TextBox12.Size = New System.Drawing.Size(204, 26)
         Me.TextBox12.TabIndex = 70
         '
         'TextBox14
         '
-        Me.TextBox14.Location = New System.Drawing.Point(775, 521)
+        Me.TextBox14.Location = New System.Drawing.Point(776, 522)
         Me.TextBox14.Name = "TextBox14"
         Me.TextBox14.Size = New System.Drawing.Size(204, 26)
         Me.TextBox14.TabIndex = 76
@@ -254,16 +251,16 @@ Partial Class Search
         '
         'NameLabel
         '
-        Me.NameLabel.Location = New System.Drawing.Point(161, 438)
+        Me.NameLabel.Location = New System.Drawing.Point(160, 438)
         Me.NameLabel.Name = "NameLabel"
-        Me.NameLabel.Size = New System.Drawing.Size(91, 25)
+        Me.NameLabel.Size = New System.Drawing.Size(92, 25)
         Me.NameLabel.TabIndex = 79
         Me.NameLabel.Text = "Find by ID:"
         Me.NameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label12
         '
-        Me.Label12.Location = New System.Drawing.Point(134, 479)
+        Me.Label12.Location = New System.Drawing.Point(134, 478)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(118, 25)
         Me.Label12.TabIndex = 80
@@ -272,7 +269,7 @@ Partial Class Search
         '
         'Label13
         '
-        Me.Label13.Location = New System.Drawing.Point(123, 521)
+        Me.Label13.Location = New System.Drawing.Point(123, 522)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(129, 25)
         Me.Label13.TabIndex = 81
@@ -283,16 +280,16 @@ Partial Class Search
         '
         Me.Label14.Location = New System.Drawing.Point(70, 554)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(181, 33)
+        Me.Label14.Size = New System.Drawing.Size(182, 32)
         Me.Label14.TabIndex = 82
         Me.Label14.Text = "Find without allergen:"
         Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label15
         '
-        Me.Label15.Location = New System.Drawing.Point(71, 595)
+        Me.Label15.Location = New System.Drawing.Point(70, 595)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(181, 33)
+        Me.Label15.Size = New System.Drawing.Size(182, 32)
         Me.Label15.TabIndex = 83
         Me.Label15.Text = "Find stock level by ID:"
         Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -310,23 +307,23 @@ Partial Class Search
         '
         Me.Label22.Location = New System.Drawing.Point(573, 477)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(196, 27)
+        Me.Label22.Size = New System.Drawing.Size(196, 28)
         Me.Label22.TabIndex = 85
         Me.Label22.Text = "Find all logs by User ID:"
         Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label23
         '
-        Me.Label23.Location = New System.Drawing.Point(573, 519)
+        Me.Label23.Location = New System.Drawing.Point(573, 518)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(196, 27)
+        Me.Label23.Size = New System.Drawing.Size(196, 28)
         Me.Label23.TabIndex = 86
         Me.Label23.Text = "Find all logs by Factory ID:"
         Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label18
         '
-        Me.Label18.Location = New System.Drawing.Point(611, 758)
+        Me.Label18.Location = New System.Drawing.Point(610, 758)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(160, 25)
         Me.Label18.TabIndex = 87
@@ -335,7 +332,7 @@ Partial Class Search
         '
         'Label19
         '
-        Me.Label19.Location = New System.Drawing.Point(611, 797)
+        Me.Label19.Location = New System.Drawing.Point(610, 797)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(160, 25)
         Me.Label19.TabIndex = 88
@@ -353,7 +350,7 @@ Partial Class Search
         '
         'Label4
         '
-        Me.Label4.Location = New System.Drawing.Point(38, 796)
+        Me.Label4.Location = New System.Drawing.Point(38, 795)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(210, 26)
         Me.Label4.TabIndex = 90
@@ -369,22 +366,22 @@ Partial Class Search
         Me.Label5.Text = "Find invoices by Factory ID:"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'Button1
+        'FindProductbyIDButton
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(468, 438)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(30, 27)
-        Me.Button1.TabIndex = 92
-        Me.Button1.Text = ">"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.FindProductbyIDButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FindProductbyIDButton.Location = New System.Drawing.Point(468, 438)
+        Me.FindProductbyIDButton.Name = "FindProductbyIDButton"
+        Me.FindProductbyIDButton.Size = New System.Drawing.Size(30, 28)
+        Me.FindProductbyIDButton.TabIndex = 92
+        Me.FindProductbyIDButton.Text = ">"
+        Me.FindProductbyIDButton.UseVisualStyleBackColor = True
         '
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(468, 479)
+        Me.Button2.Location = New System.Drawing.Point(468, 478)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(30, 27)
+        Me.Button2.Size = New System.Drawing.Size(30, 28)
         Me.Button2.TabIndex = 93
         Me.Button2.Text = ">"
         Me.Button2.UseVisualStyleBackColor = True
@@ -392,9 +389,9 @@ Partial Class Search
         'Button3
         '
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(468, 519)
+        Me.Button3.Location = New System.Drawing.Point(468, 518)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(30, 27)
+        Me.Button3.Size = New System.Drawing.Size(30, 28)
         Me.Button3.TabIndex = 94
         Me.Button3.Text = ">"
         Me.Button3.UseVisualStyleBackColor = True
@@ -404,7 +401,7 @@ Partial Class Search
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.Location = New System.Drawing.Point(468, 560)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(30, 27)
+        Me.Button4.Size = New System.Drawing.Size(30, 28)
         Me.Button4.TabIndex = 95
         Me.Button4.Text = ">"
         Me.Button4.UseVisualStyleBackColor = True
@@ -414,7 +411,7 @@ Partial Class Search
         Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button5.Location = New System.Drawing.Point(468, 598)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(30, 27)
+        Me.Button5.Size = New System.Drawing.Size(30, 28)
         Me.Button5.TabIndex = 96
         Me.Button5.Text = ">"
         Me.Button5.UseVisualStyleBackColor = True
@@ -422,9 +419,9 @@ Partial Class Search
         'Button6
         '
         Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(468, 756)
+        Me.Button6.Location = New System.Drawing.Point(468, 755)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(30, 27)
+        Me.Button6.Size = New System.Drawing.Size(30, 28)
         Me.Button6.TabIndex = 97
         Me.Button6.Text = ">"
         Me.Button6.UseVisualStyleBackColor = True
@@ -434,7 +431,7 @@ Partial Class Search
         Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button7.Location = New System.Drawing.Point(468, 797)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(30, 27)
+        Me.Button7.Size = New System.Drawing.Size(30, 28)
         Me.Button7.TabIndex = 98
         Me.Button7.Text = ">"
         Me.Button7.UseVisualStyleBackColor = True
@@ -444,7 +441,7 @@ Partial Class Search
         Me.Button8.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button8.Location = New System.Drawing.Point(468, 837)
         Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(30, 27)
+        Me.Button8.Size = New System.Drawing.Size(30, 28)
         Me.Button8.TabIndex = 99
         Me.Button8.Text = ">"
         Me.Button8.UseVisualStyleBackColor = True
@@ -452,9 +449,9 @@ Partial Class Search
         'Button9
         '
         Me.Button9.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.Location = New System.Drawing.Point(985, 435)
+        Me.Button9.Location = New System.Drawing.Point(986, 435)
         Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(30, 27)
+        Me.Button9.Size = New System.Drawing.Size(30, 28)
         Me.Button9.TabIndex = 100
         Me.Button9.Text = ">"
         Me.Button9.UseVisualStyleBackColor = True
@@ -462,9 +459,9 @@ Partial Class Search
         'Button10
         '
         Me.Button10.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button10.Location = New System.Drawing.Point(985, 479)
+        Me.Button10.Location = New System.Drawing.Point(986, 478)
         Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(30, 27)
+        Me.Button10.Size = New System.Drawing.Size(30, 28)
         Me.Button10.TabIndex = 101
         Me.Button10.Text = ">"
         Me.Button10.UseVisualStyleBackColor = True
@@ -472,9 +469,9 @@ Partial Class Search
         'Button11
         '
         Me.Button11.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button11.Location = New System.Drawing.Point(985, 519)
+        Me.Button11.Location = New System.Drawing.Point(986, 518)
         Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(30, 27)
+        Me.Button11.Size = New System.Drawing.Size(30, 28)
         Me.Button11.TabIndex = 102
         Me.Button11.Text = ">"
         Me.Button11.UseVisualStyleBackColor = True
@@ -482,9 +479,9 @@ Partial Class Search
         'Button12
         '
         Me.Button12.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button12.Location = New System.Drawing.Point(987, 756)
+        Me.Button12.Location = New System.Drawing.Point(987, 755)
         Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(30, 27)
+        Me.Button12.Size = New System.Drawing.Size(30, 28)
         Me.Button12.TabIndex = 103
         Me.Button12.Text = ">"
         Me.Button12.UseVisualStyleBackColor = True
@@ -494,16 +491,51 @@ Partial Class Search
         Me.Button13.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button13.Location = New System.Drawing.Point(987, 797)
         Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(30, 27)
+        Me.Button13.Size = New System.Drawing.Size(30, 28)
         Me.Button13.TabIndex = 104
         Me.Button13.Text = ">"
         Me.Button13.UseVisualStyleBackColor = True
+        '
+        'FindProductbyIDNumericUpDown
+        '
+        Me.FindProductbyIDNumericUpDown.Location = New System.Drawing.Point(258, 438)
+        Me.FindProductbyIDNumericUpDown.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
+        Me.FindProductbyIDNumericUpDown.Name = "FindProductbyIDNumericUpDown"
+        Me.FindProductbyIDNumericUpDown.Size = New System.Drawing.Size(204, 26)
+        Me.FindProductbyIDNumericUpDown.TabIndex = 107
+        Me.FindProductbyIDNumericUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(1177, 223)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(148, 52)
+        Me.Label6.TabIndex = 109
+        Me.Label6.Text = "Results"
+        '
+        'ResultsDataGridView
+        '
+        Me.ResultsDataGridView.AllowUserToAddRows = False
+        Me.ResultsDataGridView.AllowUserToDeleteRows = False
+        Me.ResultsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ResultsDataGridView.Location = New System.Drawing.Point(1174, 288)
+        Me.ResultsDataGridView.Name = "ResultsDataGridView"
+        Me.ResultsDataGridView.ReadOnly = True
+        Me.ResultsDataGridView.RowTemplate.Height = 28
+        Me.ResultsDataGridView.Size = New System.Drawing.Size(896, 589)
+        Me.ResultsDataGridView.TabIndex = 108
         '
         'Search
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1114, 925)
+        Me.AutoSize = True
+        Me.ClientSize = New System.Drawing.Size(2151, 925)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.ResultsDataGridView)
+        Me.Controls.Add(Me.FindProductbyIDNumericUpDown)
         Me.Controls.Add(Me.Button13)
         Me.Controls.Add(Me.Button12)
         Me.Controls.Add(Me.Button11)
@@ -516,7 +548,7 @@ Partial Class Search
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.FindProductbyIDButton)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label21)
@@ -539,7 +571,6 @@ Partial Class Search
         Me.Controls.Add(Me.TextBox9)
         Me.Controls.Add(Me.TextBox8)
         Me.Controls.Add(Me.TextBox7)
-        Me.Controls.Add(Me.TextBox6)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.TextBox5)
         Me.Controls.Add(Me.Label9)
@@ -555,6 +586,8 @@ Partial Class Search
         Me.Name = "Search"
         Me.Text = "SwissChoco - Search"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FindProductbyIDNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ResultsDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -572,7 +605,6 @@ Partial Class Search
     Friend WithEvents Label9 As Label
     Friend WithEvents TextBox5 As TextBox
     Friend WithEvents Label11 As Label
-    Friend WithEvents TextBox6 As TextBox
     Friend WithEvents TextBox7 As TextBox
     Friend WithEvents TextBox8 As TextBox
     Friend WithEvents TextBox9 As TextBox
@@ -595,7 +627,7 @@ Partial Class Search
     Friend WithEvents Label21 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents FindProductbyIDButton As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
@@ -608,4 +640,7 @@ Partial Class Search
     Friend WithEvents Button11 As Button
     Friend WithEvents Button12 As Button
     Friend WithEvents Button13 As Button
+    Friend WithEvents FindProductbyIDNumericUpDown As NumericUpDown
+    Friend WithEvents Label6 As Label
+    Friend WithEvents ResultsDataGridView As DataGridView
 End Class
