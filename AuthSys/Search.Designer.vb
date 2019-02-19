@@ -27,21 +27,12 @@ Partial Class Search
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.FindContactbyEmailTextBox = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.TextBox9 = New System.Windows.Forms.TextBox()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.FindProductbyNameTextBox = New System.Windows.Forms.TextBox()
+        Me.FindwithoutAllergenTextBox = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.TextBox11 = New System.Windows.Forms.TextBox()
-        Me.TextBox12 = New System.Windows.Forms.TextBox()
-        Me.TextBox14 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.NameLabel = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -51,30 +42,47 @@ Partial Class Search
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.FindProductbyIDButton = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.Button10 = New System.Windows.Forms.Button()
-        Me.Button11 = New System.Windows.Forms.Button()
-        Me.Button12 = New System.Windows.Forms.Button()
-        Me.Button13 = New System.Windows.Forms.Button()
+        Me.FindProductbyNameButton = New System.Windows.Forms.Button()
+        Me.FilterbyCostButton = New System.Windows.Forms.Button()
+        Me.FindwithoutAllergenButton = New System.Windows.Forms.Button()
+        Me.FindStockLevelbyIDButton = New System.Windows.Forms.Button()
+        Me.FindContactbyEmailButton = New System.Windows.Forms.Button()
+        Me.FindContactbyFactoryIDButton = New System.Windows.Forms.Button()
+        Me.FindInvoicesbyFactoryIDButton = New System.Windows.Forms.Button()
+        Me.FindLogbyIDButton = New System.Windows.Forms.Button()
+        Me.FindLogbyUserIDButton = New System.Windows.Forms.Button()
+        Me.FindLogbyFactoryIDButton = New System.Windows.Forms.Button()
+        Me.CheckInvoiceStatusButton = New System.Windows.Forms.Button()
         Me.FindProductbyIDNumericUpDown = New System.Windows.Forms.NumericUpDown()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.ResultsDataGridView = New System.Windows.Forms.DataGridView()
+        Me.CostMinNumericUpDown = New System.Windows.Forms.NumericUpDown()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.CostMaxNumericUpDown = New System.Windows.Forms.NumericUpDown()
+        Me.FindContactbyFactoryIDNumericUpDown = New System.Windows.Forms.NumericUpDown()
+        Me.FindInvoicesbyFactoryIDNumericUpDown = New System.Windows.Forms.NumericUpDown()
+        Me.FindLogbyIDNumericUpDown = New System.Windows.Forms.NumericUpDown()
+        Me.FindLogbyUserIDNumericUpDown = New System.Windows.Forms.NumericUpDown()
+        Me.FindLogbyFactoryIDNumericUpDown = New System.Windows.Forms.NumericUpDown()
+        Me.CheckInvoiceStatusNumericUpDown = New System.Windows.Forms.NumericUpDown()
+        Me.FindStockLevelbyIDNumericUpDown = New System.Windows.Forms.NumericUpDown()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FindProductbyIDNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ResultsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CostMinNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CostMaxNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FindContactbyFactoryIDNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FindInvoicesbyFactoryIDNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FindLogbyIDNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FindLogbyUserIDNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FindLogbyFactoryIDNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CheckInvoiceStatusNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FindStockLevelbyIDNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -125,34 +133,6 @@ Partial Class Search
         Me.Label3.TabIndex = 31
         Me.Label3.Text = "Internal Invoices"
         '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(777, 757)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(204, 26)
-        Me.TextBox1.TabIndex = 33
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(777, 795)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(204, 26)
-        Me.TextBox2.TabIndex = 35
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(258, 795)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(204, 26)
-        Me.TextBox3.TabIndex = 41
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Location = New System.Drawing.Point(258, 838)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(204, 26)
-        Me.TextBox4.TabIndex = 43
-        '
         'Label9
         '
         Me.Label9.AutoSize = True
@@ -163,12 +143,12 @@ Partial Class Search
         Me.Label9.TabIndex = 45
         Me.Label9.Text = "Factories + Contacts"
         '
-        'TextBox5
+        'FindContactbyEmailTextBox
         '
-        Me.TextBox5.Location = New System.Drawing.Point(258, 757)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(204, 26)
-        Me.TextBox5.TabIndex = 47
+        Me.FindContactbyEmailTextBox.Location = New System.Drawing.Point(258, 757)
+        Me.FindContactbyEmailTextBox.Name = "FindContactbyEmailTextBox"
+        Me.FindContactbyEmailTextBox.Size = New System.Drawing.Size(204, 26)
+        Me.FindContactbyEmailTextBox.TabIndex = 47
         '
         'Label11
         '
@@ -180,33 +160,19 @@ Partial Class Search
         Me.Label11.TabIndex = 49
         Me.Label11.Text = "Products"
         '
-        'TextBox7
+        'FindProductbyNameTextBox
         '
-        Me.TextBox7.Location = New System.Drawing.Point(258, 478)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(204, 26)
-        Me.TextBox7.TabIndex = 57
+        Me.FindProductbyNameTextBox.Location = New System.Drawing.Point(258, 478)
+        Me.FindProductbyNameTextBox.Name = "FindProductbyNameTextBox"
+        Me.FindProductbyNameTextBox.Size = New System.Drawing.Size(204, 26)
+        Me.FindProductbyNameTextBox.TabIndex = 57
         '
-        'TextBox8
+        'FindwithoutAllergenTextBox
         '
-        Me.TextBox8.Location = New System.Drawing.Point(258, 520)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(204, 26)
-        Me.TextBox8.TabIndex = 59
-        '
-        'TextBox9
-        '
-        Me.TextBox9.Location = New System.Drawing.Point(258, 557)
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(204, 26)
-        Me.TextBox9.TabIndex = 61
-        '
-        'TextBox10
-        '
-        Me.TextBox10.Location = New System.Drawing.Point(258, 598)
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.Size = New System.Drawing.Size(205, 26)
-        Me.TextBox10.TabIndex = 63
+        Me.FindwithoutAllergenTextBox.Location = New System.Drawing.Point(258, 557)
+        Me.FindwithoutAllergenTextBox.Name = "FindwithoutAllergenTextBox"
+        Me.FindwithoutAllergenTextBox.Size = New System.Drawing.Size(204, 26)
+        Me.FindwithoutAllergenTextBox.TabIndex = 61
         '
         'Label17
         '
@@ -217,27 +183,6 @@ Partial Class Search
         Me.Label17.Size = New System.Drawing.Size(381, 52)
         Me.Label17.TabIndex = 65
         Me.Label17.Text = "Manufacturing Logs"
-        '
-        'TextBox11
-        '
-        Me.TextBox11.Location = New System.Drawing.Point(776, 478)
-        Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.Size = New System.Drawing.Size(204, 26)
-        Me.TextBox11.TabIndex = 67
-        '
-        'TextBox12
-        '
-        Me.TextBox12.Location = New System.Drawing.Point(776, 435)
-        Me.TextBox12.Name = "TextBox12"
-        Me.TextBox12.Size = New System.Drawing.Size(204, 26)
-        Me.TextBox12.TabIndex = 70
-        '
-        'TextBox14
-        '
-        Me.TextBox14.Location = New System.Drawing.Point(776, 522)
-        Me.TextBox14.Name = "TextBox14"
-        Me.TextBox14.Size = New System.Drawing.Size(204, 26)
-        Me.TextBox14.TabIndex = 76
         '
         'Label2
         '
@@ -321,22 +266,13 @@ Partial Class Search
         Me.Label23.Text = "Find all logs by Factory ID:"
         Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'Label18
-        '
-        Me.Label18.Location = New System.Drawing.Point(610, 758)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(160, 25)
-        Me.Label18.TabIndex = 87
-        Me.Label18.Text = "Filter by Factory ID:"
-        Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
         'Label19
         '
-        Me.Label19.Location = New System.Drawing.Point(610, 797)
+        Me.Label19.Location = New System.Drawing.Point(588, 758)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(160, 25)
+        Me.Label19.Size = New System.Drawing.Size(181, 24)
         Me.Label19.TabIndex = 88
-        Me.Label19.Text = "Check invoice status:"
+        Me.Label19.Text = "Check Invoice status:"
         Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label21
@@ -376,130 +312,120 @@ Partial Class Search
         Me.FindProductbyIDButton.Text = ">"
         Me.FindProductbyIDButton.UseVisualStyleBackColor = True
         '
-        'Button2
+        'FindProductbyNameButton
         '
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(468, 478)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(30, 28)
-        Me.Button2.TabIndex = 93
-        Me.Button2.Text = ">"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.FindProductbyNameButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FindProductbyNameButton.Location = New System.Drawing.Point(468, 478)
+        Me.FindProductbyNameButton.Name = "FindProductbyNameButton"
+        Me.FindProductbyNameButton.Size = New System.Drawing.Size(30, 28)
+        Me.FindProductbyNameButton.TabIndex = 93
+        Me.FindProductbyNameButton.Text = ">"
+        Me.FindProductbyNameButton.UseVisualStyleBackColor = True
         '
-        'Button3
+        'FilterbyCostButton
         '
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(468, 518)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(30, 28)
-        Me.Button3.TabIndex = 94
-        Me.Button3.Text = ">"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.FilterbyCostButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterbyCostButton.Location = New System.Drawing.Point(468, 518)
+        Me.FilterbyCostButton.Name = "FilterbyCostButton"
+        Me.FilterbyCostButton.Size = New System.Drawing.Size(30, 28)
+        Me.FilterbyCostButton.TabIndex = 94
+        Me.FilterbyCostButton.Text = ">"
+        Me.FilterbyCostButton.UseVisualStyleBackColor = True
         '
-        'Button4
+        'FindwithoutAllergenButton
         '
-        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(468, 560)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(30, 28)
-        Me.Button4.TabIndex = 95
-        Me.Button4.Text = ">"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.FindwithoutAllergenButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FindwithoutAllergenButton.Location = New System.Drawing.Point(468, 560)
+        Me.FindwithoutAllergenButton.Name = "FindwithoutAllergenButton"
+        Me.FindwithoutAllergenButton.Size = New System.Drawing.Size(30, 28)
+        Me.FindwithoutAllergenButton.TabIndex = 95
+        Me.FindwithoutAllergenButton.Text = ">"
+        Me.FindwithoutAllergenButton.UseVisualStyleBackColor = True
         '
-        'Button5
+        'FindStockLevelbyIDButton
         '
-        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(468, 598)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(30, 28)
-        Me.Button5.TabIndex = 96
-        Me.Button5.Text = ">"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.FindStockLevelbyIDButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FindStockLevelbyIDButton.Location = New System.Drawing.Point(468, 598)
+        Me.FindStockLevelbyIDButton.Name = "FindStockLevelbyIDButton"
+        Me.FindStockLevelbyIDButton.Size = New System.Drawing.Size(30, 28)
+        Me.FindStockLevelbyIDButton.TabIndex = 96
+        Me.FindStockLevelbyIDButton.Text = ">"
+        Me.FindStockLevelbyIDButton.UseVisualStyleBackColor = True
         '
-        'Button6
+        'FindContactbyEmailButton
         '
-        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(468, 755)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(30, 28)
-        Me.Button6.TabIndex = 97
-        Me.Button6.Text = ">"
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.FindContactbyEmailButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FindContactbyEmailButton.Location = New System.Drawing.Point(468, 755)
+        Me.FindContactbyEmailButton.Name = "FindContactbyEmailButton"
+        Me.FindContactbyEmailButton.Size = New System.Drawing.Size(30, 28)
+        Me.FindContactbyEmailButton.TabIndex = 97
+        Me.FindContactbyEmailButton.Text = ">"
+        Me.FindContactbyEmailButton.UseVisualStyleBackColor = True
         '
-        'Button7
+        'FindContactbyFactoryIDButton
         '
-        Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Location = New System.Drawing.Point(468, 797)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(30, 28)
-        Me.Button7.TabIndex = 98
-        Me.Button7.Text = ">"
-        Me.Button7.UseVisualStyleBackColor = True
+        Me.FindContactbyFactoryIDButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FindContactbyFactoryIDButton.Location = New System.Drawing.Point(468, 797)
+        Me.FindContactbyFactoryIDButton.Name = "FindContactbyFactoryIDButton"
+        Me.FindContactbyFactoryIDButton.Size = New System.Drawing.Size(30, 28)
+        Me.FindContactbyFactoryIDButton.TabIndex = 98
+        Me.FindContactbyFactoryIDButton.Text = ">"
+        Me.FindContactbyFactoryIDButton.UseVisualStyleBackColor = True
         '
-        'Button8
+        'FindInvoicesbyFactoryIDButton
         '
-        Me.Button8.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button8.Location = New System.Drawing.Point(468, 837)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(30, 28)
-        Me.Button8.TabIndex = 99
-        Me.Button8.Text = ">"
-        Me.Button8.UseVisualStyleBackColor = True
+        Me.FindInvoicesbyFactoryIDButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FindInvoicesbyFactoryIDButton.Location = New System.Drawing.Point(468, 837)
+        Me.FindInvoicesbyFactoryIDButton.Name = "FindInvoicesbyFactoryIDButton"
+        Me.FindInvoicesbyFactoryIDButton.Size = New System.Drawing.Size(30, 28)
+        Me.FindInvoicesbyFactoryIDButton.TabIndex = 99
+        Me.FindInvoicesbyFactoryIDButton.Text = ">"
+        Me.FindInvoicesbyFactoryIDButton.UseVisualStyleBackColor = True
         '
-        'Button9
+        'FindLogbyIDButton
         '
-        Me.Button9.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.Location = New System.Drawing.Point(986, 435)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(30, 28)
-        Me.Button9.TabIndex = 100
-        Me.Button9.Text = ">"
-        Me.Button9.UseVisualStyleBackColor = True
+        Me.FindLogbyIDButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FindLogbyIDButton.Location = New System.Drawing.Point(986, 435)
+        Me.FindLogbyIDButton.Name = "FindLogbyIDButton"
+        Me.FindLogbyIDButton.Size = New System.Drawing.Size(30, 28)
+        Me.FindLogbyIDButton.TabIndex = 100
+        Me.FindLogbyIDButton.Text = ">"
+        Me.FindLogbyIDButton.UseVisualStyleBackColor = True
         '
-        'Button10
+        'FindLogbyUserIDButton
         '
-        Me.Button10.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button10.Location = New System.Drawing.Point(986, 478)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(30, 28)
-        Me.Button10.TabIndex = 101
-        Me.Button10.Text = ">"
-        Me.Button10.UseVisualStyleBackColor = True
+        Me.FindLogbyUserIDButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FindLogbyUserIDButton.Location = New System.Drawing.Point(986, 478)
+        Me.FindLogbyUserIDButton.Name = "FindLogbyUserIDButton"
+        Me.FindLogbyUserIDButton.Size = New System.Drawing.Size(30, 28)
+        Me.FindLogbyUserIDButton.TabIndex = 101
+        Me.FindLogbyUserIDButton.Text = ">"
+        Me.FindLogbyUserIDButton.UseVisualStyleBackColor = True
         '
-        'Button11
+        'FindLogbyFactoryIDButton
         '
-        Me.Button11.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button11.Location = New System.Drawing.Point(986, 518)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(30, 28)
-        Me.Button11.TabIndex = 102
-        Me.Button11.Text = ">"
-        Me.Button11.UseVisualStyleBackColor = True
+        Me.FindLogbyFactoryIDButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FindLogbyFactoryIDButton.Location = New System.Drawing.Point(986, 518)
+        Me.FindLogbyFactoryIDButton.Name = "FindLogbyFactoryIDButton"
+        Me.FindLogbyFactoryIDButton.Size = New System.Drawing.Size(30, 28)
+        Me.FindLogbyFactoryIDButton.TabIndex = 102
+        Me.FindLogbyFactoryIDButton.Text = ">"
+        Me.FindLogbyFactoryIDButton.UseVisualStyleBackColor = True
         '
-        'Button12
+        'CheckInvoiceStatusButton
         '
-        Me.Button12.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button12.Location = New System.Drawing.Point(987, 755)
-        Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(30, 28)
-        Me.Button12.TabIndex = 103
-        Me.Button12.Text = ">"
-        Me.Button12.UseVisualStyleBackColor = True
-        '
-        'Button13
-        '
-        Me.Button13.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button13.Location = New System.Drawing.Point(987, 797)
-        Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(30, 28)
-        Me.Button13.TabIndex = 104
-        Me.Button13.Text = ">"
-        Me.Button13.UseVisualStyleBackColor = True
+        Me.CheckInvoiceStatusButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckInvoiceStatusButton.Location = New System.Drawing.Point(986, 756)
+        Me.CheckInvoiceStatusButton.Name = "CheckInvoiceStatusButton"
+        Me.CheckInvoiceStatusButton.Size = New System.Drawing.Size(30, 28)
+        Me.CheckInvoiceStatusButton.TabIndex = 104
+        Me.CheckInvoiceStatusButton.Text = ">"
+        Me.CheckInvoiceStatusButton.UseVisualStyleBackColor = True
         '
         'FindProductbyIDNumericUpDown
         '
         Me.FindProductbyIDNumericUpDown.Location = New System.Drawing.Point(258, 438)
-        Me.FindProductbyIDNumericUpDown.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
+        Me.FindProductbyIDNumericUpDown.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
         Me.FindProductbyIDNumericUpDown.Name = "FindProductbyIDNumericUpDown"
         Me.FindProductbyIDNumericUpDown.Size = New System.Drawing.Size(204, 26)
         Me.FindProductbyIDNumericUpDown.TabIndex = 107
@@ -527,33 +453,133 @@ Partial Class Search
         Me.ResultsDataGridView.Size = New System.Drawing.Size(896, 589)
         Me.ResultsDataGridView.TabIndex = 108
         '
+        'CostMinNumericUpDown
+        '
+        Me.CostMinNumericUpDown.DecimalPlaces = 2
+        Me.CostMinNumericUpDown.Location = New System.Drawing.Point(258, 520)
+        Me.CostMinNumericUpDown.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
+        Me.CostMinNumericUpDown.Name = "CostMinNumericUpDown"
+        Me.CostMinNumericUpDown.Size = New System.Drawing.Size(76, 26)
+        Me.CostMinNumericUpDown.TabIndex = 110
+        Me.CostMinNumericUpDown.Value = New Decimal(New Integer() {100, 0, 0, 131072})
+        '
+        'Label7
+        '
+        Me.Label7.Location = New System.Drawing.Point(340, 519)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(31, 26)
+        Me.Label7.TabIndex = 111
+        Me.Label7.Text = "to"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'CostMaxNumericUpDown
+        '
+        Me.CostMaxNumericUpDown.DecimalPlaces = 2
+        Me.CostMaxNumericUpDown.Location = New System.Drawing.Point(387, 521)
+        Me.CostMaxNumericUpDown.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
+        Me.CostMaxNumericUpDown.Name = "CostMaxNumericUpDown"
+        Me.CostMaxNumericUpDown.Size = New System.Drawing.Size(76, 26)
+        Me.CostMaxNumericUpDown.TabIndex = 112
+        Me.CostMaxNumericUpDown.Value = New Decimal(New Integer() {799, 0, 0, 131072})
+        '
+        'FindContactbyFactoryIDNumericUpDown
+        '
+        Me.FindContactbyFactoryIDNumericUpDown.Location = New System.Drawing.Point(258, 799)
+        Me.FindContactbyFactoryIDNumericUpDown.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
+        Me.FindContactbyFactoryIDNumericUpDown.Name = "FindContactbyFactoryIDNumericUpDown"
+        Me.FindContactbyFactoryIDNumericUpDown.Size = New System.Drawing.Size(204, 26)
+        Me.FindContactbyFactoryIDNumericUpDown.TabIndex = 113
+        Me.FindContactbyFactoryIDNumericUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
+        'FindInvoicesbyFactoryIDNumericUpDown
+        '
+        Me.FindInvoicesbyFactoryIDNumericUpDown.Location = New System.Drawing.Point(259, 837)
+        Me.FindInvoicesbyFactoryIDNumericUpDown.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
+        Me.FindInvoicesbyFactoryIDNumericUpDown.Name = "FindInvoicesbyFactoryIDNumericUpDown"
+        Me.FindInvoicesbyFactoryIDNumericUpDown.Size = New System.Drawing.Size(204, 26)
+        Me.FindInvoicesbyFactoryIDNumericUpDown.TabIndex = 114
+        Me.FindInvoicesbyFactoryIDNumericUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
+        'FindLogbyIDNumericUpDown
+        '
+        Me.FindLogbyIDNumericUpDown.Location = New System.Drawing.Point(776, 435)
+        Me.FindLogbyIDNumericUpDown.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
+        Me.FindLogbyIDNumericUpDown.Name = "FindLogbyIDNumericUpDown"
+        Me.FindLogbyIDNumericUpDown.Size = New System.Drawing.Size(204, 26)
+        Me.FindLogbyIDNumericUpDown.TabIndex = 115
+        Me.FindLogbyIDNumericUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
+        'FindLogbyUserIDNumericUpDown
+        '
+        Me.FindLogbyUserIDNumericUpDown.Location = New System.Drawing.Point(775, 480)
+        Me.FindLogbyUserIDNumericUpDown.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
+        Me.FindLogbyUserIDNumericUpDown.Name = "FindLogbyUserIDNumericUpDown"
+        Me.FindLogbyUserIDNumericUpDown.Size = New System.Drawing.Size(204, 26)
+        Me.FindLogbyUserIDNumericUpDown.TabIndex = 116
+        Me.FindLogbyUserIDNumericUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
+        'FindLogbyFactoryIDNumericUpDown
+        '
+        Me.FindLogbyFactoryIDNumericUpDown.Location = New System.Drawing.Point(775, 520)
+        Me.FindLogbyFactoryIDNumericUpDown.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
+        Me.FindLogbyFactoryIDNumericUpDown.Name = "FindLogbyFactoryIDNumericUpDown"
+        Me.FindLogbyFactoryIDNumericUpDown.Size = New System.Drawing.Size(204, 26)
+        Me.FindLogbyFactoryIDNumericUpDown.TabIndex = 117
+        Me.FindLogbyFactoryIDNumericUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
+        'CheckInvoiceStatusNumericUpDown
+        '
+        Me.CheckInvoiceStatusNumericUpDown.Location = New System.Drawing.Point(775, 758)
+        Me.CheckInvoiceStatusNumericUpDown.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
+        Me.CheckInvoiceStatusNumericUpDown.Name = "CheckInvoiceStatusNumericUpDown"
+        Me.CheckInvoiceStatusNumericUpDown.Size = New System.Drawing.Size(204, 26)
+        Me.CheckInvoiceStatusNumericUpDown.TabIndex = 118
+        Me.CheckInvoiceStatusNumericUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
+        'FindStockLevelbyIDNumericUpDown
+        '
+        Me.FindStockLevelbyIDNumericUpDown.Location = New System.Drawing.Point(259, 600)
+        Me.FindStockLevelbyIDNumericUpDown.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
+        Me.FindStockLevelbyIDNumericUpDown.Name = "FindStockLevelbyIDNumericUpDown"
+        Me.FindStockLevelbyIDNumericUpDown.Size = New System.Drawing.Size(204, 26)
+        Me.FindStockLevelbyIDNumericUpDown.TabIndex = 119
+        Me.FindStockLevelbyIDNumericUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
         'Search
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(2151, 925)
+        Me.Controls.Add(Me.FindStockLevelbyIDNumericUpDown)
+        Me.Controls.Add(Me.CheckInvoiceStatusNumericUpDown)
+        Me.Controls.Add(Me.FindLogbyFactoryIDNumericUpDown)
+        Me.Controls.Add(Me.FindLogbyUserIDNumericUpDown)
+        Me.Controls.Add(Me.FindLogbyIDNumericUpDown)
+        Me.Controls.Add(Me.FindInvoicesbyFactoryIDNumericUpDown)
+        Me.Controls.Add(Me.FindContactbyFactoryIDNumericUpDown)
+        Me.Controls.Add(Me.CostMaxNumericUpDown)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.CostMinNumericUpDown)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.ResultsDataGridView)
         Me.Controls.Add(Me.FindProductbyIDNumericUpDown)
-        Me.Controls.Add(Me.Button13)
-        Me.Controls.Add(Me.Button12)
-        Me.Controls.Add(Me.Button11)
-        Me.Controls.Add(Me.Button10)
-        Me.Controls.Add(Me.Button9)
-        Me.Controls.Add(Me.Button8)
-        Me.Controls.Add(Me.Button7)
-        Me.Controls.Add(Me.Button6)
-        Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.CheckInvoiceStatusButton)
+        Me.Controls.Add(Me.FindLogbyFactoryIDButton)
+        Me.Controls.Add(Me.FindLogbyUserIDButton)
+        Me.Controls.Add(Me.FindLogbyIDButton)
+        Me.Controls.Add(Me.FindInvoicesbyFactoryIDButton)
+        Me.Controls.Add(Me.FindContactbyFactoryIDButton)
+        Me.Controls.Add(Me.FindContactbyEmailButton)
+        Me.Controls.Add(Me.FindStockLevelbyIDButton)
+        Me.Controls.Add(Me.FindwithoutAllergenButton)
+        Me.Controls.Add(Me.FilterbyCostButton)
+        Me.Controls.Add(Me.FindProductbyNameButton)
         Me.Controls.Add(Me.FindProductbyIDButton)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label21)
         Me.Controls.Add(Me.Label19)
-        Me.Controls.Add(Me.Label18)
         Me.Controls.Add(Me.Label23)
         Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.Label16)
@@ -563,21 +589,12 @@ Partial Class Search
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.NameLabel)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.TextBox14)
-        Me.Controls.Add(Me.TextBox12)
-        Me.Controls.Add(Me.TextBox11)
         Me.Controls.Add(Me.Label17)
-        Me.Controls.Add(Me.TextBox10)
-        Me.Controls.Add(Me.TextBox9)
-        Me.Controls.Add(Me.TextBox8)
-        Me.Controls.Add(Me.TextBox7)
+        Me.Controls.Add(Me.FindwithoutAllergenTextBox)
+        Me.Controls.Add(Me.FindProductbyNameTextBox)
         Me.Controls.Add(Me.Label11)
-        Me.Controls.Add(Me.TextBox5)
+        Me.Controls.Add(Me.FindContactbyEmailTextBox)
         Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.TextBox4)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel1)
@@ -588,6 +605,15 @@ Partial Class Search
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FindProductbyIDNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ResultsDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CostMinNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CostMaxNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FindContactbyFactoryIDNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FindInvoicesbyFactoryIDNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FindLogbyIDNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FindLogbyUserIDNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FindLogbyFactoryIDNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CheckInvoiceStatusNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FindStockLevelbyIDNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -598,21 +624,12 @@ Partial Class Search
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox4 As TextBox
     Friend WithEvents Label9 As Label
-    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents FindContactbyEmailTextBox As TextBox
     Friend WithEvents Label11 As Label
-    Friend WithEvents TextBox7 As TextBox
-    Friend WithEvents TextBox8 As TextBox
-    Friend WithEvents TextBox9 As TextBox
-    Friend WithEvents TextBox10 As TextBox
+    Friend WithEvents FindProductbyNameTextBox As TextBox
+    Friend WithEvents FindwithoutAllergenTextBox As TextBox
     Friend WithEvents Label17 As Label
-    Friend WithEvents TextBox11 As TextBox
-    Friend WithEvents TextBox12 As TextBox
-    Friend WithEvents TextBox14 As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents NameLabel As Label
     Friend WithEvents Label12 As Label
@@ -622,25 +639,33 @@ Partial Class Search
     Friend WithEvents Label16 As Label
     Friend WithEvents Label22 As Label
     Friend WithEvents Label23 As Label
-    Friend WithEvents Label18 As Label
     Friend WithEvents Label19 As Label
     Friend WithEvents Label21 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents FindProductbyIDButton As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button5 As Button
-    Friend WithEvents Button6 As Button
-    Friend WithEvents Button7 As Button
-    Friend WithEvents Button8 As Button
-    Friend WithEvents Button9 As Button
-    Friend WithEvents Button10 As Button
-    Friend WithEvents Button11 As Button
-    Friend WithEvents Button12 As Button
-    Friend WithEvents Button13 As Button
+    Friend WithEvents FindProductbyNameButton As Button
+    Friend WithEvents FilterbyCostButton As Button
+    Friend WithEvents FindwithoutAllergenButton As Button
+    Friend WithEvents FindStockLevelbyIDButton As Button
+    Friend WithEvents FindContactbyEmailButton As Button
+    Friend WithEvents FindContactbyFactoryIDButton As Button
+    Friend WithEvents FindInvoicesbyFactoryIDButton As Button
+    Friend WithEvents FindLogbyIDButton As Button
+    Friend WithEvents FindLogbyUserIDButton As Button
+    Friend WithEvents FindLogbyFactoryIDButton As Button
+    Friend WithEvents CheckInvoiceStatusButton As Button
     Friend WithEvents FindProductbyIDNumericUpDown As NumericUpDown
     Friend WithEvents Label6 As Label
     Friend WithEvents ResultsDataGridView As DataGridView
+    Friend WithEvents CostMinNumericUpDown As NumericUpDown
+    Friend WithEvents Label7 As Label
+    Friend WithEvents CostMaxNumericUpDown As NumericUpDown
+    Friend WithEvents FindContactbyFactoryIDNumericUpDown As NumericUpDown
+    Friend WithEvents FindInvoicesbyFactoryIDNumericUpDown As NumericUpDown
+    Friend WithEvents FindLogbyIDNumericUpDown As NumericUpDown
+    Friend WithEvents FindLogbyUserIDNumericUpDown As NumericUpDown
+    Friend WithEvents FindLogbyFactoryIDNumericUpDown As NumericUpDown
+    Friend WithEvents CheckInvoiceStatusNumericUpDown As NumericUpDown
+    Friend WithEvents FindStockLevelbyIDNumericUpDown As NumericUpDown
 End Class

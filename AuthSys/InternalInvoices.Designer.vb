@@ -56,6 +56,8 @@ Partial Class InternalInvoices
         Me.SelectItemsButton = New System.Windows.Forms.Button()
         Me.ContactsNumericUpDown = New System.Windows.Forms.NumericUpDown()
         Me.CreateInvoiceButton = New System.Windows.Forms.Button()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.StatusComboBox = New System.Windows.Forms.ComboBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TotalCostNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ContactsNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -111,7 +113,7 @@ Partial Class InternalInvoices
         '
         'InvoiceIDTextBox
         '
-        Me.InvoiceIDTextBox.Location = New System.Drawing.Point(241, 356)
+        Me.InvoiceIDTextBox.Location = New System.Drawing.Point(241, 331)
         Me.InvoiceIDTextBox.MaxLength = 64
         Me.InvoiceIDTextBox.Name = "InvoiceIDTextBox"
         Me.InvoiceIDTextBox.ReadOnly = True
@@ -120,7 +122,7 @@ Partial Class InternalInvoices
         '
         'NameLabel
         '
-        Me.NameLabel.Location = New System.Drawing.Point(144, 357)
+        Me.NameLabel.Location = New System.Drawing.Point(144, 332)
         Me.NameLabel.Name = "NameLabel"
         Me.NameLabel.Size = New System.Drawing.Size(91, 25)
         Me.NameLabel.TabIndex = 54
@@ -147,7 +149,7 @@ Partial Class InternalInvoices
         '
         'Label5
         '
-        Me.Label5.Location = New System.Drawing.Point(111, 391)
+        Me.Label5.Location = New System.Drawing.Point(111, 366)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(124, 31)
         Me.Label5.TabIndex = 60
@@ -158,7 +160,7 @@ Partial Class InternalInvoices
         '
         Me.TotalCostNumericUpDown.DecimalPlaces = 2
         Me.TotalCostNumericUpDown.Enabled = False
-        Me.TotalCostNumericUpDown.Location = New System.Drawing.Point(241, 479)
+        Me.TotalCostNumericUpDown.Location = New System.Drawing.Point(241, 454)
         Me.TotalCostNumericUpDown.Name = "TotalCostNumericUpDown"
         Me.TotalCostNumericUpDown.ReadOnly = True
         Me.TotalCostNumericUpDown.Size = New System.Drawing.Size(120, 26)
@@ -166,7 +168,7 @@ Partial Class InternalInvoices
         '
         'Label6
         '
-        Me.Label6.Location = New System.Drawing.Point(111, 476)
+        Me.Label6.Location = New System.Drawing.Point(111, 451)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(124, 31)
         Me.Label6.TabIndex = 63
@@ -357,7 +359,7 @@ Partial Class InternalInvoices
         '
         'Label4
         '
-        Me.Label4.Location = New System.Drawing.Point(111, 433)
+        Me.Label4.Location = New System.Drawing.Point(111, 408)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(124, 31)
         Me.Label4.TabIndex = 78
@@ -366,7 +368,7 @@ Partial Class InternalInvoices
         '
         'ContactNameTextBox
         '
-        Me.ContactNameTextBox.Location = New System.Drawing.Point(241, 435)
+        Me.ContactNameTextBox.Location = New System.Drawing.Point(241, 410)
         Me.ContactNameTextBox.MaxLength = 64
         Me.ContactNameTextBox.Name = "ContactNameTextBox"
         Me.ContactNameTextBox.ReadOnly = True
@@ -429,7 +431,7 @@ Partial Class InternalInvoices
         '
         'ContactsNumericUpDown
         '
-        Me.ContactsNumericUpDown.Location = New System.Drawing.Point(242, 395)
+        Me.ContactsNumericUpDown.Location = New System.Drawing.Point(242, 370)
         Me.ContactsNumericUpDown.Maximum = New Decimal(New Integer() {-1304428545, 434162106, 542, 0})
         Me.ContactsNumericUpDown.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.ContactsNumericUpDown.Name = "ContactsNumericUpDown"
@@ -455,11 +457,32 @@ Partial Class InternalInvoices
         Me.CreateInvoiceButton.UseVisualStyleBackColor = False
         Me.CreateInvoiceButton.Visible = False
         '
+        'Label12
+        '
+        Me.Label12.Location = New System.Drawing.Point(111, 493)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(124, 31)
+        Me.Label12.TabIndex = 86
+        Me.Label12.Text = "Status:"
+        Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'StatusComboBox
+        '
+        Me.StatusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.StatusComboBox.FormattingEnabled = True
+        Me.StatusComboBox.Items.AddRange(New Object() {"In Progress", "Fulfilled", "Cancelled"})
+        Me.StatusComboBox.Location = New System.Drawing.Point(241, 493)
+        Me.StatusComboBox.Name = "StatusComboBox"
+        Me.StatusComboBox.Size = New System.Drawing.Size(121, 28)
+        Me.StatusComboBox.TabIndex = 87
+        '
         'InternalInvoices
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1290, 718)
+        Me.Controls.Add(Me.StatusComboBox)
+        Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.CreateInvoiceButton)
         Me.Controls.Add(Me.ContactsNumericUpDown)
         Me.Controls.Add(Me.SelectItemsButton)
@@ -538,4 +561,6 @@ Partial Class InternalInvoices
     Friend WithEvents SelectItemsButton As Button
     Friend WithEvents ContactsNumericUpDown As NumericUpDown
     Friend WithEvents CreateInvoiceButton As Button
+    Friend WithEvents Label12 As Label
+    Friend WithEvents StatusComboBox As ComboBox
 End Class

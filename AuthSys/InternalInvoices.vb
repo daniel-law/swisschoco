@@ -31,11 +31,13 @@ Public Class InternalInvoices
             Dim InvoiceId As String
             Dim ContactId As String
             Dim FactoryId As String
+            Dim Status As Integer
 
             While reader.Read
                 InvoiceId = reader("Id").ToString()
                 ContactId = reader("ContactId").ToString()
                 FactoryId = reader("FactoryId").ToString()
+                Status = reader("Status")
             End While
 
             If ContactId <> "" Then
@@ -43,6 +45,14 @@ Public Class InternalInvoices
                 ContactsNumericUpDown.Value = ContactId
                 queryAssociatedDetails = True
                 currentId = InvoiceId
+
+                If Status = 0 Then
+                    StatusComboBox.SelectedIndex = 0
+                ElseIf Status = 1 Then
+                    StatusComboBox.SelectedIndex = 1
+                Else
+                    StatusComboBox.SelectedIndex = 2
+                End If
 
                 queryContactId = ContactId
                 queryFactoryId = FactoryId
@@ -346,11 +356,12 @@ Public Class InternalInvoices
             Try
                 cmd.Connection = connectionString
                 connectionString.Open()
-                cmd.CommandText = "UPDATE InternalInvoices SET ContactId = @contactId, TotalCost = @TotalCost, FactoryId = @FactoryId WHERE Id = @Id;"
+                cmd.CommandText = "UPDATE InternalInvoices SET ContactId = @contactId, TotalCost = @totalCost, FactoryId = @factoryId, Status = @status WHERE Id = @Id;"
                 cmd.Parameters.Add("Id", SqlDbType.Int).Value = currentId
-                cmd.Parameters.Add("ContactId", SqlDbType.Int).Value = ContactsNumericUpDown.Value
-                cmd.Parameters.Add("TotalCost", SqlDbType.Int).Value = TotalCostNumericUpDown.Value
-                cmd.Parameters.Add("FactoryId", SqlDbType.Int).Value = FactoryIDTextBox.Text
+                cmd.Parameters.Add("contactId", SqlDbType.Int).Value = ContactsNumericUpDown.Value
+                cmd.Parameters.Add("totalCost", SqlDbType.Int).Value = TotalCostNumericUpDown.Value
+                cmd.Parameters.Add("factoryId", SqlDbType.Int).Value = FactoryIDTextBox.Text
+                cmd.Parameters.Add("status", SqlDbType.Int).Value = StatusComboBox.SelectedIndex
                 cmd.ExecuteNonQuery()
 
                 updateAssociatedItems = True
@@ -470,10 +481,11 @@ Public Class InternalInvoices
             Try
                 cmd.Connection = connectionString
                 connectionString.Open()
-                cmd.CommandText = "INSERT INTO InternalInvoices (FactoryId, ContactId, TotalCost) VALUES (@factoryId, @contactId, @totalCost);"
+                cmd.CommandText = "INSERT INTO InternalInvoices (FactoryId, ContactId, TotalCost, Status) VALUES (@factoryId, @contactId, @totalCost, @status);"
                 cmd.Parameters.Add("@factoryId", SqlDbType.Int).Value = FactoryIDTextBox.Text
                 cmd.Parameters.Add("@contactId", SqlDbType.Int).Value = ContactsNumericUpDown.Value
                 cmd.Parameters.Add("@totalCost", SqlDbType.NVarChar).Value = TotalCostNumericUpDown.Value
+                cmd.Parameters.Add("@status", SqlDbType.Int).Value = StatusComboBox.SelectedIndex
                 Dim result = cmd.ExecuteNonQuery()
 
                 MsgBox("Sucessfully added new internal invoice into the database.", MessageBoxIcon.Information)
