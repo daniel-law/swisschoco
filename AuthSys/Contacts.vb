@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Configuration
 
 Public Class Contacts
     Private bindingSource1 As BindingSource = New BindingSource()
@@ -7,7 +8,7 @@ Public Class Contacts
 
     Private Function GetData(ByVal query As String)
         Try
-            Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
             dataAdapter = New SqlDataAdapter(query, connectionString)
             ' Create a command builder to appropriately query the database.
             Dim commandBuilder As SqlCommandBuilder = New SqlCommandBuilder(dataAdapter)
@@ -52,7 +53,7 @@ Public Class Contacts
             ' Ask user for deletion confirmation.
             Dim result As Integer = MessageBox.Show("Are you sure you wish to delete this contact? This action is irreversible.", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If result = DialogResult.Yes Then
-                Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+                Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
                 Dim cmd As New SqlCommand
 
                 Try

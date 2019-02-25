@@ -1,4 +1,5 @@
 Public Class LoginForm
+
     Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOK.Click
         Dim samplePrincipal As New IPrincipal(
     Me.UsernameTextBox.Text, Me.PasswordTextBox.Text)

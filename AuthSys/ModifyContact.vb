@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Configuration
 
 Public Class ModifyContact
     Public Property Id As String
@@ -14,7 +15,7 @@ Public Class ModifyContact
 
     Private Sub ModifyContactButton_Click(sender As Object, e As EventArgs) Handles ModifyContactButton.Click
         If NameTextBox.Text <> "" And PhoneNumberTextBox.Text <> "" And EmailTextBox.Text <> "" Then
-            Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
             Dim cmd As New SqlCommand
 
             Try

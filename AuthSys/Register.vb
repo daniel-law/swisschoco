@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Security.Cryptography
+Imports System.Configuration
 
 Public Class Register
     Dim Username As String
@@ -15,7 +16,7 @@ Public Class Register
         If RoleComboBox.SelectedIndex = 1 Then Role = "Administrator"
 
         ' Code that will create a new user.
-        Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+        Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
         Dim cmd As New SqlCommand
 
         Try
@@ -56,7 +57,7 @@ Public Class Register
 
     Private Sub CheckUsernameUniqueness()
         ' Code that will check whether a user exists or not.
-        Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+        Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
         Dim cmd As New SqlCommand
 
         Try

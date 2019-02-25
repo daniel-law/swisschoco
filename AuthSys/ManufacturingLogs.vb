@@ -1,11 +1,12 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Configuration
 
 Public Class ManufacturingLogs
 
     Dim currentId As String
     Dim creatingRecord As Boolean
 
-    Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+    Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
     Dim cmd As New SqlCommand
 
     Private Sub getFirstRecord()
