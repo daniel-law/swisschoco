@@ -72,6 +72,7 @@ Partial Class Search
         Me.CheckInvoiceStatusNumericUpDown = New System.Windows.Forms.NumericUpDown()
         Me.FindStockLevelbyIDNumericUpDown = New System.Windows.Forms.NumericUpDown()
         Me.PrintButton = New System.Windows.Forms.Button()
+        Me.PrintDocument2 = New System.Drawing.Printing.PrintDocument()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FindProductbyIDNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ResultsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -555,6 +556,9 @@ Partial Class Search
         Me.PrintButton.Text = "Print"
         Me.PrintButton.UseVisualStyleBackColor = True
         '
+        'PrintDocument2
+        '
+        '
         'Search
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -680,4 +684,5 @@ Partial Class Search
     Friend WithEvents CheckInvoiceStatusNumericUpDown As NumericUpDown
     Friend WithEvents FindStockLevelbyIDNumericUpDown As NumericUpDown
     Friend WithEvents PrintButton As Button
+    Friend WithEvents PrintDocument2 As Printing.PrintDocument
 End Class

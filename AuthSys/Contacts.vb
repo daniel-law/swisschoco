@@ -31,6 +31,8 @@ Public Class Contacts
 
         ' Visual.
         DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+
+        DataGridView1.Select()
     End Sub
 
     Private Sub refreshContacts()
@@ -40,6 +42,7 @@ Public Class Contacts
         DataGridView1.DataSource = bindingSource1
         ' Query data from the database.
         GetData("SELECT * FROM Contacts")
+        DataGridView1.Select()
     End Sub
 
     Private Sub RefreshContactsButton_Click(sender As Object, e As EventArgs) Handles RefreshContactsButton.Click
@@ -88,6 +91,7 @@ Public Class Contacts
             Try
                 ' Query data from the database.
                 GetData("SELECT * FROM Contacts WHERE Id = " & SearchTextBox.Text)
+                DataGridView1.Select()
             Catch ex As Exception
                 MsgBox("There was an error looking up that ID.")
             End Try
@@ -98,6 +102,7 @@ Public Class Contacts
 
     Private Sub ClearResultsButton_Click(sender As Object, e As EventArgs) Handles ClearResultsButton.Click
         refreshContacts()
+        SearchTextBox.Clear()
     End Sub
 
     Private Sub AddContactButton_Click(sender As Object, e As EventArgs) Handles AddContactButton.Click
@@ -109,7 +114,7 @@ Public Class Contacts
         If DataGridView1.SelectedRows.Count > 0 And DataGridView1.SelectedRows(0).Index <> DataGridView1.NewRowIndex Then
             Dim ModifyContactForm As New ModifyContact
             ModifyContactForm.Id = DataGridView1.SelectedCells(0).Value.ToString
-            ModifyContactForm.Name = DataGridView1.SelectedCells(1).Value.ToString
+            ModifyContactForm.ContactName = DataGridView1.SelectedCells(1).Value.ToString
             ModifyContactForm.Telephone = DataGridView1.SelectedCells(2).Value.ToString
             ModifyContactForm.Email = DataGridView1.SelectedCells(3).Value.ToString()
             ModifyContactForm.Show()

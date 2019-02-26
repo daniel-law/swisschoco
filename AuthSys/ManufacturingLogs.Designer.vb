@@ -30,8 +30,6 @@ Partial Class ManufacturingLogs
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.NameLabel = New System.Windows.Forms.Label()
-        Me.FactoryIDTextBox = New System.Windows.Forms.TextBox()
-        Me.ConductedByTextBox = New System.Windows.Forms.TextBox()
         Me.DetailsRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.SearchTextBox = New System.Windows.Forms.TextBox()
@@ -41,10 +39,14 @@ Partial Class ManufacturingLogs
         Me.SaveChangesButton = New System.Windows.Forms.Button()
         Me.DeleteLogButton = New System.Windows.Forms.Button()
         Me.NewLogButton = New System.Windows.Forms.Button()
-        Me.CancelButton = New System.Windows.Forms.Button()
+        Me.CancelCreationButton = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.LogIdTextBox = New System.Windows.Forms.TextBox()
+        Me.FactoryIDNumericUpDown = New System.Windows.Forms.NumericUpDown()
+        Me.ConductedByNumericUpDown = New System.Windows.Forms.NumericUpDown()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FactoryIDNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ConductedByNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -121,22 +123,6 @@ Partial Class ManufacturingLogs
         Me.NameLabel.TabIndex = 50
         Me.NameLabel.Text = "Factory ID:"
         Me.NameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'FactoryIDTextBox
-        '
-        Me.FactoryIDTextBox.Location = New System.Drawing.Point(241, 387)
-        Me.FactoryIDTextBox.MaxLength = 64
-        Me.FactoryIDTextBox.Name = "FactoryIDTextBox"
-        Me.FactoryIDTextBox.Size = New System.Drawing.Size(220, 26)
-        Me.FactoryIDTextBox.TabIndex = 53
-        '
-        'ConductedByTextBox
-        '
-        Me.ConductedByTextBox.Location = New System.Drawing.Point(241, 428)
-        Me.ConductedByTextBox.MaxLength = 64
-        Me.ConductedByTextBox.Name = "ConductedByTextBox"
-        Me.ConductedByTextBox.Size = New System.Drawing.Size(220, 26)
-        Me.ConductedByTextBox.TabIndex = 54
         '
         'DetailsRichTextBox
         '
@@ -265,23 +251,23 @@ Partial Class ManufacturingLogs
         Me.NewLogButton.Text = "New Log"
         Me.NewLogButton.UseVisualStyleBackColor = False
         '
-        'CancelButton
+        'CancelCreationButton
         '
-        Me.CancelButton.BackColor = System.Drawing.Color.White
-        Me.CancelButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.CancelButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CancelButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CancelButton.ForeColor = System.Drawing.Color.Black
-        Me.CancelButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.CancelButton.Location = New System.Drawing.Point(841, 227)
-        Me.CancelButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.CancelButton.Name = "CancelButton"
-        Me.CancelButton.Size = New System.Drawing.Size(198, 45)
-        Me.CancelButton.TabIndex = 65
-        Me.CancelButton.Text = "(X) Cancel"
-        Me.CancelButton.UseVisualStyleBackColor = False
-        Me.CancelButton.Visible = False
+        Me.CancelCreationButton.BackColor = System.Drawing.Color.White
+        Me.CancelCreationButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CancelCreationButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.CancelCreationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CancelCreationButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CancelCreationButton.ForeColor = System.Drawing.Color.Black
+        Me.CancelCreationButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.CancelCreationButton.Location = New System.Drawing.Point(841, 227)
+        Me.CancelCreationButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.CancelCreationButton.Name = "CancelCreationButton"
+        Me.CancelCreationButton.Size = New System.Drawing.Size(198, 45)
+        Me.CancelCreationButton.TabIndex = 65
+        Me.CancelCreationButton.Text = "(X) Cancel"
+        Me.CancelCreationButton.UseVisualStyleBackColor = False
+        Me.CancelCreationButton.Visible = False
         '
         'Label6
         '
@@ -301,14 +287,34 @@ Partial Class ManufacturingLogs
         Me.LogIdTextBox.Size = New System.Drawing.Size(220, 26)
         Me.LogIdTextBox.TabIndex = 67
         '
+        'FactoryIDNumericUpDown
+        '
+        Me.FactoryIDNumericUpDown.Location = New System.Drawing.Point(241, 387)
+        Me.FactoryIDNumericUpDown.Maximum = New Decimal(New Integer() {9000, 0, 0, 0})
+        Me.FactoryIDNumericUpDown.Name = "FactoryIDNumericUpDown"
+        Me.FactoryIDNumericUpDown.Size = New System.Drawing.Size(220, 26)
+        Me.FactoryIDNumericUpDown.TabIndex = 68
+        Me.FactoryIDNumericUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
+        'ConductedByNumericUpDown
+        '
+        Me.ConductedByNumericUpDown.Location = New System.Drawing.Point(241, 429)
+        Me.ConductedByNumericUpDown.Maximum = New Decimal(New Integer() {9000, 0, 0, 0})
+        Me.ConductedByNumericUpDown.Name = "ConductedByNumericUpDown"
+        Me.ConductedByNumericUpDown.Size = New System.Drawing.Size(220, 26)
+        Me.ConductedByNumericUpDown.TabIndex = 69
+        Me.ConductedByNumericUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
         'ManufacturingLogs
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1114, 770)
+        Me.Controls.Add(Me.ConductedByNumericUpDown)
+        Me.Controls.Add(Me.FactoryIDNumericUpDown)
         Me.Controls.Add(Me.LogIdTextBox)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.CancelButton)
+        Me.Controls.Add(Me.CancelCreationButton)
         Me.Controls.Add(Me.NewLogButton)
         Me.Controls.Add(Me.DeleteLogButton)
         Me.Controls.Add(Me.SaveChangesButton)
@@ -318,8 +324,6 @@ Partial Class ManufacturingLogs
         Me.Controls.Add(Me.SearchTextBox)
         Me.Controls.Add(Me.SearchButton)
         Me.Controls.Add(Me.DetailsRichTextBox)
-        Me.Controls.Add(Me.ConductedByTextBox)
-        Me.Controls.Add(Me.FactoryIDTextBox)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.NameLabel)
@@ -331,6 +335,8 @@ Partial Class ManufacturingLogs
         Me.Name = "ManufacturingLogs"
         Me.Text = "SwissChoco - Manufacturing Logs"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FactoryIDNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ConductedByNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -344,8 +350,6 @@ Partial Class ManufacturingLogs
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents NameLabel As Label
-    Friend WithEvents FactoryIDTextBox As TextBox
-    Friend WithEvents ConductedByTextBox As TextBox
     Friend WithEvents DetailsRichTextBox As RichTextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents SearchTextBox As TextBox
@@ -355,7 +359,9 @@ Partial Class ManufacturingLogs
     Friend WithEvents SaveChangesButton As Button
     Friend WithEvents DeleteLogButton As Button
     Friend WithEvents NewLogButton As Button
-    Friend WithEvents CancelButton As Button
+    Friend WithEvents CancelCreationButton As Button
     Friend WithEvents Label6 As Label
     Friend WithEvents LogIdTextBox As TextBox
+    Friend WithEvents FactoryIDNumericUpDown As NumericUpDown
+    Friend WithEvents ConductedByNumericUpDown As NumericUpDown
 End Class

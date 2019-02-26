@@ -36,19 +36,19 @@ Partial Class Contacts
         Me.SearchTextBox = New System.Windows.Forms.TextBox()
         Me.SearchButton = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.DevelopmentDataSet = New SwissChoco.DevelopmentDataSet()
-        Me.ContactsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ContactsTableAdapter = New SwissChoco.DevelopmentDataSetTableAdapters.ContactsTableAdapter()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ContactsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DevelopmentDataSet = New SwissChoco.DevelopmentDataSet()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ContactsTableAdapter = New SwissChoco.DevelopmentDataSetTableAdapters.ContactsTableAdapter()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DevelopmentDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ContactsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DevelopmentDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -214,36 +214,13 @@ Partial Class Contacts
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.Column1})
         Me.DataGridView1.DataSource = Me.ContactsBindingSource
         Me.DataGridView1.Location = New System.Drawing.Point(35, 333)
+        Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowTemplate.Height = 28
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(851, 561)
         Me.DataGridView1.TabIndex = 40
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.SwissChoco.My.Resources.Resources.Logo
-        Me.PictureBox1.Location = New System.Drawing.Point(1053, 41)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(153, 151)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 26
-        Me.PictureBox1.TabStop = False
-        '
-        'DevelopmentDataSet
-        '
-        Me.DevelopmentDataSet.DataSetName = "DevelopmentDataSet"
-        Me.DevelopmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'ContactsBindingSource
-        '
-        Me.ContactsBindingSource.DataMember = "Contacts"
-        Me.ContactsBindingSource.DataSource = Me.DevelopmentDataSet
-        '
-        'ContactsTableAdapter
-        '
-        Me.ContactsTableAdapter.ClearBeforeFill = True
         '
         'DataGridViewTextBoxColumn1
         '
@@ -281,6 +258,31 @@ Partial Class Contacts
         Me.Column1.ReadOnly = True
         Me.Column1.Visible = False
         '
+        'ContactsBindingSource
+        '
+        Me.ContactsBindingSource.DataMember = "Contacts"
+        Me.ContactsBindingSource.DataSource = Me.DevelopmentDataSet
+        '
+        'DevelopmentDataSet
+        '
+        Me.DevelopmentDataSet.DataSetName = "DevelopmentDataSet"
+        Me.DevelopmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.SwissChoco.My.Resources.Resources.Logo
+        Me.PictureBox1.Location = New System.Drawing.Point(1053, 41)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(153, 151)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 26
+        Me.PictureBox1.TabStop = False
+        '
+        'ContactsTableAdapter
+        '
+        Me.ContactsTableAdapter.ClearBeforeFill = True
+        '
         'Contacts
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -303,9 +305,9 @@ Partial Class Contacts
         Me.Name = "Contacts"
         Me.Text = "SwissChoco - Contacts"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DevelopmentDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ContactsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DevelopmentDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

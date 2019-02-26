@@ -5,6 +5,7 @@ Public Class InternalInvoices
 
     Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
     Dim cmd As New SqlCommand
+    Dim DBEmpty As Boolean
 
     Dim currentId As Integer
     Dim Values As New List(Of Dictionary(Of String, String))()
@@ -57,9 +58,21 @@ Public Class InternalInvoices
 
                 queryContactId = ContactId
                 queryFactoryId = FactoryId
+
+                ' Record retrieved.
+                DBEmpty = False
             End If
 
         Catch ex As Exception
+            ' Re-enable disabled features for empty database table.
+            If DBEmpty = True Then
+                SelectFactoryButton.Enabled = True
+                SelectItemsButton.Enabled = True
+                SaveChangesButton.Enabled = True
+                DeleteInvoiceButton.Enabled = True
+                Exit Sub
+            End If
+
             MsgBox("Unable to view the selected invoice." & ex.Message, MessageBoxIcon.Warning)
             ' DB issues, exit.
             Exit Sub
@@ -162,12 +175,23 @@ Public Class InternalInvoices
                 End Try
             Next
         Else
+            ' There is an empty database table.
+            If DBEmpty = True Then
+                SelectFactoryButton.Enabled = False
+                SelectItemsButton.Enabled = False
+                SaveChangesButton.Enabled = False
+                DeleteInvoiceButton.Enabled = False
+                Exit Sub
+            End If
+
             MsgBox("There is not another internal invoice.", MessageBoxIcon.Warning)
+            DBEmpty = True
             loadInvoice("SELECT TOP 1 * FROM InternalInvoices;")
         End If
     End Sub
 
     Private Sub InternalInvoices_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        DBEmpty = True
         loadInvoice("SELECT TOP 1 * FROM InternalInvoices;")
     End Sub
 
@@ -186,7 +210,7 @@ Public Class InternalInvoices
         NewInvoiceButton.Enabled = True
         DeleteInvoiceButton.Enabled = True
         SaveChangesButton.Visible = True
-        CancelButton.Visible = False
+        CancelCreationButton.Visible = False
         CreateInvoiceButton.Visible = False
 
         loadInvoice("SELECT TOP 1 * FROM InternalInvoices;")
@@ -445,14 +469,29 @@ Public Class InternalInvoices
             End Try
 
             If clearInvoice = True Then
+                InvoiceIDTextBox.Text = "New"
+                ContactNameTextBox.Clear()
+                TotalCostNumericUpDown.Value = 0.00
+                FactoryIDTextBox.Clear()
+                NameTextBox.Clear()
+                CountryTextBox.Clear()
+
                 ' Must move to another record otherwise deleted record will still be shown in the form.
                 loadInvoice("SELECT TOP 1 * FROM InternalInvoices;")
             End If
         End If
     End Sub
 
-    Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
+    Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelCreationButton.Click
         cleanup()
+
+        ' Re-enable disabled features for empty database table.
+        If DBEmpty = True Then
+            SelectFactoryButton.Enabled = False
+            SelectItemsButton.Enabled = False
+            SaveChangesButton.Enabled = False
+            DeleteInvoiceButton.Enabled = False
+        End If
     End Sub
 
     Private Sub NewInvoiceButton_Click(sender As Object, e As EventArgs) Handles NewInvoiceButton.Click
@@ -471,8 +510,14 @@ Public Class InternalInvoices
         NewInvoiceButton.Enabled = False
         DeleteInvoiceButton.Enabled = False
         SaveChangesButton.Visible = False
-        CancelButton.Visible = True
+        CancelCreationButton.Visible = True
         CreateInvoiceButton.Visible = True
+
+        ' Re-enable disabled features for empty database table.
+        If DBEmpty = True Then
+            SelectFactoryButton.Enabled = True
+            SelectItemsButton.Enabled = True
+        End If
     End Sub
 
     Private Sub CreateInvoiceButton_Click(sender As Object, e As EventArgs) Handles CreateInvoiceButton.Click
@@ -491,6 +536,15 @@ Public Class InternalInvoices
 
                 MsgBox("Sucessfully added new internal invoice into the database.", MessageBoxIcon.Information)
                 addAssociatedItems = True
+
+                ' Re-enable disabled features for empty database table.
+                If DBEmpty = True Then
+                    SelectFactoryButton.Enabled = True
+                    SelectItemsButton.Enabled = True
+                    SaveChangesButton.Enabled = True
+                    DeleteInvoiceButton.Enabled = True
+                    DBEmpty = False
+                End If
 
             Catch ex As Exception
                 MsgBox("Unable to create the internal invoice.", MessageBoxIcon.Warning)

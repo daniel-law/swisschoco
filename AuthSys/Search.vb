@@ -386,4 +386,14 @@ Public Class Search
             connectionString.Close()
         End Try
     End Sub
+
+    Private Sub PrintButton_Click(sender As Object, e As EventArgs) Handles PrintButton.Click
+        PrintDocument2.Print()
+    End Sub
+
+    Private Sub PrintDocument2_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument2.PrintPage
+        Dim DataGridViewImage As New Bitmap(ResultsDataGridView.Width, ResultsDataGridView.Height)
+        ResultsDataGridView.DrawToBitmap(DataGridViewImage, New Rectangle(0, 0, ResultsDataGridView.Width, ResultsDataGridView.Height))
+        e.Graphics.DrawImage(DataGridViewImage, 0, 0)
+    End Sub
 End Class

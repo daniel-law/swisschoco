@@ -122,7 +122,7 @@ Partial Class ViewFactory
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel2)
-        Me.Name = "ViewFactory"
+        Me.FactoryName = "ViewFactory"
         Me.Text = "SwissChoco - View Factory"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

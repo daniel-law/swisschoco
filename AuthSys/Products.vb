@@ -40,6 +40,7 @@ Public Class Products
         DataGridView1.DataSource = bindingSource1
         ' Query data from the database.
         GetData("SELECT * FROM Products")
+        DataGridView1.Select()
     End Sub
 
     Private Sub RefreshProductsButton_Click(sender As Object, e As EventArgs) Handles RefreshProductsButton.Click
@@ -88,6 +89,7 @@ Public Class Products
             Try
                 ' Query data from the database.
                 GetData("SELECT * FROM Products WHERE Id = " & SearchTextBox.Text)
+                DataGridView1.Select()
             Catch ex As Exception
                 MsgBox("There was an error looking up that ID.")
             End Try
@@ -98,6 +100,7 @@ Public Class Products
 
     Private Sub ClearResultsButton_Click(sender As Object, e As EventArgs) Handles ClearResultsButton.Click
         refreshProducts()
+        SearchTextBox.Clear()
     End Sub
 
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
@@ -109,7 +112,7 @@ Public Class Products
         If DataGridView1.SelectedRows.Count > 0 And DataGridView1.SelectedRows(0).Index <> DataGridView1.NewRowIndex Then
             Dim ModifyProductForm As New ModifyProduct
             ModifyProductForm.Id = DataGridView1.SelectedCells(0).Value.ToString
-            ModifyProductForm.Name = DataGridView1.SelectedCells(1).Value.ToString
+            ModifyProductForm.Title = DataGridView1.SelectedCells(1).Value.ToString
             ModifyProductForm.Price = DataGridView1.SelectedCells(2).Value.ToString
             ModifyProductForm.Picture = DataGridView1.SelectedCells(3).Value.ToString
             ModifyProductForm.Description = DataGridView1.SelectedCells(4).Value.ToString

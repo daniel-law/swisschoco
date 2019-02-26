@@ -30,10 +30,4 @@ Public Class LoginForm
         Dim Register = New Register
         Register.Show()
     End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs) 
-        ' Show the debug menu.
-        Dim DebugForm As New Debug
-        Debug.Show()
-    End Sub
 End Class

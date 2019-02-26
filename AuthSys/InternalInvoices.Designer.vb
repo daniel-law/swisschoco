@@ -36,7 +36,7 @@ Partial Class InternalInvoices
         Me.Label6 = New System.Windows.Forms.Label()
         Me.NextButton = New System.Windows.Forms.Button()
         Me.PreviousButton = New System.Windows.Forms.Button()
-        Me.CancelButton = New System.Windows.Forms.Button()
+        Me.CancelCreationButton = New System.Windows.Forms.Button()
         Me.NewInvoiceButton = New System.Windows.Forms.Button()
         Me.DeleteInvoiceButton = New System.Windows.Forms.Button()
         Me.SaveChangesButton = New System.Windows.Forms.Button()
@@ -161,6 +161,7 @@ Partial Class InternalInvoices
         Me.TotalCostNumericUpDown.DecimalPlaces = 2
         Me.TotalCostNumericUpDown.Enabled = False
         Me.TotalCostNumericUpDown.Location = New System.Drawing.Point(241, 454)
+        Me.TotalCostNumericUpDown.Maximum = New Decimal(New Integer() {-1486618625, 232830643, 0, 0})
         Me.TotalCostNumericUpDown.Name = "TotalCostNumericUpDown"
         Me.TotalCostNumericUpDown.ReadOnly = True
         Me.TotalCostNumericUpDown.Size = New System.Drawing.Size(120, 26)
@@ -209,23 +210,23 @@ Partial Class InternalInvoices
         Me.PreviousButton.Text = "<---"
         Me.PreviousButton.UseVisualStyleBackColor = False
         '
-        'CancelButton
+        'CancelCreationButton
         '
-        Me.CancelButton.BackColor = System.Drawing.Color.White
-        Me.CancelButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.CancelButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CancelButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CancelButton.ForeColor = System.Drawing.Color.Black
-        Me.CancelButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.CancelButton.Location = New System.Drawing.Point(1050, 416)
-        Me.CancelButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.CancelButton.Name = "CancelButton"
-        Me.CancelButton.Size = New System.Drawing.Size(198, 45)
-        Me.CancelButton.TabIndex = 72
-        Me.CancelButton.Text = "(X) Cancel"
-        Me.CancelButton.UseVisualStyleBackColor = False
-        Me.CancelButton.Visible = False
+        Me.CancelCreationButton.BackColor = System.Drawing.Color.White
+        Me.CancelCreationButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CancelCreationButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.CancelCreationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CancelCreationButton.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CancelCreationButton.ForeColor = System.Drawing.Color.Black
+        Me.CancelCreationButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.CancelCreationButton.Location = New System.Drawing.Point(1050, 416)
+        Me.CancelCreationButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.CancelCreationButton.Name = "CancelCreationButton"
+        Me.CancelCreationButton.Size = New System.Drawing.Size(198, 45)
+        Me.CancelCreationButton.TabIndex = 72
+        Me.CancelCreationButton.Text = "(X) Cancel"
+        Me.CancelCreationButton.UseVisualStyleBackColor = False
+        Me.CancelCreationButton.Visible = False
         '
         'NewInvoiceButton
         '
@@ -496,7 +497,7 @@ Partial Class InternalInvoices
         Me.Controls.Add(Me.NameTextBox)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.ItemsListBox)
-        Me.Controls.Add(Me.CancelButton)
+        Me.Controls.Add(Me.CancelCreationButton)
         Me.Controls.Add(Me.NewInvoiceButton)
         Me.Controls.Add(Me.DeleteInvoiceButton)
         Me.Controls.Add(Me.SaveChangesButton)
@@ -541,7 +542,7 @@ Partial Class InternalInvoices
     Friend WithEvents Label6 As Label
     Friend WithEvents NextButton As Button
     Friend WithEvents PreviousButton As Button
-    Friend WithEvents CancelButton As Button
+    Friend WithEvents CancelCreationButton As Button
     Friend WithEvents NewInvoiceButton As Button
     Friend WithEvents DeleteInvoiceButton As Button
     Friend WithEvents SaveChangesButton As Button

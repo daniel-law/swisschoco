@@ -3,7 +3,7 @@ Imports System.Configuration
 
 Public Class ModifyProduct
     Public Property Id As String
-    Public Property Name As String
+    Public Property Title As String
     Public Property Price As String
     Public Property Picture As String
     Public Property Description As String
@@ -13,7 +13,7 @@ Public Class ModifyProduct
     Dim imgByte As Byte()
 
     Private Sub ModifyProduct_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        NameTextBox.Text = Name
+        NameTextBox.Text = Title
         PriceNumericUpDown.Value = Price
         DescriptionRichTextBox.Text = Description
         WeightNumericUpDown.Value = Weight

@@ -46,20 +46,24 @@ Public Class AddProduct
     Private Sub SelectImageButton_Click(sender As Object, e As EventArgs) Handles SelectImageButton.Click
 
         If OpenFileDialog1.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
-            ' Show image preview.
-            PictureTextBox.Text = OpenFileDialog1.FileName
-            PictureBox2.Image = Image.FromFile(OpenFileDialog1.FileName)
+            Try
+                ' Show image preview.
+                PictureTextBox.Text = OpenFileDialog1.FileName
+                PictureBox2.Image = Image.FromFile(OpenFileDialog1.FileName)
 
-            ' Re-size image.
-            Dim newSize As New Size(60, 80)
-            Dim resizedImage As Image
-            resizedImage = New Bitmap(PictureBox2.Image, newSize)
+                ' Re-size image.
+                Dim newSize As New Size(60, 80)
+                Dim resizedImage As Image
+                resizedImage = New Bitmap(PictureBox2.Image, newSize)
 
-            ' Convert image to bytes.
-            Dim img As Image = resizedImage
-            Dim imgStream As System.IO.MemoryStream = New System.IO.MemoryStream
-            img.Save(imgStream, System.Drawing.Imaging.ImageFormat.Jpeg)
-            imgByte = imgStream.GetBuffer()
+                ' Convert image to bytes.
+                Dim img As Image = resizedImage
+                Dim imgStream As System.IO.MemoryStream = New System.IO.MemoryStream
+                img.Save(imgStream, System.Drawing.Imaging.ImageFormat.Jpeg)
+                imgByte = imgStream.GetBuffer()
+            Catch ex As OutOfMemoryException
+                MsgBox("Please select an image to proceed!", MessageBoxIcon.Warning)
+            End Try
         End If
     End Sub
 End Class

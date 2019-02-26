@@ -144,7 +144,7 @@ Partial Class ViewContact
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel2)
-        Me.Name = "ViewContact"
+        Me.ContactName = "ViewContact"
         Me.Text = "SwissChoco - View Contact"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

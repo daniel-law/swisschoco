@@ -4,7 +4,7 @@ Imports System.Configuration
 Public Class ModifyFactory
 
     Public Property Id As String
-    Public Property Name As String
+    Public Property FactoryName As String
     Public Property Country As String
 
     Private Sub ModifyFactory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -15,7 +15,7 @@ Public Class ModifyFactory
             End If
         End While
 
-        NameTextBox.Text = Name
+        NameTextBox.Text = FactoryName
         CountryComboBox.Text = Country
     End Sub
 

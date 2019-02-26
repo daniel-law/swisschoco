@@ -5,6 +5,7 @@ Public Class ManufacturingLogs
 
     Dim currentId As String
     Dim creatingRecord As Boolean
+    Dim DBEmpty As Boolean
 
     Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
     Dim cmd As New SqlCommand
@@ -28,9 +29,19 @@ Public Class ManufacturingLogs
             End While
 
             LogIdTextBox.Text = currentId
-            FactoryIDTextBox.Text = FactoryID
-            ConductedByTextBox.Text = UserId
+            FactoryIDNumericUpDown.Value = FactoryID
+            ConductedByNumericUpDown.Value = UserId
             DetailsRichTextBox.Text = Detail
+
+            If FactoryID = Nothing Then
+                DBEmpty = True
+                FactoryIDNumericUpDown.Value = 1
+                ConductedByNumericUpDown.Value = 1
+                SaveChangesButton.Enabled = False
+                DeleteLogButton.Enabled = False
+            Else
+                DBEmpty = False
+            End If
 
         Catch ex As Exception
             MsgBox("Unable to view the selected manufacturing log.", MessageBoxIcon.Warning)
@@ -53,6 +64,7 @@ Public Class ManufacturingLogs
                 currentId = reader("Id").ToString()
                 LogIdTextBox.Text = currentId
             End While
+
         Catch ex As Exception
             MsgBox("Unable to view the selected manufacturing log." & ex.Message, MessageBoxIcon.Warning)
             ' DB issues, exit.
@@ -64,20 +76,21 @@ Public Class ManufacturingLogs
     End Sub
 
     Private Sub ManufacturingLogs_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        DBEmpty = True
         getFirstRecord()
     End Sub
 
     Private Sub SaveChangesButton_Click(sender As Object, e As EventArgs) Handles SaveChangesButton.Click
-        If FactoryIDTextBox.Text <> "" And ConductedByTextBox.Text <> "" And DetailsRichTextBox.Text <> "" And creatingRecord = False Then
+        If DetailsRichTextBox.Text <> "" And creatingRecord = False Then
             ' Updating current record.
             Try
                 cmd.Connection = connectionString
                 connectionString.Open()
                 cmd.CommandText = "UPDATE ManufacturingLogs SET UserId = @userId, Detail = @detail, FactoryId = @factoryId WHERE Id = @Id;"
                 cmd.Parameters.Add("@Id", SqlDbType.Int).Value = currentId
-                cmd.Parameters.Add("@userId", SqlDbType.Int).Value = ConductedByTextBox.Text
+                cmd.Parameters.Add("@userId", SqlDbType.Int).Value = ConductedByNumericUpDown.Value
                 cmd.Parameters.Add("@detail", SqlDbType.NVarChar).Value = DetailsRichTextBox.Text
-                cmd.Parameters.Add("@factoryId", SqlDbType.Int).Value = FactoryIDTextBox.Text
+                cmd.Parameters.Add("@factoryId", SqlDbType.Int).Value = FactoryIDNumericUpDown.Value
                 cmd.ExecuteNonQuery()
 
                 MsgBox("Sucessfully modified the manufacturing log details.", MessageBoxIcon.Information)
@@ -92,18 +105,19 @@ Public Class ManufacturingLogs
             End Try
         End If
 
-        If FactoryIDTextBox.Text <> "" And ConductedByTextBox.Text <> "" And DetailsRichTextBox.Text <> "" And creatingRecord = True Then
+        If DetailsRichTextBox.Text <> "" And creatingRecord = True Then
             ' Adding new record.
             Try
                 cmd.Connection = connectionString
                 connectionString.Open()
                 cmd.CommandText = "INSERT INTO ManufacturingLogs (FactoryId, UserId, Detail) VALUES (@factoryId, @userId, @detail);"
-                cmd.Parameters.Add("@factoryId", SqlDbType.Int).Value = FactoryIDTextBox.Text
-                cmd.Parameters.Add("@userId", SqlDbType.Int).Value = ConductedByTextBox.Text
+                cmd.Parameters.Add("@factoryId", SqlDbType.Int).Value = FactoryIDNumericUpDown.Value
+                cmd.Parameters.Add("@userId", SqlDbType.Int).Value = ConductedByNumericUpDown.Value
                 cmd.Parameters.Add("@detail", SqlDbType.NVarChar).Value = DetailsRichTextBox.Text
                 cmd.ExecuteNonQuery()
 
                 MsgBox("Sucessfully added new manufacturing log into the database.", MessageBoxIcon.Information)
+                DBEmpty = False
 
             Catch ex As Exception
                 MsgBox("Program encountered an error connecting to the database. Urgently contact your systems admin.", MessageBoxIcon.Warning)
@@ -122,7 +136,7 @@ Public Class ManufacturingLogs
             SearchButton.Enabled = True
 
             ' Hide cancel button.
-            CancelButton.Visible = False
+            CancelCreationButton.Visible = False
 
             ' Set the ID to the record just created.
             getLastRecordID()
@@ -153,8 +167,8 @@ Public Class ManufacturingLogs
 
                 If Detail <> "" Then
                     LogIdTextBox.Text = currentId
-                    FactoryIDTextBox.Text = FactoryID
-                    ConductedByTextBox.Text = UserId
+                    FactoryIDNumericUpDown.Value = FactoryID
+                    ConductedByNumericUpDown.Value = UserId
                     DetailsRichTextBox.Text = Detail
                 Else
                     MsgBox("The ID you have specified was incorrect.", MessageBoxIcon.Warning)
@@ -203,8 +217,8 @@ Public Class ManufacturingLogs
         creatingRecord = True
 
         ' Clear fields.
-        ConductedByTextBox.Clear()
-        FactoryIDTextBox.Clear()
+        ConductedByNumericUpDown.Value = 1
+        FactoryIDNumericUpDown.Value = 1
         DetailsRichTextBox.Clear()
 
         ' Disable features.
@@ -213,15 +227,16 @@ Public Class ManufacturingLogs
         DeleteLogButton.Enabled = False
         NewLogButton.Enabled = False
         SearchButton.Enabled = False
+        SaveChangesButton.Enabled = True
         LogIdTextBox.Text = "New"
 
         ' Show cancel button.
-        CancelButton.Visible = True
+        CancelCreationButton.Visible = True
 
-        FactoryIDTextBox.Select()
+        FactoryIDNumericUpDown.Select()
     End Sub
 
-    Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
+    Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelCreationButton.Click
         ' Enable features.
         PreviousButton.Enabled = True
         NextButton.Enabled = True
@@ -229,10 +244,15 @@ Public Class ManufacturingLogs
         NewLogButton.Enabled = True
         SearchButton.Enabled = True
 
+        If DBEmpty = True Then
+            SaveChangesButton.Enabled = False
+        End If
+
         ' Hide cancel button.
-        CancelButton.Visible = False
+        CancelCreationButton.Visible = False
 
         getFirstRecord()
+        FactoryIDNumericUpDown.Select()
     End Sub
 
     Private Sub PreviousButton_Click(sender As Object, e As EventArgs) Handles PreviousButton.Click
@@ -257,8 +277,8 @@ Public Class ManufacturingLogs
 
                 If Detail <> "" Then
                     LogIdTextBox.Text = currentId
-                    FactoryIDTextBox.Text = FactoryID
-                    ConductedByTextBox.Text = UserId
+                    FactoryIDNumericUpDown.Value = FactoryID
+                    ConductedByNumericUpDown.Value = UserId
                     DetailsRichTextBox.Text = Detail
                 Else
                     MsgBox("There is not another manufacturing log.", MessageBoxIcon.Warning)
@@ -298,8 +318,8 @@ Public Class ManufacturingLogs
 
                 If Detail <> "" Then
                     LogIdTextBox.Text = currentId
-                    FactoryIDTextBox.Text = FactoryID
-                    ConductedByTextBox.Text = UserId
+                    FactoryIDNumericUpDown.Value = FactoryID
+                    ConductedByNumericUpDown.Value = UserId
                     DetailsRichTextBox.Text = Detail
                 Else
                     MsgBox("There is not another manufacturing log.", MessageBoxIcon.Warning)

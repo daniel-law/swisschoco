@@ -31,6 +31,8 @@ Public Class Factories
 
         ' Visual.
         DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+        ' Validation.
+        DataGridView1.Select()
     End Sub
 
     Private Sub refreshFactories()
@@ -40,6 +42,7 @@ Public Class Factories
         DataGridView1.DataSource = bindingSource1
         ' Query data from the database.
         GetData("SELECT * FROM Factories")
+        DataGridView1.Select()
     End Sub
 
     Private Sub RefreshContactsButton_Click(sender As Object, e As EventArgs) Handles RefreshContactsButton.Click
@@ -88,6 +91,7 @@ Public Class Factories
             Try
                 ' Query data from the database.
                 GetData("SELECT * FROM Factories WHERE Id = " & SearchTextBox.Text)
+                DataGridView1.Select()
             Catch ex As Exception
                 MsgBox("There was an error looking up that ID.")
             End Try
@@ -98,6 +102,7 @@ Public Class Factories
 
     Private Sub ClearResultsButton_Click(sender As Object, e As EventArgs) Handles ClearResultsButton.Click
         refreshFactories()
+        SearchTextBox.Clear()
     End Sub
 
     Private Sub AddFactoryButton_Click(sender As Object, e As EventArgs) Handles AddFactoryButton.Click
@@ -109,7 +114,7 @@ Public Class Factories
         If DataGridView1.SelectedRows.Count > 0 And DataGridView1.SelectedRows(0).Index <> DataGridView1.NewRowIndex Then
             Dim ModifyFactoryForm As New ModifyFactory
             ModifyFactory.Id = DataGridView1.SelectedCells(0).Value.ToString
-            ModifyFactory.Name = DataGridView1.SelectedCells(1).Value.ToString
+            ModifyFactory.FactoryName = DataGridView1.SelectedCells(1).Value.ToString
             ModifyFactory.Country = DataGridView1.SelectedCells(2).Value.ToString
             ModifyFactory.Show()
         Else

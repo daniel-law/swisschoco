@@ -179,7 +179,7 @@ Public Class MainMenu
                 If Name <> "" Then
                     Dim ViewProductForm As New ViewProduct
                     ViewProductForm.Id = Id
-                    ViewProductForm.Name = Name
+                    ViewProductForm.Title = Name
                     ViewProductForm.Price = Price
                     ViewProductForm.Description = Description
                     ViewProductForm.Weight = Weight
@@ -236,7 +236,7 @@ Public Class MainMenu
                 If Name <> "" Then
                     Dim ViewProductForm As New ModifyProduct
                     ModifyProduct.Id = Id
-                    ModifyProduct.Name = Name
+                    ModifyProduct.Title = Name
                     ModifyProduct.Price = Price
                     ModifyProduct.Description = Description
                     ModifyProduct.Weight = Weight
@@ -304,7 +304,7 @@ Public Class MainMenu
                 If Name <> "" Then
                     Dim ViewContactForm As New ViewContact
                     ViewContactForm.Id = Id
-                    ViewContactForm.Name = Name
+                    ViewContactForm.ContactName = Name
                     ViewContactForm.Telephone = Telephone
                     ViewContactForm.Email = Email
                     ViewContactForm.Show()
@@ -355,7 +355,7 @@ Public Class MainMenu
                 If Name <> "" Then
                     Dim ModifyContactForm As New ModifyContact
                     ModifyContact.Id = Id
-                    ModifyContact.Name = Name
+                    ModifyContact.ContactName = Name
                     ModifyContact.Email = Email
                     ModifyContact.Telephone = Telephone
                     ModifyContact.Show()
@@ -584,7 +584,7 @@ Public Class MainMenu
 
                 If Name <> "" Then
                     Dim ViewFactoryForm As New ViewFactory
-                    ViewFactoryForm.Name = Name
+                    ViewFactoryForm.FactoryName = Name
                     ViewFactoryForm.Locale = Locale
                     ViewFactoryForm.Show()
                 Else
@@ -632,7 +632,7 @@ Public Class MainMenu
                 If Name <> "" Then
                     Dim ModifyFactoryForm As New ModifyFactory
                     ModifyFactoryForm.Id = Id
-                    ModifyFactoryForm.Name = Name
+                    ModifyFactoryForm.FactoryName = Name
                     ModifyFactoryForm.Country = Locale
                     ModifyFactoryForm.Show()
                 Else
