@@ -124,12 +124,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DevelopmentDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Debug.Designer.vb">
-      <DependentUpon>Debug.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Debug.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Factories.Designer.vb">
       <DependentUpon>Factories.vb</DependentUpon>
     </Compile>
@@ -259,9 +253,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Contacts.resx">
       <DependentUpon>Contacts.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Debug.resx">
-      <DependentUpon>Debug.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Factories.resx">
       <DependentUpon>Factories.vb</DependentUpon>

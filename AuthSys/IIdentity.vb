@@ -1,5 +1,6 @@
 ﻿Imports System.Security.Principal
 Imports System.Security.Cryptography
+Imports System.Configuration
 Imports System.Data.SqlClient
 
 Public Class IIdentity
@@ -91,7 +92,7 @@ Public Class IIdentity
 
     Private Function callDB(ByVal username As String, ByVal column As String) As String
         ' Code that calls the DB to retrieve a specified value.
-        Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+        Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
         Dim cmd As New SqlCommand
         Dim dr As SqlDataReader
         Dim result As String

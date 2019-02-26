@@ -71,6 +71,7 @@ Partial Class Search
         Me.FindLogbyFactoryIDNumericUpDown = New System.Windows.Forms.NumericUpDown()
         Me.CheckInvoiceStatusNumericUpDown = New System.Windows.Forms.NumericUpDown()
         Me.FindStockLevelbyIDNumericUpDown = New System.Windows.Forms.NumericUpDown()
+        Me.PrintButton = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FindProductbyIDNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ResultsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -545,12 +546,22 @@ Partial Class Search
         Me.FindStockLevelbyIDNumericUpDown.TabIndex = 119
         Me.FindStockLevelbyIDNumericUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
+        'PrintButton
+        '
+        Me.PrintButton.Location = New System.Drawing.Point(1945, 223)
+        Me.PrintButton.Name = "PrintButton"
+        Me.PrintButton.Size = New System.Drawing.Size(125, 35)
+        Me.PrintButton.TabIndex = 120
+        Me.PrintButton.Text = "Print"
+        Me.PrintButton.UseVisualStyleBackColor = True
+        '
         'Search
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(2151, 925)
+        Me.Controls.Add(Me.PrintButton)
         Me.Controls.Add(Me.FindStockLevelbyIDNumericUpDown)
         Me.Controls.Add(Me.CheckInvoiceStatusNumericUpDown)
         Me.Controls.Add(Me.FindLogbyFactoryIDNumericUpDown)
@@ -668,4 +679,5 @@ Partial Class Search
     Friend WithEvents FindLogbyFactoryIDNumericUpDown As NumericUpDown
     Friend WithEvents CheckInvoiceStatusNumericUpDown As NumericUpDown
     Friend WithEvents FindStockLevelbyIDNumericUpDown As NumericUpDown
+    Friend WithEvents PrintButton As Button
 End Class

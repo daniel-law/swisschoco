@@ -31,7 +31,7 @@ Public Class LoginForm
         Register.Show()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) 
         ' Show the debug menu.
         Dim DebugForm As New Debug
         Debug.Show()
