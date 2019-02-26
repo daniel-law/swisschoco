@@ -26,7 +26,7 @@ Partial Class Products
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.ProductsDataGridView = New System.Windows.Forms.DataGridView()
         Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -47,7 +47,7 @@ Partial Class Products
         Me.ModifyProductButton = New System.Windows.Forms.Button()
         Me.ClearResultsButton = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ProductsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DevelopmentDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -82,20 +82,20 @@ Partial Class Products
         Me.Label2.TabIndex = 16
         Me.Label2.Text = "View, modify and delete products here."
         '
-        'DataGridView1
+        'ProductsDataGridView
         '
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.NameDataGridViewTextBoxColumn, Me.PriceDataGridViewTextBoxColumn, Me.PictureDataGridViewTextBoxColumn, Me.DescriptionDataGridViewTextBoxColumn, Me.WeightDataGridViewTextBoxColumn, Me.IngredientsDataGridViewTextBoxColumn})
-        Me.DataGridView1.DataSource = Me.ProductsBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(36, 336)
-        Me.DataGridView1.MultiSelect = False
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.RowTemplate.Height = 28
-        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(1607, 556)
-        Me.DataGridView1.TabIndex = 17
+        Me.ProductsDataGridView.AutoGenerateColumns = False
+        Me.ProductsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ProductsDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.NameDataGridViewTextBoxColumn, Me.PriceDataGridViewTextBoxColumn, Me.PictureDataGridViewTextBoxColumn, Me.DescriptionDataGridViewTextBoxColumn, Me.WeightDataGridViewTextBoxColumn, Me.IngredientsDataGridViewTextBoxColumn})
+        Me.ProductsDataGridView.DataSource = Me.ProductsBindingSource
+        Me.ProductsDataGridView.Location = New System.Drawing.Point(36, 336)
+        Me.ProductsDataGridView.MultiSelect = False
+        Me.ProductsDataGridView.Name = "ProductsDataGridView"
+        Me.ProductsDataGridView.ReadOnly = True
+        Me.ProductsDataGridView.RowTemplate.Height = 28
+        Me.ProductsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.ProductsDataGridView.Size = New System.Drawing.Size(1607, 556)
+        Me.ProductsDataGridView.TabIndex = 17
         '
         'IdDataGridViewTextBoxColumn
         '
@@ -328,14 +328,14 @@ Partial Class Products
         Me.Controls.Add(Me.DeleteProductButton)
         Me.Controls.Add(Me.SearchTextBox)
         Me.Controls.Add(Me.SearchButton)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.ProductsDataGridView)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel2)
         Me.Name = "Products"
         Me.Text = "SwissChoco - Products"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ProductsDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProductsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DevelopmentDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -348,7 +348,7 @@ Partial Class Products
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents ProductsDataGridView As DataGridView
     Friend WithEvents DevelopmentDataSet As DevelopmentDataSet
     Friend WithEvents ProductsBindingSource As BindingSource
     Friend WithEvents ProductsTableAdapter As DevelopmentDataSetTableAdapters.ProductsTableAdapter

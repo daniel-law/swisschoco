@@ -36,7 +36,7 @@ Partial Class LoginForm
         Me.UsernameTextBox = New System.Windows.Forms.TextBox()
         Me.PasswordTextBox = New System.Windows.Forms.TextBox()
         Me.btnOK = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.RegisterButton = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.txtTitle = New System.Windows.Forms.Label()
@@ -96,14 +96,14 @@ Partial Class LoginForm
         Me.btnOK.TabIndex = 4
         Me.btnOK.Text = "&Submit"
         '
-        'Button1
+        'RegisterButton
         '
-        Me.Button1.Location = New System.Drawing.Point(189, 405)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(143, 31)
-        Me.Button1.TabIndex = 6
-        Me.Button1.Text = "No account?"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.RegisterButton.Location = New System.Drawing.Point(189, 405)
+        Me.RegisterButton.Name = "RegisterButton"
+        Me.RegisterButton.Size = New System.Drawing.Size(143, 31)
+        Me.RegisterButton.TabIndex = 6
+        Me.RegisterButton.Text = "Register"
+        Me.RegisterButton.UseVisualStyleBackColor = True
         '
         'Panel1
         '
@@ -166,7 +166,7 @@ Partial Class LoginForm
         Me.Controls.Add(Me.txtTitle)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.RegisterButton)
         Me.Controls.Add(Me.btnOK)
         Me.Controls.Add(Me.PasswordTextBox)
         Me.Controls.Add(Me.UsernameTextBox)
@@ -187,7 +187,7 @@ Partial Class LoginForm
 
     End Sub
 
-    Friend WithEvents Button1 As Button
+    Friend WithEvents RegisterButton As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents txtTitle As Label

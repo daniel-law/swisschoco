@@ -8,7 +8,7 @@ Public Class Contacts
 
     Private Function GetData(ByVal query As String)
         Try
-            Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
+            Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
             dataAdapter = New SqlDataAdapter(query, connectionString)
             ' Create a command builder to appropriately query the database.
             Dim commandBuilder As SqlCommandBuilder = New SqlCommandBuilder(dataAdapter)
@@ -17,7 +17,7 @@ Public Class Contacts
             dataAdapter.Fill(table)
             bindingSource1.DataSource = table
             ' Resize everything so it looks clean.
-            DataGridView1.AutoResizeColumn(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader)
+            ContactsDataGridView.AutoResizeColumn(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader)
         Catch ex As Exception
             MsgBox("There was an error getting the data from the database: " & ex.Message, MessageBoxIcon.Warning)
         End Try
@@ -25,24 +25,24 @@ Public Class Contacts
 
     Private Sub Contacts_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Bind the DataGridView to the BindingSource.
-        DataGridView1.DataSource = bindingSource1
+        ContactsDataGridView.DataSource = bindingSource1
         ' Query data from the database.
         GetData("SELECT * FROM Contacts")
 
         ' Visual.
-        DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+        ContactsDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
 
-        DataGridView1.Select()
+        ContactsDataGridView.Select()
     End Sub
 
     Private Sub refreshContacts()
         table.Rows.Clear()
-        DataGridView1.Refresh()
+        ContactsDataGridView.Refresh()
         ' Bind the DataGridView to the BindingSource
-        DataGridView1.DataSource = bindingSource1
+        ContactsDataGridView.DataSource = bindingSource1
         ' Query data from the database.
         GetData("SELECT * FROM Contacts")
-        DataGridView1.Select()
+        ContactsDataGridView.Select()
     End Sub
 
     Private Sub RefreshContactsButton_Click(sender As Object, e As EventArgs) Handles RefreshContactsButton.Click
@@ -51,19 +51,19 @@ Public Class Contacts
 
     ' Validate whether there is a row selected and confirm the user choice.
     Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteContactButton.Click
-        If DataGridView1.SelectedRows.Count > 0 And DataGridView1.SelectedRows(0).Index <> DataGridView1.NewRowIndex Then
-            Dim rowIndex As Integer = DataGridView1.CurrentCell.RowIndex
+        If ContactsDataGridView.SelectedRows.Count > 0 And ContactsDataGridView.SelectedRows(0).Index <> ContactsDataGridView.NewRowIndex Then
+            Dim rowIndex As Integer = ContactsDataGridView.CurrentCell.RowIndex
             ' Ask user for deletion confirmation.
             Dim result As Integer = MessageBox.Show("Are you sure you wish to delete this contact? This action is irreversible.", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If result = DialogResult.Yes Then
-                Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
+                Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
                 Dim cmd As New SqlCommand
 
                 Try
                     cmd.Connection = connectionString
                     connectionString.Open()
                     cmd.CommandText = "DELETE FROM Contacts WHERE Id = @Id;"
-                    cmd.Parameters.Add("@Id", SqlDbType.Int).Value = DataGridView1.SelectedCells(0).Value.ToString
+                    cmd.Parameters.Add("@Id", SqlDbType.Int).Value = ContactsDataGridView.SelectedCells(0).Value.ToString
                     cmd.ExecuteNonQuery()
 
                     MsgBox("The contact was removed from the database.", MessageBoxIcon.Information)
@@ -84,14 +84,14 @@ Public Class Contacts
         ' Verify data is numeric.
         If IsNumeric(SearchTextBox.Text) = True Then
             table.Rows.Clear()
-            DataGridView1.Refresh()
+            ContactsDataGridView.Refresh()
             ' Bind the DataGridView to the BindingSource
-            DataGridView1.DataSource = bindingSource1
+            ContactsDataGridView.DataSource = bindingSource1
 
             Try
                 ' Query data from the database.
                 GetData("SELECT * FROM Contacts WHERE Id = " & SearchTextBox.Text)
-                DataGridView1.Select()
+                ContactsDataGridView.Select()
             Catch ex As Exception
                 MsgBox("There was an error looking up that ID.")
             End Try
@@ -111,12 +111,12 @@ Public Class Contacts
     End Sub
 
     Private Sub ModifyContactButton_Click(sender As Object, e As EventArgs) Handles ModifyContactButton.Click
-        If DataGridView1.SelectedRows.Count > 0 And DataGridView1.SelectedRows(0).Index <> DataGridView1.NewRowIndex Then
+        If ContactsDataGridView.SelectedRows.Count > 0 And ContactsDataGridView.SelectedRows(0).Index <> ContactsDataGridView.NewRowIndex Then
             Dim ModifyContactForm As New ModifyContact
-            ModifyContactForm.Id = DataGridView1.SelectedCells(0).Value.ToString
-            ModifyContactForm.ContactName = DataGridView1.SelectedCells(1).Value.ToString
-            ModifyContactForm.Telephone = DataGridView1.SelectedCells(2).Value.ToString
-            ModifyContactForm.Email = DataGridView1.SelectedCells(3).Value.ToString()
+            ModifyContactForm.Id = ContactsDataGridView.SelectedCells(0).Value.ToString
+            ModifyContactForm.ContactName = ContactsDataGridView.SelectedCells(1).Value.ToString
+            ModifyContactForm.Telephone = ContactsDataGridView.SelectedCells(2).Value.ToString
+            ModifyContactForm.Email = ContactsDataGridView.SelectedCells(3).Value.ToString()
             ModifyContactForm.Show()
         Else
             MsgBox("Please first select a contact to be modified.", MessageBoxIcon.Information)

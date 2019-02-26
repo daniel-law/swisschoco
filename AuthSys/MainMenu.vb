@@ -115,7 +115,7 @@ Public Class MainMenu
         If IsNumeric(userInput) Then
             Dim result As Integer = MessageBox.Show("Are you sure you wish to delete this product? This action is irreversible.", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If result = DialogResult.Yes Then
-                Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
+                Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
                 Dim cmd As New SqlCommand
 
                 Try
@@ -150,7 +150,7 @@ Public Class MainMenu
         userInput = InputBox("Please enter the Product ID you wish to view.")
 
         If IsNumeric(userInput) Then
-            Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
+            Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
             Dim cmd As New SqlCommand
 
             Try
@@ -207,7 +207,7 @@ Public Class MainMenu
         userInput = InputBox("Please enter the Product ID you wish to modify.")
 
         If IsNumeric(userInput) Then
-            Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
+            Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
             Dim cmd As New SqlCommand
 
             Try
@@ -279,7 +279,7 @@ Public Class MainMenu
         userInput = InputBox("Please enter the Contact ID you wish to view.")
 
         If IsNumeric(userInput) Then
-            Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
+            Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
             Dim cmd As New SqlCommand
 
             Try
@@ -330,7 +330,7 @@ Public Class MainMenu
         userInput = InputBox("Please enter the Contact ID you wish to modify.")
 
         If IsNumeric(userInput) Then
-            Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
+            Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
             Dim cmd As New SqlCommand
 
             Try
@@ -383,7 +383,7 @@ Public Class MainMenu
         If IsNumeric(userInput) Then
             Dim result As Integer = MessageBox.Show("Are you sure you wish to delete this contact? This action is irreversible.", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If result = DialogResult.Yes Then
-                Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
+                Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
                 Dim cmd As New SqlCommand
 
                 Try
@@ -423,7 +423,7 @@ Public Class MainMenu
         userInput = InputBox("Please enter the Log ID you wish to view.")
 
         If IsNumeric(userInput) Then
-            Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
+            Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
             Dim cmd As New SqlCommand
 
             Try
@@ -472,7 +472,7 @@ Public Class MainMenu
 
         If IsNumeric(userInput) Then
             Try
-                Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
+                Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
                 Dim cmd As New SqlCommand
 
                 cmd.Connection = connectionString
@@ -524,7 +524,7 @@ Public Class MainMenu
         If IsNumeric(userInput) Then
             Dim result As Integer = MessageBox.Show("Are you sure you wish to delete this log? This action is irreversible.", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If result = DialogResult.Yes Then
-                Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
+                Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
                 Dim cmd As New SqlCommand
 
                 Try
@@ -565,7 +565,7 @@ Public Class MainMenu
 
         If IsNumeric(userInput) Then
             Try
-                Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
+                Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
                 Dim cmd As New SqlCommand
 
                 cmd.Connection = connectionString
@@ -610,7 +610,7 @@ Public Class MainMenu
 
         If IsNumeric(userInput) Then
             Try
-                Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
+                Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
                 Dim cmd As New SqlCommand
 
                 cmd.Connection = connectionString
@@ -659,7 +659,7 @@ Public Class MainMenu
         If IsNumeric(userInput) Then
             Dim result As Integer = MessageBox.Show("Are you sure you wish to delete this factory? This action is irreversible.", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If result = DialogResult.Yes Then
-                Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
+                Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
                 Dim cmd As New SqlCommand
 
                 Try

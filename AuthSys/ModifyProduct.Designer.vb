@@ -260,7 +260,6 @@ Partial Class ModifyProduct
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel2)
-        Me.Title = "ModifyProduct"
         Me.Text = "SwissChoco - Modify Product"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.WeightNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()

@@ -1,12 +1,13 @@
 ﻿Imports System.Data.SqlClient
 Imports System.IO
+Imports System.Configuration
 
 Public Class AddProduct
     Dim imgByte As Byte()
 
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
         If NameTextBox.Text <> "" And PriceNumericUpDown.Value <> 0.00 And PictureTextBox.Text <> "" And DescriptionRichTextBox.Text <> "" And WeightNumericUpDown.Value <> 0 And IngredientsRichTextBox.Text <> "" Then
-            Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
             Dim cmd As New SqlCommand
 
             Try

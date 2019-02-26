@@ -35,7 +35,7 @@ Partial Class Contacts
         Me.DeleteContactButton = New System.Windows.Forms.Button()
         Me.SearchTextBox = New System.Windows.Forms.TextBox()
         Me.SearchButton = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.ContactsDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -45,7 +45,7 @@ Partial Class Contacts
         Me.DevelopmentDataSet = New SwissChoco.DevelopmentDataSet()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ContactsTableAdapter = New SwissChoco.DevelopmentDataSetTableAdapters.ContactsTableAdapter()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ContactsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ContactsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DevelopmentDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -207,20 +207,20 @@ Partial Class Contacts
         Me.SearchButton.Text = "Search"
         Me.SearchButton.UseVisualStyleBackColor = False
         '
-        'DataGridView1
+        'ContactsDataGridView
         '
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.Column1})
-        Me.DataGridView1.DataSource = Me.ContactsBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(35, 333)
-        Me.DataGridView1.MultiSelect = False
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.RowTemplate.Height = 28
-        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(851, 561)
-        Me.DataGridView1.TabIndex = 40
+        Me.ContactsDataGridView.AutoGenerateColumns = False
+        Me.ContactsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ContactsDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.Column1})
+        Me.ContactsDataGridView.DataSource = Me.ContactsBindingSource
+        Me.ContactsDataGridView.Location = New System.Drawing.Point(35, 333)
+        Me.ContactsDataGridView.MultiSelect = False
+        Me.ContactsDataGridView.Name = "ContactsDataGridView"
+        Me.ContactsDataGridView.ReadOnly = True
+        Me.ContactsDataGridView.RowTemplate.Height = 28
+        Me.ContactsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.ContactsDataGridView.Size = New System.Drawing.Size(851, 561)
+        Me.ContactsDataGridView.TabIndex = 40
         '
         'DataGridViewTextBoxColumn1
         '
@@ -228,6 +228,7 @@ Partial Class Contacts
         Me.DataGridViewTextBoxColumn1.Frozen = True
         Me.DataGridViewTextBoxColumn1.HeaderText = "ID"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
         '
         'DataGridViewTextBoxColumn2
         '
@@ -235,6 +236,7 @@ Partial Class Contacts
         Me.DataGridViewTextBoxColumn2.Frozen = True
         Me.DataGridViewTextBoxColumn2.HeaderText = "Name"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
         '
         'DataGridViewTextBoxColumn3
         '
@@ -242,6 +244,7 @@ Partial Class Contacts
         Me.DataGridViewTextBoxColumn3.Frozen = True
         Me.DataGridViewTextBoxColumn3.HeaderText = "Telephone"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
         '
         'DataGridViewTextBoxColumn4
         '
@@ -249,6 +252,7 @@ Partial Class Contacts
         Me.DataGridViewTextBoxColumn4.Frozen = True
         Me.DataGridViewTextBoxColumn4.HeaderText = "Email"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
         '
         'Column1
         '
@@ -288,7 +292,7 @@ Partial Class Contacts
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1206, 925)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.ContactsDataGridView)
         Me.Controls.Add(Me.ClearResultsButton)
         Me.Controls.Add(Me.ModifyContactButton)
         Me.Controls.Add(Me.AddContactButton)
@@ -304,7 +308,7 @@ Partial Class Contacts
         Me.Controls.Add(Me.Panel2)
         Me.Name = "Contacts"
         Me.Text = "SwissChoco - Contacts"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ContactsDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ContactsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DevelopmentDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -326,7 +330,7 @@ Partial Class Contacts
     Friend WithEvents DeleteContactButton As Button
     Friend WithEvents SearchTextBox As TextBox
     Friend WithEvents SearchButton As Button
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents ContactsDataGridView As DataGridView
     Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TelephoneDataGridViewTextBoxColumn As DataGridViewTextBoxColumn

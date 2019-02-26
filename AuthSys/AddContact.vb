@@ -1,9 +1,10 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Configuration
 
 Public Class AddContact
     Private Sub AddContactButton_Click(sender As Object, e As EventArgs) Handles AddContactButton.Click
         If NameTextBox.Text <> "" And EmailTextBox.Text <> "" And PhoneNumberTextBox.Text <> "" Then
-            Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
             Dim cmd As New SqlCommand
 
             Try

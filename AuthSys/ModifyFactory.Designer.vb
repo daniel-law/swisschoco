@@ -141,7 +141,6 @@ Partial Class ModifyFactory
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel2)
-        Me.FactoryName = "ModifyFactory"
         Me.Text = "SwissChoco - Modify Factory"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

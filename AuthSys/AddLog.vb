@@ -1,9 +1,10 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Configuration
 
 Public Class AddLog
     Private Sub AddLogButton_Click(sender As Object, e As EventArgs) Handles AddLogButton.Click
         If FactoryIDTextBox.Text <> "" And ConductedByTextBox.Text <> "" And DetailsRichTextBox.Text <> "" Then
-            Dim connectionString As New SqlConnection("Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Development;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
             Dim cmd As New SqlCommand
 
             Try

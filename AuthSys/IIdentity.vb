@@ -50,7 +50,7 @@ Public Class IIdentity
             Try
                 Dim filePath As String
                 filePath = System.IO.Path.Combine(
-                           My.Computer.FileSystem.SpecialDirectories.MyDocuments, "AuthSys.txt")
+                           My.Computer.FileSystem.SpecialDirectories.MyDocuments, "SwissChoco Log.txt")
                 My.Computer.FileSystem.WriteAllText(filePath, Environment.NewLine & "[LOGON_AUTH] " & DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") & " Login attempt PASS with username " & name & ".", True)
             Catch fileException As Exception
                 MsgBox("Program encountered an error writing files. You should urgently contact your systems admin.", MessageBoxIcon.Warning)
@@ -92,7 +92,7 @@ Public Class IIdentity
 
     Private Function callDB(ByVal username As String, ByVal column As String) As String
         ' Code that calls the DB to retrieve a specified value.
-        Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
+        Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
         Dim cmd As New SqlCommand
         Dim dr As SqlDataReader
         Dim result As String

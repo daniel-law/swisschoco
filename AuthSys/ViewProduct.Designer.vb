@@ -210,7 +210,6 @@ Partial Class ViewProduct
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel2)
-        Me.Title = "ViewProduct"
         Me.Text = "SwissChoco - View Product"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.WeightNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()

@@ -3,7 +3,7 @@ Imports System.Configuration
 
 Public Class InternalInvoices
 
-    Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
+    Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
     Dim cmd As New SqlCommand
     Dim DBEmpty As Boolean
 

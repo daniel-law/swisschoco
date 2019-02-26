@@ -8,7 +8,7 @@ Public Class Factories
 
     Private Function GetData(ByVal query As String)
         Try
-            Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
+            Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
             dataAdapter = New SqlDataAdapter(query, connectionString)
             ' Create a command builder to appropriately query the database.
             Dim commandBuilder As SqlCommandBuilder = New SqlCommandBuilder(dataAdapter)
@@ -17,7 +17,7 @@ Public Class Factories
             dataAdapter.Fill(table)
             bindingSource1.DataSource = table
             ' Resize everything so it looks clean.
-            DataGridView1.AutoResizeColumn(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader)
+            FactoriesDataGridView.AutoResizeColumn(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader)
         Catch ex As Exception
             MsgBox("There was an error getting the data from the database: " & ex.Message, MessageBoxIcon.Warning)
         End Try
@@ -25,24 +25,24 @@ Public Class Factories
 
     Private Sub Factories_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Bind the DataGridView to the BindingSource.
-        DataGridView1.DataSource = bindingSource1
+        FactoriesDataGridView.DataSource = bindingSource1
         ' Query data from the database.
         GetData("SELECT * FROM Factories")
 
         ' Visual.
-        DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+        FactoriesDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
         ' Validation.
-        DataGridView1.Select()
+        FactoriesDataGridView.Select()
     End Sub
 
     Private Sub refreshFactories()
         table.Rows.Clear()
-        DataGridView1.Refresh()
+        FactoriesDataGridView.Refresh()
         ' Bind the DataGridView to the BindingSource
-        DataGridView1.DataSource = bindingSource1
+        FactoriesDataGridView.DataSource = bindingSource1
         ' Query data from the database.
         GetData("SELECT * FROM Factories")
-        DataGridView1.Select()
+        FactoriesDataGridView.Select()
     End Sub
 
     Private Sub RefreshContactsButton_Click(sender As Object, e As EventArgs) Handles RefreshContactsButton.Click
@@ -51,19 +51,19 @@ Public Class Factories
 
     ' Validate whether there is a row selected and confirm the user choice.
     Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteFactoryButton.Click
-        If DataGridView1.SelectedRows.Count > 0 And DataGridView1.SelectedRows(0).Index <> DataGridView1.NewRowIndex Then
-            Dim rowIndex As Integer = DataGridView1.CurrentCell.RowIndex
+        If FactoriesDataGridView.SelectedRows.Count > 0 And FactoriesDataGridView.SelectedRows(0).Index <> FactoriesDataGridView.NewRowIndex Then
+            Dim rowIndex As Integer = FactoriesDataGridView.CurrentCell.RowIndex
             ' Ask user for deletion confirmation.
             Dim result As Integer = MessageBox.Show("Are you sure you wish to delete this factory? This action is irreversible.", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If result = DialogResult.Yes Then
-                Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
+                Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
                 Dim cmd As New SqlCommand
 
                 Try
                     cmd.Connection = connectionString
                     connectionString.Open()
                     cmd.CommandText = "DELETE FROM Factories WHERE Id = @Id;"
-                    cmd.Parameters.Add("@Id", SqlDbType.Int).Value = DataGridView1.SelectedCells(0).Value.ToString
+                    cmd.Parameters.Add("@Id", SqlDbType.Int).Value = FactoriesDataGridView.SelectedCells(0).Value.ToString
                     cmd.ExecuteNonQuery()
 
                     MsgBox("The factory was removed from the database.", MessageBoxIcon.Information)
@@ -84,14 +84,14 @@ Public Class Factories
         ' Verify data is numeric.
         If IsNumeric(SearchTextBox.Text) = True Then
             table.Rows.Clear()
-            DataGridView1.Refresh()
+            FactoriesDataGridView.Refresh()
             ' Bind the DataGridView to the BindingSource
-            DataGridView1.DataSource = bindingSource1
+            FactoriesDataGridView.DataSource = bindingSource1
 
             Try
                 ' Query data from the database.
                 GetData("SELECT * FROM Factories WHERE Id = " & SearchTextBox.Text)
-                DataGridView1.Select()
+                FactoriesDataGridView.Select()
             Catch ex As Exception
                 MsgBox("There was an error looking up that ID.")
             End Try
@@ -111,11 +111,11 @@ Public Class Factories
     End Sub
 
     Private Sub ModifyFactoryButton_Click(sender As Object, e As EventArgs) Handles ModifyFactoryButton.Click
-        If DataGridView1.SelectedRows.Count > 0 And DataGridView1.SelectedRows(0).Index <> DataGridView1.NewRowIndex Then
+        If FactoriesDataGridView.SelectedRows.Count > 0 And FactoriesDataGridView.SelectedRows(0).Index <> FactoriesDataGridView.NewRowIndex Then
             Dim ModifyFactoryForm As New ModifyFactory
-            ModifyFactory.Id = DataGridView1.SelectedCells(0).Value.ToString
-            ModifyFactory.FactoryName = DataGridView1.SelectedCells(1).Value.ToString
-            ModifyFactory.Country = DataGridView1.SelectedCells(2).Value.ToString
+            ModifyFactory.Id = FactoriesDataGridView.SelectedCells(0).Value.ToString
+            ModifyFactory.FactoryName = FactoriesDataGridView.SelectedCells(1).Value.ToString
+            ModifyFactory.Country = FactoriesDataGridView.SelectedCells(2).Value.ToString
             ModifyFactory.Show()
         Else
             MsgBox("Please first select a factory to be modified.", MessageBoxIcon.Information)

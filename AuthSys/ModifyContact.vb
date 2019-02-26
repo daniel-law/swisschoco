@@ -15,7 +15,7 @@ Public Class ModifyContact
 
     Private Sub ModifyContactButton_Click(sender As Object, e As EventArgs) Handles ModifyContactButton.Click
         If NameTextBox.Text <> "" And PhoneNumberTextBox.Text <> "" And EmailTextBox.Text <> "" Then
-            Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
+            Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
             Dim cmd As New SqlCommand
 
             Try

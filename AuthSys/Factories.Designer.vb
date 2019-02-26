@@ -35,17 +35,17 @@ Partial Class Factories
         Me.DeleteFactoryButton = New System.Windows.Forms.Button()
         Me.SearchTextBox = New System.Windows.Forms.TextBox()
         Me.SearchButton = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.FactoriesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DevelopmentDataSet = New SwissChoco.DevelopmentDataSet()
-        Me.FactoriesTableAdapter = New SwissChoco.DevelopmentDataSetTableAdapters.FactoriesTableAdapter()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.FactoriesDataGridView = New System.Windows.Forms.DataGridView()
         Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LocaleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.FactoriesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DevelopmentDataSet = New SwissChoco.DevelopmentDataSet()
+        Me.FactoriesTableAdapter = New SwissChoco.DevelopmentDataSetTableAdapters.FactoriesTableAdapter()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.FactoriesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FactoriesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DevelopmentDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -207,43 +207,18 @@ Partial Class Factories
         Me.SearchButton.Text = "Search"
         Me.SearchButton.UseVisualStyleBackColor = False
         '
-        'DataGridView1
+        'FactoriesDataGridView
         '
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.NameDataGridViewTextBoxColumn, Me.LocaleDataGridViewTextBoxColumn, Me.Column1, Me.Column2})
-        Me.DataGridView1.DataSource = Me.FactoriesBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(42, 339)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowTemplate.Height = 28
-        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(847, 561)
-        Me.DataGridView1.TabIndex = 48
-        '
-        'FactoriesBindingSource
-        '
-        Me.FactoriesBindingSource.DataMember = "Factories"
-        Me.FactoriesBindingSource.DataSource = Me.DevelopmentDataSet
-        '
-        'DevelopmentDataSet
-        '
-        Me.DevelopmentDataSet.DataSetName = "DevelopmentDataSet"
-        Me.DevelopmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'FactoriesTableAdapter
-        '
-        Me.FactoriesTableAdapter.ClearBeforeFill = True
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.SwissChoco.My.Resources.Resources.Logo
-        Me.PictureBox1.Location = New System.Drawing.Point(1053, 41)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(153, 151)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 29
-        Me.PictureBox1.TabStop = False
+        Me.FactoriesDataGridView.AutoGenerateColumns = False
+        Me.FactoriesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.FactoriesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.NameDataGridViewTextBoxColumn, Me.LocaleDataGridViewTextBoxColumn, Me.Column1, Me.Column2})
+        Me.FactoriesDataGridView.DataSource = Me.FactoriesBindingSource
+        Me.FactoriesDataGridView.Location = New System.Drawing.Point(42, 339)
+        Me.FactoriesDataGridView.Name = "FactoriesDataGridView"
+        Me.FactoriesDataGridView.RowTemplate.Height = 28
+        Me.FactoriesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.FactoriesDataGridView.Size = New System.Drawing.Size(847, 561)
+        Me.FactoriesDataGridView.TabIndex = 48
         '
         'IdDataGridViewTextBoxColumn
         '
@@ -283,13 +258,38 @@ Partial Class Factories
         Me.Column2.ReadOnly = True
         Me.Column2.Visible = False
         '
+        'FactoriesBindingSource
+        '
+        Me.FactoriesBindingSource.DataMember = "Factories"
+        Me.FactoriesBindingSource.DataSource = Me.DevelopmentDataSet
+        '
+        'DevelopmentDataSet
+        '
+        Me.DevelopmentDataSet.DataSetName = "DevelopmentDataSet"
+        Me.DevelopmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'FactoriesTableAdapter
+        '
+        Me.FactoriesTableAdapter.ClearBeforeFill = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.SwissChoco.My.Resources.Resources.Logo
+        Me.PictureBox1.Location = New System.Drawing.Point(1053, 41)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(153, 151)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 29
+        Me.PictureBox1.TabStop = False
+        '
         'Factories
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1206, 925)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.FactoriesDataGridView)
         Me.Controls.Add(Me.ClearResultsButton)
         Me.Controls.Add(Me.ModifyFactoryButton)
         Me.Controls.Add(Me.AddFactoryButton)
@@ -304,7 +304,7 @@ Partial Class Factories
         Me.Controls.Add(Me.Panel2)
         Me.Name = "Factories"
         Me.Text = "SwissChoco - Factories"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FactoriesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FactoriesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DevelopmentDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -326,7 +326,7 @@ Partial Class Factories
     Friend WithEvents DeleteFactoryButton As Button
     Friend WithEvents SearchTextBox As TextBox
     Friend WithEvents SearchButton As Button
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents FactoriesDataGridView As DataGridView
     Friend WithEvents DevelopmentDataSet As DevelopmentDataSet
     Friend WithEvents FactoriesBindingSource As BindingSource
     Friend WithEvents FactoriesTableAdapter As DevelopmentDataSetTableAdapters.FactoriesTableAdapter

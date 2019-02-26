@@ -62,9 +62,9 @@ Partial Class ModifyLog
         Me.Label2.Font = New System.Drawing.Font("Microsoft YaHei UI Light", 10.0!)
         Me.Label2.Location = New System.Drawing.Point(16, 236)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(394, 27)
+        Me.Label2.Size = New System.Drawing.Size(388, 27)
         Me.Label2.TabIndex = 39
-        Me.Label2.Text = "Change the details below to modify a logt."
+        Me.Label2.Text = "Change the details below to modify a log."
         '
         'Label1
         '

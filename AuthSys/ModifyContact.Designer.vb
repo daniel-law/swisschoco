@@ -160,7 +160,6 @@ Partial Class ModifyContact
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel2)
-        Me.ContactName = "ModifyContact"
         Me.Text = "SwissChoco - Modify Contact"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

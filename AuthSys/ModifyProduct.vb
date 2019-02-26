@@ -22,7 +22,7 @@ Public Class ModifyProduct
 
     Private Sub ModifyProductButton_Click(sender As Object, e As EventArgs) Handles ModifyProductButton.Click
         If NameTextBox.Text <> "" And PriceNumericUpDown.Value <> 0.00 And PictureTextBox.Text <> "" And DescriptionRichTextBox.Text <> "" And WeightNumericUpDown.Value <> 0 And IngredientsRichTextBox.Text <> "" Then
-            Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
+            Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
             Dim cmd As New SqlCommand
 
             Try

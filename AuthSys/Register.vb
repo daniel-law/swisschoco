@@ -16,7 +16,7 @@ Public Class Register
         If RoleComboBox.SelectedIndex = 1 Then Role = "Administrator"
 
         ' Code that will create a new user.
-        Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
+        Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
         Dim cmd As New SqlCommand
 
         Try
@@ -48,7 +48,7 @@ Public Class Register
         Try
             Dim filePath As String
             filePath = System.IO.Path.Combine(
-                       My.Computer.FileSystem.SpecialDirectories.MyDocuments, "AuthSys.txt")
+                       My.Computer.FileSystem.SpecialDirectories.MyDocuments, "SwissChoco Log.txt")
             My.Computer.FileSystem.WriteAllText(filePath, Environment.NewLine & "[LOGON_CREATE] " & DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") & " Account created with a username of " & UsernameTextBox.Text & ".", True)
         Catch fileException As Exception
             MsgBox("Program encountered an error writing files. You should urgently contact your systems admin.", MessageBoxIcon.Warning)
@@ -57,7 +57,7 @@ Public Class Register
 
     Private Sub CheckUsernameUniqueness()
         ' Code that will check whether a user exists or not.
-        Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("DevelopmentConnectionString").ConnectionString)
+        Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
         Dim cmd As New SqlCommand
 
         Try
@@ -114,7 +114,7 @@ Public Class Register
             Try
                 Dim filePath As String
                 filePath = System.IO.Path.Combine(
-                           My.Computer.FileSystem.SpecialDirectories.MyDocuments, "AuthSys.txt")
+                           My.Computer.FileSystem.SpecialDirectories.MyDocuments, "SwissChoco Log.txt")
                 My.Computer.FileSystem.WriteAllText(filePath, Environment.NewLine & "[LOGON_CREATE] " & DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") & " Failed account creation with username " & UsernameTextBox.Text & ".", True)
             Catch fileException As Exception
                 MsgBox("Program encountered an error writing files. You should urgently contact your systems admin.", MessageBoxIcon.Warning)

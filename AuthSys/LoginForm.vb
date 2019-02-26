@@ -11,7 +11,7 @@ Public Class LoginForm
             Try
                 Dim filePath As String
                 filePath = System.IO.Path.Combine(
-                           My.Computer.FileSystem.SpecialDirectories.MyDocuments, "AuthSys.txt")
+                           My.Computer.FileSystem.SpecialDirectories.MyDocuments, "SwissChoco Log.txt")
                 My.Computer.FileSystem.WriteAllText(filePath, Environment.NewLine & "[LOGON_AUTH] " & DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") & " Login attempt FAIL with username " & UsernameTextBox.Text & ".", True)
             Catch fileException As Exception
                 MsgBox("Program encountered an error writing files. You should urgently contact your systems admin.")
@@ -26,7 +26,7 @@ Public Class LoginForm
         End If
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles RegisterButton.Click
         Dim Register = New Register
         Register.Show()
     End Sub
