@@ -3,7 +3,7 @@ Imports System.Configuration
 
 Public Class AddLog
     Private Sub AddLogButton_Click(sender As Object, e As EventArgs) Handles AddLogButton.Click
-        If FactoryIDTextBox.Text <> "" And ConductedByTextBox.Text <> "" And DetailsRichTextBox.Text <> "" Then
+        If DetailsRichTextBox.Text <> "" Then
             Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
             Dim cmd As New SqlCommand
 
@@ -11,21 +11,21 @@ Public Class AddLog
                 cmd.Connection = connectionString
                 connectionString.Open()
                 cmd.CommandText = "INSERT INTO ManufacturingLogs (FactoryId, UserId, Detail) VALUES (@factoryId, @userId, @detail);"
-                cmd.Parameters.Add("@factoryId", SqlDbType.Int).Value = FactoryIDTextBox.Text
-                cmd.Parameters.Add("@userId", SqlDbType.Int).Value = ConductedByTextBox.Text
+                cmd.Parameters.Add("@factoryId", SqlDbType.Int).Value = FactoryIDNumericUpDown.Value
+                cmd.Parameters.Add("@userId", SqlDbType.Int).Value = ConductedByNumericUpDown.Value
                 cmd.Parameters.Add("@detail", SqlDbType.NVarChar).Value = DetailsRichTextBox.Text
                 cmd.ExecuteNonQuery()
 
                 MsgBox("Sucessfully added new manufacturing log into the database.", MessageBoxIcon.Information)
 
                 ' Clear entered details.
-                FactoryIDTextBox.Clear()
-                ConductedByTextBox.Clear()
+                FactoryIDNumericUpDown.Value = 1
+                ConductedByNumericUpDown.Value = 1
                 DetailsRichTextBox.Clear()
-                FactoryIDTextBox.Select()
+                FactoryIDNumericUpDown.Select()
 
             Catch ex As Exception
-                MsgBox("Program encountered an error connecting to the database. Urgently contact your systems admin.", MessageBoxIcon.Warning)
+                MsgBox("Program encountered an error connecting to the database, ensure that the contact and factory exist before contacting your systems admin.", MessageBoxIcon.Warning)
                 ' DB issues, exit.
                 Exit Sub
             End Try

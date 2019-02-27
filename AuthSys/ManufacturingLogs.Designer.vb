@@ -291,7 +291,9 @@ Partial Class ManufacturingLogs
         '
         Me.FactoryIDNumericUpDown.Location = New System.Drawing.Point(241, 387)
         Me.FactoryIDNumericUpDown.Maximum = New Decimal(New Integer() {9000, 0, 0, 0})
+        Me.FactoryIDNumericUpDown.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.FactoryIDNumericUpDown.Name = "FactoryIDNumericUpDown"
+        Me.FactoryIDNumericUpDown.ReadOnly = True
         Me.FactoryIDNumericUpDown.Size = New System.Drawing.Size(220, 26)
         Me.FactoryIDNumericUpDown.TabIndex = 68
         Me.FactoryIDNumericUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
@@ -300,7 +302,9 @@ Partial Class ManufacturingLogs
         '
         Me.ConductedByNumericUpDown.Location = New System.Drawing.Point(241, 429)
         Me.ConductedByNumericUpDown.Maximum = New Decimal(New Integer() {9000, 0, 0, 0})
+        Me.ConductedByNumericUpDown.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.ConductedByNumericUpDown.Name = "ConductedByNumericUpDown"
+        Me.ConductedByNumericUpDown.ReadOnly = True
         Me.ConductedByNumericUpDown.Size = New System.Drawing.Size(220, 26)
         Me.ConductedByNumericUpDown.TabIndex = 69
         Me.ConductedByNumericUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})

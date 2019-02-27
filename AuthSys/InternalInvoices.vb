@@ -326,12 +326,14 @@ Public Class InternalInvoices
         Dim userInputQuantity As String
         userInputQuantity = InputBox("Please enter the quantity you wish to add.")
 
-        If IsNumeric(userInputQuantity) And isValidToAdd = True Then
+        If IsNumeric(userInputQuantity) And userInputQuantity >= 1 And isValidToAdd = True Then
             Values.Add(New Dictionary(Of String, String) From {
                 {"id", Id}, {"quantity", userInputQuantity}, {"cost", (Price * userInputQuantity)}})
 
             ItemsListBox.Items.Add("Id: " & Id & ", " & Name & ", " & Price & ", x" & userInputQuantity)
             TotalCostNumericUpDown.Value = TotalCostNumericUpDown.Value + (Price * userInputQuantity)
+        Else
+            MsgBox("Please double check the quantity you have entered, it must be numeric and greater than 0.", MessageBoxIcon.Information)
         End If
     End Sub
 
@@ -503,6 +505,7 @@ Public Class InternalInvoices
         CountryTextBox.Clear()
         Values.Clear()
         ItemsListBox.Items.Clear()
+        StatusComboBox.SelectedIndex = 0
 
         PreviousButton.Enabled = False
         NextButton.Enabled = False
@@ -547,7 +550,7 @@ Public Class InternalInvoices
                 End If
 
             Catch ex As Exception
-                MsgBox("Unable to create the internal invoice.", MessageBoxIcon.Warning)
+                MsgBox("Unable to create the internal invoice, ensure the contact exists before re-trying.", MessageBoxIcon.Warning)
                 ' DB issues, exit.
                 Exit Sub
             Finally

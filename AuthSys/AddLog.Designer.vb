@@ -26,14 +26,16 @@ Partial Class AddLog
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ConductedByTextBox = New System.Windows.Forms.TextBox()
-        Me.FactoryIDTextBox = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.NameLabel = New System.Windows.Forms.Label()
         Me.DetailsRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.AddLogButton = New System.Windows.Forms.Button()
+        Me.FactoryIDNumericUpDown = New System.Windows.Forms.NumericUpDown()
+        Me.ConductedByNumericUpDown = New System.Windows.Forms.NumericUpDown()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FactoryIDNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ConductedByNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel2
@@ -75,22 +77,6 @@ Partial Class AddLog
         Me.Label1.Size = New System.Drawing.Size(451, 52)
         Me.Label1.TabIndex = 21
         Me.Label1.Text = "Add Manufacturing Log"
-        '
-        'ConductedByTextBox
-        '
-        Me.ConductedByTextBox.Location = New System.Drawing.Point(187, 363)
-        Me.ConductedByTextBox.MaxLength = 64
-        Me.ConductedByTextBox.Name = "ConductedByTextBox"
-        Me.ConductedByTextBox.Size = New System.Drawing.Size(220, 26)
-        Me.ConductedByTextBox.TabIndex = 58
-        '
-        'FactoryIDTextBox
-        '
-        Me.FactoryIDTextBox.Location = New System.Drawing.Point(187, 312)
-        Me.FactoryIDTextBox.MaxLength = 64
-        Me.FactoryIDTextBox.Name = "FactoryIDTextBox"
-        Me.FactoryIDTextBox.Size = New System.Drawing.Size(220, 26)
-        Me.FactoryIDTextBox.TabIndex = 57
         '
         'Label3
         '
@@ -144,16 +130,37 @@ Partial Class AddLog
         Me.AddLogButton.Text = "Add Log"
         Me.AddLogButton.UseVisualStyleBackColor = False
         '
+        'FactoryIDNumericUpDown
+        '
+        Me.FactoryIDNumericUpDown.Location = New System.Drawing.Point(187, 313)
+        Me.FactoryIDNumericUpDown.Maximum = New Decimal(New Integer() {9000, 0, 0, 0})
+        Me.FactoryIDNumericUpDown.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.FactoryIDNumericUpDown.Name = "FactoryIDNumericUpDown"
+        Me.FactoryIDNumericUpDown.ReadOnly = True
+        Me.FactoryIDNumericUpDown.Size = New System.Drawing.Size(120, 26)
+        Me.FactoryIDNumericUpDown.TabIndex = 62
+        Me.FactoryIDNumericUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
+        'ConductedByNumericUpDown
+        '
+        Me.ConductedByNumericUpDown.Location = New System.Drawing.Point(187, 363)
+        Me.ConductedByNumericUpDown.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.ConductedByNumericUpDown.Name = "ConductedByNumericUpDown"
+        Me.ConductedByNumericUpDown.ReadOnly = True
+        Me.ConductedByNumericUpDown.Size = New System.Drawing.Size(120, 26)
+        Me.ConductedByNumericUpDown.TabIndex = 63
+        Me.ConductedByNumericUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
         'AddLog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(691, 725)
+        Me.Controls.Add(Me.ConductedByNumericUpDown)
+        Me.Controls.Add(Me.FactoryIDNumericUpDown)
         Me.Controls.Add(Me.AddLogButton)
         Me.Controls.Add(Me.DetailsRichTextBox)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.ConductedByTextBox)
-        Me.Controls.Add(Me.FactoryIDTextBox)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.NameLabel)
         Me.Controls.Add(Me.Label2)
@@ -163,6 +170,8 @@ Partial Class AddLog
         Me.Name = "AddLog"
         Me.Text = "SwissChoco - Add Manufacturing Log"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FactoryIDNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ConductedByNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -172,11 +181,11 @@ Partial Class AddLog
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents ConductedByTextBox As TextBox
-    Friend WithEvents FactoryIDTextBox As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents NameLabel As Label
     Friend WithEvents DetailsRichTextBox As RichTextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents AddLogButton As Button
+    Friend WithEvents FactoryIDNumericUpDown As NumericUpDown
+    Friend WithEvents ConductedByNumericUpDown As NumericUpDown
 End Class

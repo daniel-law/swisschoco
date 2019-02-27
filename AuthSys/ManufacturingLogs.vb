@@ -94,9 +94,10 @@ Public Class ManufacturingLogs
                 cmd.ExecuteNonQuery()
 
                 MsgBox("Sucessfully modified the manufacturing log details.", MessageBoxIcon.Information)
+                Exit Sub
 
             Catch ex As Exception
-                MsgBox("Program encountered an error connecting to the database. Urgently contact your systems admin.", MessageBoxIcon.Warning)
+                MsgBox("Program encountered an error connecting to the database, ensure that the contact and factory exist before contacting your systems admin.", MessageBoxIcon.Warning)
                 ' DB issues, exit.
                 Exit Sub
             Finally
@@ -120,7 +121,7 @@ Public Class ManufacturingLogs
                 DBEmpty = False
 
             Catch ex As Exception
-                MsgBox("Program encountered an error connecting to the database. Urgently contact your systems admin.", MessageBoxIcon.Warning)
+                MsgBox("Program encountered an error connecting to the database, ensure that the contact and factory exist before contacting your systems admin.", MessageBoxIcon.Warning)
                 ' DB issues, exit.
                 Exit Sub
             Finally
@@ -141,6 +142,8 @@ Public Class ManufacturingLogs
             ' Set the ID to the record just created.
             getLastRecordID()
             creatingRecord = False
+        ElseIf creatingRecord = True Then
+            MsgBox("Please ensure all the details are filled out.", MessageBoxIcon.Warning)
         End If
     End Sub
 
