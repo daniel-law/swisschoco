@@ -2,6 +2,7 @@
 Imports System.Configuration
 
 Public Class AddLog
+    ' This event will add the new log into the database.
     Private Sub AddLogButton_Click(sender As Object, e As EventArgs) Handles AddLogButton.Click
         If DetailsRichTextBox.Text <> "" Then
             Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)

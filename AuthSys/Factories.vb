@@ -80,6 +80,7 @@ Public Class Factories
         End If
     End Sub
 
+    ' This code searches for a specific factory.
     Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
         ' Verify data is numeric.
         If IsNumeric(SearchTextBox.Text) = True Then
@@ -105,11 +106,13 @@ Public Class Factories
         SearchTextBox.Clear()
     End Sub
 
+    ' This code opens a new add factory form.
     Private Sub AddFactoryButton_Click(sender As Object, e As EventArgs) Handles AddFactoryButton.Click
         Dim AddFactoryForm As New AddFactory
         AddFactoryForm.Show()
     End Sub
 
+    ' This code passes in the factory details to a new modify form, then opens that modify form.
     Private Sub ModifyFactoryButton_Click(sender As Object, e As EventArgs) Handles ModifyFactoryButton.Click
         If FactoriesDataGridView.SelectedRows.Count > 0 And FactoriesDataGridView.SelectedRows(0).Index <> FactoriesDataGridView.NewRowIndex Then
             Dim ModifyFactoryForm As New ModifyFactory

@@ -78,6 +78,7 @@ Public Class Products
         End If
     End Sub
 
+    ' This will search for a specific product if it exists in the database.
     Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
         ' Verify data is numeric.
         If IsNumeric(SearchTextBox.Text) = True Then
@@ -103,11 +104,13 @@ Public Class Products
         SearchTextBox.Clear()
     End Sub
 
+    ' This will show a new add product form.
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
         Dim AddProductForm As New AddProduct
         AddProductForm.Show()
     End Sub
 
+    ' This will show a new modify product form, with the parameters passed in.
     Private Sub ModifyProductButton_Click(sender As Object, e As EventArgs) Handles ModifyProductButton.Click
         If ProductsDataGridView.SelectedRows.Count > 0 And ProductsDataGridView.SelectedRows(0).Index <> ProductsDataGridView.NewRowIndex Then
             Dim ModifyProductForm As New ModifyProduct

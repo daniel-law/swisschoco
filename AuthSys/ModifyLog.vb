@@ -8,12 +8,14 @@ Public Class ModifyLog
     Public Property UserId As String
     Public Property Detail As String
 
+    ' This will load the manufacturing log parameters into the form.
     Private Sub ModifyLog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         FactoryIDTextBox.Text = FactoryId
         ConductedByTextBox.Text = UserId
         DetailsRichTextBox.Text = Detail
     End Sub
 
+    ' This will modify a manufacturing log if the validation is met.
     Private Sub ModifyLogButton_Click(sender As Object, e As EventArgs) Handles ModifyLogButton.Click
         If FactoryIDTextBox.Text <> "" And ConductedByTextBox.Text <> "" And DetailsRichTextBox.Text <> "" Then
             Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)

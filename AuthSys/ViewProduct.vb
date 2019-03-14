@@ -7,6 +7,7 @@
     Public Property Weight As String
     Public Property Ingredients As String
 
+    ' This will load the parameters to view the product.
     Private Sub ViewProduct_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         NameTextBox.Text = Title
         PriceNumericUpDown.Value = Price

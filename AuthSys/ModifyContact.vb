@@ -7,12 +7,14 @@ Public Class ModifyContact
     Public Property Telephone As String
     Public Property Email As String
 
+    ' This will load the contact parameters into the form.
     Private Sub ModifyContact_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         NameTextBox.Text = ContactName
         PhoneNumberTextBox.Text = Telephone
         EmailTextBox.Text = Email
     End Sub
 
+    ' This will modify a contact if the validation is met.
     Private Sub ModifyContactButton_Click(sender As Object, e As EventArgs) Handles ModifyContactButton.Click
         If NameTextBox.Text <> "" And PhoneNumberTextBox.Text <> "" And EmailTextBox.Text <> "" Then
             Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)

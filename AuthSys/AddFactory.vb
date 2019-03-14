@@ -2,6 +2,8 @@
 Imports System.Configuration
 
 Public Class AddFactory
+
+    ' This event will read the XML list of countries and add them to the combo box.
     Private Sub AddFactory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim reader As New System.Xml.XmlTextReader("https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.xml")
         While reader.Read
@@ -11,6 +13,7 @@ Public Class AddFactory
         End While
     End Sub
 
+    ' This event will add the new factory into the database.
     Private Sub AddFactoryButton_Click(sender As Object, e As EventArgs) Handles AddFactoryButton.Click
         If CountryComboBox.SelectedIndex <> -1 And NameTextBox.Text <> "" Then
             Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)

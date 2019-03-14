@@ -10,6 +10,7 @@ Public Class ManufacturingLogs
     Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
     Dim cmd As New SqlCommand
 
+    ' This will select the first record in the manufacturing logs table.
     Private Sub getFirstRecord()
         Try
             cmd.Connection = connectionString
@@ -53,6 +54,7 @@ Public Class ManufacturingLogs
         End Try
     End Sub
 
+    ' This will get the last record from the database.
     Private Sub getLastRecordID()
         Try
             cmd.Connection = connectionString
@@ -75,11 +77,13 @@ Public Class ManufacturingLogs
         End Try
     End Sub
 
+    ' Setup the form.
     Private Sub ManufacturingLogs_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DBEmpty = True
         getFirstRecord()
     End Sub
 
+    ' This event will save any changes to a manufacturing log.
     Private Sub SaveChangesButton_Click(sender As Object, e As EventArgs) Handles SaveChangesButton.Click
         If DetailsRichTextBox.Text <> "" And creatingRecord = False Then
             ' Updating current record.
@@ -147,6 +151,7 @@ Public Class ManufacturingLogs
         End If
     End Sub
 
+    ' This will search for a manufacturing log and show the log if it exists.
     Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
         ' Verify data is numeric.
         If IsNumeric(SearchTextBox.Text) = True Then
@@ -190,6 +195,7 @@ Public Class ManufacturingLogs
         End If
     End Sub
 
+    ' This will delete a manufacturing log if it exists in the database.
     Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteLogButton.Click
         Dim result As Integer = MessageBox.Show("Are you sure you wish to delete this manufacturing log? This action is irreversible.", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If result = DialogResult.Yes Then
@@ -216,6 +222,7 @@ Public Class ManufacturingLogs
         End If
     End Sub
 
+    ' Setup the form for the creation of a new manufacturing log.
     Private Sub NewLogButton_Click(sender As Object, e As EventArgs) Handles NewLogButton.Click
         creatingRecord = True
 
@@ -239,6 +246,7 @@ Public Class ManufacturingLogs
         FactoryIDNumericUpDown.Select()
     End Sub
 
+    ' This will re-enable functionality of the manufacturing logs form when the user cancels creation of a new manufacturing log.
     Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelCreationButton.Click
         ' Enable features.
         PreviousButton.Enabled = True
@@ -258,6 +266,7 @@ Public Class ManufacturingLogs
         FactoryIDNumericUpDown.Select()
     End Sub
 
+    ' This will navigate to the previous manufacturing log if it exists in the database.
     Private Sub PreviousButton_Click(sender As Object, e As EventArgs) Handles PreviousButton.Click
         If currentId <> Nothing Then
             Try
@@ -299,6 +308,7 @@ Public Class ManufacturingLogs
         End If
     End Sub
 
+    ' This will navigate to the next manufacturing log if it exists in the database.
     Private Sub NextButton_Click(sender As Object, e As EventArgs) Handles NextButton.Click
         If currentId <> Nothing Then
             Try

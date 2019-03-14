@@ -8,6 +8,7 @@ Public Class ModifyFactory
     Public Property Country As String
 
     Private Sub ModifyFactory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' This event will read the XML list of countries and add them to the combo box.
         Dim reader As New System.Xml.XmlTextReader("https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.xml")
         While reader.Read
             If reader.NodeType = System.Xml.XmlNodeType.Element And reader.GetAttribute("name") <> Nothing Then
@@ -15,10 +16,12 @@ Public Class ModifyFactory
             End If
         End While
 
+        ' This will load the factory parameters into the form.
         NameTextBox.Text = FactoryName
         CountryComboBox.Text = Country
     End Sub
 
+    ' This will modify a factory if the validation is met.
     Private Sub AddFactoryButton_Click(sender As Object, e As EventArgs) Handles AddFactoryButton.Click
         If CountryComboBox.SelectedIndex <> -1 And NameTextBox.Text <> "" Then
             Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)

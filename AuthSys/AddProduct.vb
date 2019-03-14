@@ -5,6 +5,7 @@ Imports System.Configuration
 Public Class AddProduct
     Dim imgByte As Byte()
 
+    ' This event will add the new product into the database.
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
         If NameTextBox.Text <> "" And PriceNumericUpDown.Value <> 0.00 And PictureTextBox.Text <> "" And DescriptionRichTextBox.Text <> "" And WeightNumericUpDown.Value <> 0 And IngredientsRichTextBox.Text <> "" Then
             Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
@@ -46,6 +47,7 @@ Public Class AddProduct
 
     Private Sub SelectImageButton_Click(sender As Object, e As EventArgs) Handles SelectImageButton.Click
 
+        ' This event will execute the code if a file is provided.
         If OpenFileDialog1.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
             Try
                 ' Show image preview.
@@ -62,6 +64,7 @@ Public Class AddProduct
                 Dim imgStream As System.IO.MemoryStream = New System.IO.MemoryStream
                 img.Save(imgStream, System.Drawing.Imaging.ImageFormat.Jpeg)
                 imgByte = imgStream.GetBuffer()
+                ' This catch event is for files than cannot be conerted, i.e. any file that isn't an image.
             Catch ex As OutOfMemoryException
                 MsgBox("Please select an image to proceed!", MessageBoxIcon.Warning)
             End Try

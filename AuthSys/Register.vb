@@ -7,6 +7,7 @@ Public Class Register
     Dim Role As String
     Dim FullName As String
 
+    ' This function will facilitate the creation of a new user.
     Private Function CreateNewUser(ByVal Username As String, Salt As String, HashedPassword As String)
         ' Include their name in data entry.
         FullName = FullNameTextBox.Text
@@ -55,8 +56,8 @@ Public Class Register
         End Try
     End Function
 
+    ' Code that will check whether a user exists or not.
     Private Sub CheckUsernameUniqueness()
-        ' Code that will check whether a user exists or not.
         Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
         Dim cmd As New SqlCommand
 
@@ -103,6 +104,7 @@ Public Class Register
         connectionString.Close()
     End Sub
 
+    ' This will register a user by calling the necessary functions and not register if the validation is not sucessfully met.
     Private Sub RegisterButton_Click(sender As Object, e As EventArgs) Handles RegisterButton.Click
         If PasswordTextBox.Text = ConfirmPasswordTextBox.Text And PasswordTextBox.Text.Length > 8 And FullNameTextBox.Text <> "" And RoleComboBox.SelectedIndex <> -1 Then
             Username = UsernameTextBox.Text

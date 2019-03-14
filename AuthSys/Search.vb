@@ -5,6 +5,7 @@ Public Class Search
     Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)
     Dim cmd As New SqlCommand
 
+    ' This will modify the columns in the datagridview for product results.
     Private Sub setupProductsDGV()
         Dim ImageColumn As New DataGridViewImageColumn
         ImageColumn.HeaderText = "Picture"
@@ -20,6 +21,7 @@ Public Class Search
         ResultsDataGridView.Columns(6).Name = "Ingredients"
     End Sub
 
+    ' This will modify the columns in the datagridview for contact results.
     Private Sub setupContactsDGV()
         ResultsDataGridView.Columns.Clear()
         ResultsDataGridView.ColumnCount = 4
@@ -29,6 +31,7 @@ Public Class Search
         ResultsDataGridView.Columns(3).Name = "Email"
     End Sub
 
+    ' This will modify the columns in the datagridview for internal invoice results.
     Private Sub setupInternalInvoicesDGV()
         ResultsDataGridView.Columns.Clear()
         ResultsDataGridView.ColumnCount = 5
@@ -39,6 +42,7 @@ Public Class Search
         ResultsDataGridView.Columns(4).Name = "Status"
     End Sub
 
+    ' This will modify the columns in the datagridview for manufacturing log results.
     Private Sub setupLogsDGV()
         ResultsDataGridView.Columns.Clear()
         ResultsDataGridView.ColumnCount = 4
@@ -48,6 +52,7 @@ Public Class Search
         ResultsDataGridView.Columns(3).Name = "Detail"
     End Sub
 
+    ' This search will find a product by a given ID.
     Private Sub FindProductbyIDButton_Click(sender As Object, e As EventArgs) Handles FindProductbyIDButton.Click
         setupProductsDGV()
 
@@ -72,6 +77,7 @@ Public Class Search
         End Try
     End Sub
 
+    ' This search will find a product by a given part of a name.
     Private Sub FindProductbyNameButton_Click(sender As Object, e As EventArgs) Handles FindProductbyNameButton.Click
         setupProductsDGV()
 
@@ -96,6 +102,7 @@ Public Class Search
         End Try
     End Sub
 
+    ' This search will find products within a specified cost range.
     Private Sub FilterbyCostButton_Click(sender As Object, e As EventArgs) Handles FilterbyCostButton.Click
         setupProductsDGV()
 
@@ -121,6 +128,7 @@ Public Class Search
         End Try
     End Sub
 
+    ' This search will find products without allergen(s).
     Private Sub FindwithoutAllergenButton_Click(sender As Object, e As EventArgs) Handles FindwithoutAllergenButton.Click
         setupProductsDGV()
 
@@ -145,6 +153,7 @@ Public Class Search
         End Try
     End Sub
 
+    ' This search will find a contact by a given email.
     Private Sub FindContactbyEmailButton_Click(sender As Object, e As EventArgs) Handles FindContactbyEmailButton.Click
         setupContactsDGV()
 
@@ -169,6 +178,7 @@ Public Class Search
         End Try
     End Sub
 
+    ' This search will find a contact by a given factory ID.
     Private Sub FindContactbyFactoryIDButton_Click(sender As Object, e As EventArgs) Handles FindContactbyFactoryIDButton.Click
         setupContactsDGV()
         Dim iList As New List(Of Integer)()
@@ -219,6 +229,7 @@ Public Class Search
         Next
     End Sub
 
+    ' This search will find an invoice by a given factory ID.
     Private Sub FindInvoicesbyFactoryIDButton_Click(sender As Object, e As EventArgs) Handles FindInvoicesbyFactoryIDButton.Click
         setupInternalInvoicesDGV()
 
@@ -252,6 +263,7 @@ Public Class Search
         End Try
     End Sub
 
+    ' This search will find manufacturing logs by a given log ID.
     Private Sub FindLogbyIDButton_Click(sender As Object, e As EventArgs) Handles FindLogbyIDButton.Click
         setupLogsDGV()
 
@@ -276,6 +288,7 @@ Public Class Search
         End Try
     End Sub
 
+    ' This search will find manufacturing log(s) by a certain user ID.
     Private Sub FindLogbyUserIDButton_Click(sender As Object, e As EventArgs) Handles FindLogbyUserIDButton.Click
         setupLogsDGV()
 
@@ -300,6 +313,7 @@ Public Class Search
         End Try
     End Sub
 
+    ' This search will find manufacturing logs by a given factory ID.
     Private Sub FindLogbyFactoryIDButton_Click(sender As Object, e As EventArgs) Handles FindLogbyFactoryIDButton.Click
         setupLogsDGV()
 
@@ -324,6 +338,7 @@ Public Class Search
         End Try
     End Sub
 
+    ' This will find the specific status of an internal invoice.
     Private Sub CheckInvoiceStatusButton_Click(sender As Object, e As EventArgs) Handles CheckInvoiceStatusButton.Click
         setupInternalInvoicesDGV()
 
@@ -357,6 +372,7 @@ Public Class Search
         End Try
     End Sub
 
+    ' This will find a stock level by a specific ID.
     Private Sub FindStockLevelbyIDButton_Click(sender As Object, e As EventArgs) Handles FindStockLevelbyIDButton.Click
         ' Setup DataGridView for specific view.
         ResultsDataGridView.Columns.Clear()
@@ -387,10 +403,12 @@ Public Class Search
         End Try
     End Sub
 
+    ' This will print out the results by calling the printing code below..
     Private Sub PrintButton_Click(sender As Object, e As EventArgs) Handles PrintButton.Click
         PrintDocument2.Print()
     End Sub
 
+    ' This code will create a bitmap image of the datagridview to coordinate printing of the results.
     Private Sub PrintDocument2_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument2.PrintPage
         Dim DataGridViewImage As New Bitmap(ResultsDataGridView.Width, ResultsDataGridView.Height)
         ResultsDataGridView.DrawToBitmap(DataGridViewImage, New Rectangle(0, 0, ResultsDataGridView.Width, ResultsDataGridView.Height))

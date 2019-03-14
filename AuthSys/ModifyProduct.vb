@@ -12,6 +12,7 @@ Public Class ModifyProduct
 
     Dim imgByte As Byte()
 
+    ' This will load the product parameters into the form.
     Private Sub ModifyProduct_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         NameTextBox.Text = Title
         PriceNumericUpDown.Value = Price
@@ -20,6 +21,7 @@ Public Class ModifyProduct
         IngredientsRichTextBox.Text = Ingredients
     End Sub
 
+    ' This will modify a product if the validation is met.
     Private Sub ModifyProductButton_Click(sender As Object, e As EventArgs) Handles ModifyProductButton.Click
         If NameTextBox.Text <> "" And PriceNumericUpDown.Value <> 0.00 And PictureTextBox.Text <> "" And DescriptionRichTextBox.Text <> "" And WeightNumericUpDown.Value <> 0 And IngredientsRichTextBox.Text <> "" Then
             Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)

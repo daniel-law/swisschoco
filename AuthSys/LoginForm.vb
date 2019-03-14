@@ -26,7 +26,8 @@ Public Class LoginForm
         End If
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles RegisterButton.Click
+    ' Shows a new register form.
+    Private Sub RegisterButton_Click(sender As Object, e As EventArgs) Handles RegisterButton.Click
         Dim Register = New Register
         Register.Show()
     End Sub

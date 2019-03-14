@@ -100,14 +100,17 @@ Public Class MainMenu
         SearchForm.Show()
     End Sub
 
+    ' Update the current time in the form.
     Private Sub Timer_Tick(ByVal sender As Object, ByVal e As System.EventArgs) Handles Timer.Tick
         currentTime.Text = DateTime.Now.ToString("hh:mm:ss tt")
     End Sub
 
+    ' Carry out the log out procedure.
     Private Sub LogoutButton_Click(sender As Object, e As EventArgs) Handles LogoutButton.Click
         logout()
     End Sub
 
+    ' This will delete a product if the provided ID is correct.
     Private Sub DeleteProductToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteProductToolStripMenuItem.Click
         Dim userInput As String
         userInput = InputBox("Please enter the Product ID you wish to delete.")
@@ -145,6 +148,7 @@ Public Class MainMenu
         End If
     End Sub
 
+    ' This will view a product if the provided ID is correct.
     Private Sub ViewProductToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewProductToolStripMenuItem.Click
         Dim userInput As String
         userInput = InputBox("Please enter the Product ID you wish to view.")
@@ -202,6 +206,7 @@ Public Class MainMenu
         End If
     End Sub
 
+    ' This will modify a product if the provided ID is correct.
     Private Sub ModifyProductToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModifyProductToolStripMenuItem.Click
         Dim userInput As String
         userInput = InputBox("Please enter the Product ID you wish to modify.")
@@ -259,21 +264,25 @@ Public Class MainMenu
         End If
     End Sub
 
+    ' Shows a new add product form.
     Private Sub AddProductToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddProductToolStripMenuItem.Click
         Dim AddProductForm As AddProduct
         AddProduct.Show()
     End Sub
 
+    ' Shows a new add contact form.
     Private Sub AddContactToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddContactToolStripMenuItem.Click
         Dim AddContactForm As AddContact
         AddContact.Show()
     End Sub
 
+    ' Shows a new internal invoice form.
     Private Sub InternalInvoicesFormButton_Click(sender As Object, e As EventArgs) Handles InternalInvoicesFormButton.Click
         Dim InternalInvoiesForm As New InternalInvoices
         InternalInvoiesForm.Show()
     End Sub
 
+    ' This will view a contact if the provided ID is correct.
     Private Sub ViewContactToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewContactToolStripMenuItem.Click
         Dim userInput As String
         userInput = InputBox("Please enter the Contact ID you wish to view.")
@@ -325,6 +334,7 @@ Public Class MainMenu
         End If
     End Sub
 
+    ' This will modify a contact if the provided ID is correct.
     Private Sub ModifyContactToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModifyContactToolStripMenuItem.Click
         Dim userInput As String
         userInput = InputBox("Please enter the Contact ID you wish to modify.")
@@ -376,6 +386,7 @@ Public Class MainMenu
         End If
     End Sub
 
+    ' This will delete a contact if the provided ID is correct.
     Private Sub DeleteContactToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteContactToolStripMenuItem.Click
         Dim userInput As String
         userInput = InputBox("Please enter the Product ID you wish to delete.")
@@ -413,11 +424,13 @@ Public Class MainMenu
         End If
     End Sub
 
+    ' This will show a new add log form.
     Private Sub AddLogToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddLogToolStripMenuItem.Click
         Dim AddLogForm As New AddLog
         AddLogForm.Show()
     End Sub
 
+    ' This will view a manufacturing log if the provided ID is correct.
     Private Sub ViewLogToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewLogToolStripMenuItem.Click
         Dim userInput As String
         userInput = InputBox("Please enter the Log ID you wish to view.")
@@ -466,6 +479,7 @@ Public Class MainMenu
         End If
     End Sub
 
+    ' This will modify a manufacturing log if the provided ID is correct.
     Private Sub ModifyLogToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModifyLogToolStripMenuItem.Click
         Dim userInput As String
         userInput = InputBox("Please enter the Log ID you wish to modify.")
@@ -517,6 +531,7 @@ Public Class MainMenu
         End If
     End Sub
 
+    ' This will delete a manufacturing log if the provided ID is correct.
     Private Sub DeleteLogToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteLogToolStripMenuItem.Click
         Dim userInput As String
         userInput = InputBox("Please enter the Log ID you wish to delete.")
@@ -554,11 +569,13 @@ Public Class MainMenu
         End If
     End Sub
 
+    ' This will show a new add factory form.
     Private Sub AddFactoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddFactoryToolStripMenuItem.Click
         Dim AddFactoryForm As New AddFactory
         AddFactoryForm.Show()
     End Sub
 
+    ' This will view a factory if the provided ID is correct.
     Private Sub ViewFactoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewFactoryToolStripMenuItem.Click
         Dim userInput As String
         userInput = InputBox("Please enter the Factory ID you wish to view.")
@@ -604,6 +621,7 @@ Public Class MainMenu
         End If
     End Sub
 
+    ' This will modify a factory if the provided ID is correct.
     Private Sub ModifyFactoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModifyFactoryToolStripMenuItem.Click
         Dim userInput As String
         userInput = InputBox("Please enter the Factory ID you wish to modify.")
@@ -652,6 +670,7 @@ Public Class MainMenu
         End If
     End Sub
 
+    ' This will delete a factory if the provided ID is correct.
     Private Sub DeleteFactoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteFactoryToolStripMenuItem.Click
         Dim userInput As String
         userInput = InputBox("Please enter the Factory ID you wish to delete.")

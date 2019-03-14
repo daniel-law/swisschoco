@@ -80,6 +80,7 @@ Public Class Contacts
         End If
     End Sub
 
+    ' This searches for a specific contact in the database.
     Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
         ' Verify data is numeric.
         If IsNumeric(SearchTextBox.Text) = True Then
@@ -100,16 +101,19 @@ Public Class Contacts
         End If
     End Sub
 
+    ' This clears any results and reloads the contacts.
     Private Sub ClearResultsButton_Click(sender As Object, e As EventArgs) Handles ClearResultsButton.Click
         refreshContacts()
         SearchTextBox.Clear()
     End Sub
 
+    ' This shows a new add contact form.
     Private Sub AddContactButton_Click(sender As Object, e As EventArgs) Handles AddContactButton.Click
         Dim AddContactForm As New AddContact
         AddContactForm.Show()
     End Sub
 
+    ' This event will pass in the parameters to the modify contact form, then open that form.
     Private Sub ModifyContactButton_Click(sender As Object, e As EventArgs) Handles ModifyContactButton.Click
         If ContactsDataGridView.SelectedRows.Count > 0 And ContactsDataGridView.SelectedRows(0).Index <> ContactsDataGridView.NewRowIndex Then
             Dim ModifyContactForm As New ModifyContact

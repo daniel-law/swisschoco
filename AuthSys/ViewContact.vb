@@ -4,6 +4,7 @@
     Public Property Telephone As String
     Public Property Email As String
 
+    ' This will load the parameters to view the contact.
     Private Sub ViewContact_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         NameTextBox.Text = ContactName
         PhoneNumberTextBox.Text = Telephone

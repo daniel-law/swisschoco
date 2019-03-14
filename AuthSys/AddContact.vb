@@ -2,6 +2,8 @@
 Imports System.Configuration
 
 Public Class AddContact
+
+    ' This event will add the new contact into the database.
     Private Sub AddContactButton_Click(sender As Object, e As EventArgs) Handles AddContactButton.Click
         If NameTextBox.Text <> "" And EmailTextBox.Text <> "" And PhoneNumberTextBox.Text <> "" Then
             Dim connectionString As New SqlConnection(ConfigurationManager.ConnectionStrings("ProductionConnectionString").ConnectionString)

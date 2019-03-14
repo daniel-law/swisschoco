@@ -190,15 +190,18 @@ Public Class InternalInvoices
         End If
     End Sub
 
+    ' Will load the first invoice in internal invoices.
     Private Sub InternalInvoices_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DBEmpty = True
         loadInvoice("SELECT TOP 1 * FROM InternalInvoices;")
     End Sub
 
+    ' Will load the next invoice in internal invoices.
     Private Sub NextButton_Click(sender As Object, e As EventArgs) Handles NextButton.Click
         loadInvoice("SELECT TOP 1 * FROM InternalInvoices WHERE Id > " & currentId & " ORDER BY Id;")
     End Sub
 
+    ' Will load the previous invoice in internal invoices.
     Private Sub PreviousButton_Click(sender As Object, e As EventArgs) Handles PreviousButton.Click
         loadInvoice("SELECT TOP 1 * FROM InternalInvoices WHERE Id < " & currentId & " ORDER BY Id DESC;")
     End Sub
@@ -216,6 +219,7 @@ Public Class InternalInvoices
         loadInvoice("SELECT TOP 1 * FROM InternalInvoices;")
     End Sub
 
+    ' Will query the factory from the database if it exists and fill out the necessary data.
     Private Sub SelectFactoryButton_Click(sender As Object, e As EventArgs) Handles SelectFactoryButton.Click
         Dim userInput As String
         userInput = InputBox("Please enter the Factory ID you wish to set.")
@@ -264,6 +268,7 @@ Public Class InternalInvoices
         End If
     End Sub
 
+    ' Will query the item if it exists and will add the necessary details in.
     Private Sub SelectItemsButton_Click(sender As Object, e As EventArgs) Handles SelectItemsButton.Click
         Dim userInputProduct As String
         userInputProduct = InputBox("Please enter the Product ID you wish to add.")
@@ -337,9 +342,8 @@ Public Class InternalInvoices
         End If
     End Sub
 
+    ' Re-write the invoice details to InternalInvoices and then to InvoiceItem.
     Private Sub SaveChangesButton_Click(sender As Object, e As EventArgs) Handles SaveChangesButton.Click
-        ' Re-write the invoice details to InternalInvoices and then to InvoiceItem.
-
         ' Check whether the contact exists.
         Dim contactExists As Boolean
         Dim updateAssociatedItems As Boolean
@@ -438,6 +442,7 @@ Public Class InternalInvoices
         End If
     End Sub
 
+    ' This code will find a specific internal invoice if it exists in the database.
     Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
         If SearchTextBox.Text <> "" And IsNumeric(SearchTextBox.Text) Then
             loadInvoice("SELECT * FROM InternalInvoices WHERE Id = " & SearchTextBox.Text & ";")
@@ -446,6 +451,7 @@ Public Class InternalInvoices
         End If
     End Sub
 
+    ' This code will delete an internal invoice.
     Private Sub DeleteInvoiceButton_Click(sender As Object, e As EventArgs) Handles DeleteInvoiceButton.Click
         Dim result As Integer = MessageBox.Show("Are you sure you wish to delete this internal invoice? This action is irreversible.", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         Dim clearInvoice As Boolean
@@ -484,6 +490,7 @@ Public Class InternalInvoices
         End If
     End Sub
 
+    ' This event is triggered when the cancel button is clicked and functionality is re-enabled.
     Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelCreationButton.Click
         cleanup()
 
@@ -496,6 +503,7 @@ Public Class InternalInvoices
         End If
     End Sub
 
+    ' This event is triggered when a new invoice is going to be created, disabling certain features and clearing out the current data.
     Private Sub NewInvoiceButton_Click(sender As Object, e As EventArgs) Handles NewInvoiceButton.Click
         InvoiceIDTextBox.Text = "New"
         ContactNameTextBox.Clear()
@@ -523,6 +531,7 @@ Public Class InternalInvoices
         End If
     End Sub
 
+    ' This saves the new invoice to the database if the validation is met.
     Private Sub CreateInvoiceButton_Click(sender As Object, e As EventArgs) Handles CreateInvoiceButton.Click
         If factorySelected = True And itemAdded = True Then
             Dim addAssociatedItems As Boolean
